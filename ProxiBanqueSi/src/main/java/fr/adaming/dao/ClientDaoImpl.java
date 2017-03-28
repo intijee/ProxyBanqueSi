@@ -40,10 +40,15 @@ public class ClientDaoImpl implements IClientDao {
 	 * @return Liste des clients
 	 */
 	public List<Client> getAllClient() {
-
+		// EntityManager em = emf.createEntityManager();
 		String req = "SELECT c from Client c";
 		Query query = em.createQuery(req);
-		return query.getResultList();
+		if (query.getResultList().size()!=0) {
+			return query.getResultList();
+		}else{
+			return null;
+		}
+		
 	}
 
 	/**
