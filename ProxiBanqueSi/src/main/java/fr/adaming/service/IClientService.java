@@ -11,5 +11,6 @@ public interface IClientService {
 	public void addClient (Client client);
 	public void deleteClient (String reference_client);
 	public void updateClient (Client client);
+	public Client getById (int id_client);
 
 }

@@ -50,5 +50,10 @@ public class ClientDaoImpl implements IClientDao {
 		// TODO Auto-generated method stub
 		
 	}
+@Override
+public Client getById(int id_client) {
+	// TODO Auto-generated method stub
+	return null;
+}
 
 }
