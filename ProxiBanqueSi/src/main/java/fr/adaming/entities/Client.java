@@ -3,6 +3,7 @@ package fr.adaming.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -36,7 +37,7 @@ public class Client implements Serializable{
 	private long reference_client;
 	private Boolean humain_0_entreprise_1;
 	// Association
-	@OneToMany(mappedBy="pClient",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="pClient",fetch=FetchType.EAGER,cascade=CascadeType.REMOVE)
 	@Fetch(FetchMode.SUBSELECT)
 	private List<Compte> plListeCompte;
 	@ManyToOne(fetch=FetchType.EAGER)
