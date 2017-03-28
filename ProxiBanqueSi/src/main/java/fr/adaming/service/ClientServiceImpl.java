@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IClientDao;
 import fr.adaming.entities.Client;
+import fr.adaming.entities.Conseiller;
 
 /**
  * Service pour le client
@@ -72,6 +73,20 @@ public class ClientServiceImpl implements IClientService{
 	@Override
 	public Client getById(int id_client) {
 		return clientDao.getById(id_client);
+	}
+
+	@Override
+	public void associerClientConseiller(Client client, Conseiller conseiller) {
+				
+		List<Client> listeClients = clientDao.getAllClient();
+		int verif = 0;
+		for (Client cl : listeClients) {
+			if(cl.getpConseiller().equals(conseiller))
+				verif=verif++;
+			if (verif<=10) {
+				client.setpConseiller(conseiller);
+			} 
+		}
 	}
 
 }

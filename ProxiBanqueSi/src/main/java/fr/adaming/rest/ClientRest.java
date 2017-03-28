@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.adaming.entities.Client;
+import fr.adaming.entities.Conseiller;
 import fr.adaming.service.IClientService;
+import fr.adaming.service.IConseillerService;
 /**
  * Controller du Client
  * 
@@ -28,6 +30,15 @@ public class ClientRest {
 	 */
 	public void setClientservice(IClientService clientservice) {
 		this.clientservice = clientservice;
+	}
+	@Autowired
+	private IConseillerService conseillerService;
+	/**
+	 * 
+	 * @param conseillerService
+	 */
+	public void setConseillerService(IConseillerService conseillerService) {
+		this.conseillerService = conseillerService;
 	}
 	@RequestMapping(value = "/add", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public int addClientWS(@RequestBody Client client) {
@@ -84,7 +95,7 @@ public class ClientRest {
 		}
 	};
 
-	@RequestMapping(value = "/getById/{id_param}", method = RequestMethod.DELETE, produces = "application/json")
+	@RequestMapping(value = "/getById/{id_param}", method = RequestMethod.GET, produces = "application/json")
 	public Client getByIdWS(@PathVariable("id_param") int id_client) {
 		try {
 			// Trouver avec la ref
@@ -94,5 +105,6 @@ public class ClientRest {
 			return null;
 		}
 	};
+	
 
 }
