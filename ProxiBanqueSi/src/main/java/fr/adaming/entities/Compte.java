@@ -67,7 +67,7 @@ public class Compte implements Serializable {
 	 */
 	@ManyToOne
 	@JoinColumn(name="client_id_fk",referencedColumnName="id_client")
-	private Client pclient;
+	private Client pClient;
 	
 	/**
 	 * constructeur compte générique
@@ -308,18 +308,20 @@ public class Compte implements Serializable {
 		this.numero_client = numero_client;
 	}
 
+
+
 	/**
-	 * @return the pclient
+	 * @return the pClient
 	 */
-	public Client getPclient() {
-		return pclient;
+	public Client getpClient() {
+		return pClient;
 	}
 
 	/**
-	 * @param pclient the pclient to set
+	 * @param pClient the pClient to set
 	 */
-	public void setPclient(Client pclient) {
-		this.pclient = pclient;
+	public void setpClient(Client pClient) {
+		this.pClient = pClient;
 	}
 
 	@Override

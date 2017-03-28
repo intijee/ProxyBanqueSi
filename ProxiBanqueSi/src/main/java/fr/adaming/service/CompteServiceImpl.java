@@ -38,7 +38,7 @@ public class CompteServiceImpl implements ICompteService {
 	@Override
 	public void addCompte(Compte compte) {
 		
-		
+		List<Compte> listeCompteClient=compte.getPclient().
 
 		compteDao.addCompte(compte);
 

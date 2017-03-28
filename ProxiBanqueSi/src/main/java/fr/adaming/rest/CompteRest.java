@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.adaming.entities.Client;
 import fr.adaming.entities.Compte;
 import fr.adaming.service.IClientService;
 import fr.adaming.service.ICompteService;
@@ -46,9 +47,9 @@ public class CompteRest {
 		
 		try {
 			
-			clientService.getById(compte.getNumero_client());
+			Client client=clientService.getById(compte.getNumero_client());
 			
-			compte.set
+			compte.setPclient(client);
 			
 			compteService.addCompte(compte);
 			
