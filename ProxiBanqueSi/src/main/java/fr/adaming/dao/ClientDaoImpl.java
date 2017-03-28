@@ -90,10 +90,11 @@ public class ClientDaoImpl implements IClientDao {
 	public void deleteClient(String reference_client) {
 		// EntityManager em = emf.createEntityManager();
 		String req = "Select c from Client c Where c.reference_client=:pRefClient";
-		Query query = em.createQuery(req);
+		Query query = em.createQuery(req); // cherche le client avec la ref
 		Client c = (Client) query.getSingleResult();
-		em.remove(c);
-
+		if (c != null) {
+			 em.remove(c);
+		} 
 	}
 
 	/**
@@ -105,6 +106,7 @@ public class ClientDaoImpl implements IClientDao {
 	public void updateClient(Client client) {
 		// EntityManager em = emf.createEntityManager();
 		Client c = em.find(Client.class, client.getId_client());
+		// Modification des infos du client
 		c.setNom(client.getNom());
 		c.setPrenom(client.getPrenom());
 		c.setAdresse(client.getAdresse());
@@ -113,6 +115,7 @@ public class ClientDaoImpl implements IClientDao {
 		c.setReference_client(client.getReference_client());
 		c.setTelephone(client.getTelephone());
 		c.setHumain_0_entreprise_1(client.getHumain_0_entreprise_1());
+		// envoie la modification
 		em.merge(c);
 	}
 

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.adaming.entities.Client;
 import fr.adaming.service.IClientService;
-
 /**
  * Controller du Client
  * 
@@ -21,10 +20,8 @@ import fr.adaming.service.IClientService;
 @RestController
 @RequestMapping(value = "/client")
 public class ClientRest {
-
 	@Autowired
 	private IClientService clientservice;
-
 	/**
 	 * @param clientservice
 	 *            the clientservice to set
@@ -32,7 +29,6 @@ public class ClientRest {
 	public void setClientservice(IClientService clientservice) {
 		this.clientservice = clientservice;
 	}
-
 	@RequestMapping(value = "/add", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public int addClientWS(@RequestBody Client client) {
 		try {
@@ -60,42 +56,36 @@ public class ClientRest {
 			return null;
 		}
 	};
+
 	@RequestMapping(value = "/delete/{ref_param}", method = RequestMethod.DELETE, produces = "application/json")
 	public int deleteClientWS(@PathVariable("ref_param") String reference_client) {
-try {
-			
+		try {
 			// Supprimer le client dans la base de données
 			clientservice.deleteClient(reference_client);
-			
 			// Retourne 1 si la suppression a reussi
 			return new Integer(1);
-			
 		} catch (Exception e) {
-			
 			// Retourne 0 si la suppression a echoué
 			return new Integer(0);
 		}
 
 	};
+
 	@RequestMapping(value = "/update", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
 	public int updateClientWS(@RequestBody Client client) {
-try {
-			
-			
+		try {
 			// Modification du client dans la base de données
 			clientservice.updateClient(client);
-			
 			// Retourne 1 si la modification a reussi
 			return new Integer(1);
-			
 		} catch (Exception e) {
-			
 			// Retourne 0 si la modification a raté
 			return new Integer(0);
 		}
 	};
+
 	@RequestMapping(value = "/getById/{id_param}", method = RequestMethod.DELETE, produces = "application/json")
-	public Client getByIdWS(@PathVariable("id_param")int id_client) {
+	public Client getByIdWS(@PathVariable("id_param") int id_client) {
 		try {
 			// Trouver avec la ref
 			Client client = clientservice.getById(id_client);
