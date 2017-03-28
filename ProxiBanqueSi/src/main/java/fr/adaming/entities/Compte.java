@@ -3,37 +3,57 @@ package fr.adaming.entities;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
+/**
+ * nom de la table 
+ * @author inti0277
+ *
+ */
+@Entity
+@Table(name = "comptes")
 public class Compte implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	
 	/**
 	 * attributs de la classe compte
 	 */
+	@Id 
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id_compte;
+	@Column(name="numero")
 	private long numero;
+	@Column(name="solde")
 	private double solde;
+	@Column(name="date_ouverture")
 	private Date date_ouverture;
 
 	/**
 	 * attribut de compte épargne
 	 */
+	@Column(name="taux")
 	private long taux;
 
 	/**
 	 * attribut de compte courant
 	 */
+	@Column(name="decouvert")
 	private double decouvert;
 
 	/**
 	 * booléen : épargne (1) ou courant (0)
 	 */
+	@Column(name="type")
 	private boolean type;
 	
 	/**
@@ -43,9 +63,12 @@ public class Compte implements Serializable {
 	private int numero_client;
 
 	/**
-	 * déclaration des associations
+	 * déclaration de l'association avec le client
 	 */
-
+	@ManyToOne
+	@JoinColumn(name="client_id_fk",referencedColumnName="id_client")
+	private Client pclient;
+	
 	/**
 	 * constructeur compte générique
 	 */
