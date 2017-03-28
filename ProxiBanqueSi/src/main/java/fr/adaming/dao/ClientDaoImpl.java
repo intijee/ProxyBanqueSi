@@ -125,5 +125,4 @@ public class ClientDaoImpl implements IClientDao {
 		Client c = em.find(Client.class, id_client);
 		return c;
 	}
-
 }
