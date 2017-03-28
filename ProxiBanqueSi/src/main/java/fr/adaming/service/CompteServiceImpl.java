@@ -2,16 +2,19 @@ package fr.adaming.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import fr.adaming.dao.IClientDao;
 import fr.adaming.dao.ICompteDao;
 import fr.adaming.entities.Compte;
 
 @Service
 @Transactional
 public class CompteServiceImpl implements ICompteService {
-
+	
+	@Autowired
 	private ICompteDao compteDao;
 
 	/**
@@ -21,9 +24,21 @@ public class CompteServiceImpl implements ICompteService {
 		this.compteDao = compteDao;
 	}
 
+	@Autowired
+	private IClientDao clientDao;
+	
+	
+	/**
+	 * @param clientDao the clientDao to set
+	 */
+	public void setClientDao(IClientDao clientDao) {
+		this.clientDao = clientDao;
+	}
+
 	@Override
 	public void addCompte(Compte compte) {
-
+		
+		
 
 		compteDao.addCompte(compte);
 

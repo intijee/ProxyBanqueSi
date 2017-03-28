@@ -308,6 +308,20 @@ public class Compte implements Serializable {
 		this.numero_client = numero_client;
 	}
 
+	/**
+	 * @return the pclient
+	 */
+	public Client getPclient() {
+		return pclient;
+	}
+
+	/**
+	 * @param pclient the pclient to set
+	 */
+	public void setPclient(Client pclient) {
+		this.pclient = pclient;
+	}
+
 	@Override
 	public String toString() {
 		return "Compte [id_compte=" + id_compte + ", numero=" + numero + ", solde=" + solde + ", date_ouverture="
