@@ -2,9 +2,14 @@ package fr.adaming.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import fr.adaming.dao.ICompteDao;
 import fr.adaming.entities.Compte;
 
+@Service
+@Transactional
 public class CompteServiceImpl implements ICompteService {
 
 	private ICompteDao compteDao;
