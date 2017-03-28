@@ -2,6 +2,10 @@ package fr.adaming.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import fr.adaming.dao.IClientDao;
 import fr.adaming.entities.Client;
 /**
@@ -9,8 +13,11 @@ import fr.adaming.entities.Client;
  * @author inti0297
  *
  */
+@Service
+@Transactional
 public class ClientServiceImpl implements IClientService{
 	
+	@Autowired
 	private IClientDao clientDao;
 	
 	/**
@@ -61,7 +68,7 @@ public class ClientServiceImpl implements IClientService{
 	}
 
 	@Override
-	public Client getByReference(int id_client) {
+	public Client getById(int id_client) {
 		return clientDao.getById(id_client);
 	}
 
