@@ -1,12 +1,13 @@
-package fr.adaming.dao;
+package fr.adaming.service;
 
 import java.util.List;
 
 import fr.adaming.entities.Compte;
 
-public interface ICompteDao {
+public interface ICompteService {
 
 	
+
 	public void addCompte(Compte compte);
 	
 	public void deleteCompte(Compte compte);
@@ -21,3 +22,4 @@ public interface ICompteDao {
 	
 	
 }
+
