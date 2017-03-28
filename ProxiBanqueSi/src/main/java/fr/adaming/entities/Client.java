@@ -1,11 +1,31 @@
 package fr.adaming.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+@Entity
+@Table(name="clients")
+@XmlRootElement
 public class Client implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	//Attributs
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id_client;
 	private String nom;
 	private String prenom;
@@ -15,7 +35,13 @@ public class Client implements Serializable{
 	private String telephone;
 	private long reference_client;
 	private Boolean humain_0_entreprise_1;
-	
+	// Association
+	@OneToMany(mappedBy="pClient",fetch=FetchType.EAGER)
+	@Fetch(FetchMode.SUBSELECT)
+	private List<Compte> plListeCompte;
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn (name="client_id_fk",referencedColumnName="id_conseiller")
+	private Conseiller pConseiller;
 	/**
 	 * Ctor vide
 	 */
@@ -77,6 +103,7 @@ public class Client implements Serializable{
 	/**
 	 * @return the id_client
 	 */
+	@XmlElement
 	public int getId_client() {
 		return id_client;
 	}
@@ -89,6 +116,7 @@ public class Client implements Serializable{
 	/**
 	 * @return the nom
 	 */
+	@XmlElement
 	public String getNom() {
 		return nom;
 	}
@@ -101,6 +129,7 @@ public class Client implements Serializable{
 	/**
 	 * @return the prenom
 	 */
+	@XmlElement
 	public String getPrenom() {
 		return prenom;
 	}
@@ -113,6 +142,7 @@ public class Client implements Serializable{
 	/**
 	 * @return the adresse
 	 */
+	@XmlElement
 	public String getAdresse() {
 		return adresse;
 	}
@@ -125,6 +155,7 @@ public class Client implements Serializable{
 	/**
 	 * @return the code_postal
 	 */
+	@XmlElement
 	public String getCode_postal() {
 		return code_postal;
 	}
@@ -137,6 +168,7 @@ public class Client implements Serializable{
 	/**
 	 * @return the ville
 	 */
+	@XmlElement
 	public String getVille() {
 		return ville;
 	}
@@ -149,6 +181,7 @@ public class Client implements Serializable{
 	/**
 	 * @return the telephone
 	 */
+	@XmlElement
 	public String getTelephone() {
 		return telephone;
 	}
@@ -161,6 +194,7 @@ public class Client implements Serializable{
 	/**
 	 * @return the reference_client
 	 */
+	@XmlElement
 	public long getReference_client() {
 		return reference_client;
 	}
@@ -174,6 +208,7 @@ public class Client implements Serializable{
 	/**
 	 * @return the humain_0_entreprise_1
 	 */
+	@XmlElement
 	public Boolean getHumain_0_entreprise_1() {
 		return humain_0_entreprise_1;
 	}
@@ -183,6 +218,34 @@ public class Client implements Serializable{
 	 */
 	public void setHumain_0_entreprise_1(Boolean humain_0_entreprise_1) {
 		this.humain_0_entreprise_1 = humain_0_entreprise_1;
+	}
+
+	/**
+	 * @return the plListeCompte
+	 */
+	public List<Compte> getPlListeCompte() {
+		return plListeCompte;
+	}
+
+	/**
+	 * @param plListeCompte the plListeCompte to set
+	 */
+	public void setPlListeCompte(List<Compte> plListeCompte) {
+		this.plListeCompte = plListeCompte;
+	}
+
+	/**
+	 * @return the pConseiller
+	 */
+	public Conseiller getpConseiller() {
+		return pConseiller;
+	}
+
+	/**
+	 * @param pConseiller the pConseiller to set
+	 */
+	public void setpConseiller(Conseiller pConseiller) {
+		this.pConseiller = pConseiller;
 	}
 
 	@Override

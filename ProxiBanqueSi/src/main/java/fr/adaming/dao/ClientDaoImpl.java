@@ -88,9 +88,7 @@ public class ClientDaoImpl implements IClientDao {
 	 */
 	public void deleteClient(String reference_client) {
 		// EntityManager em = emf.createEntityManager();
-		String req = "Select c from Client c Where c.reference_client=:pRefClient";
-		Query query = em.createQuery(req); // cherche le client avec la ref
-		Client c = (Client) query.getSingleResult();
+		Client c = getByReference(reference_client);
 		if (c != null) {
 			 em.remove(c);
 		} 
