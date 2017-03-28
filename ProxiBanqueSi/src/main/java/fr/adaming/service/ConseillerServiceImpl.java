@@ -2,11 +2,16 @@ package fr.adaming.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import fr.adaming.dao.IConseillerDao;
 import fr.adaming.entities.Conseiller;
 
+@Service
 public class ConseillerServiceImpl implements IConseillerService{
 
+	@Autowired
 	private IConseillerDao conseillerDao;
 	
 	/**
