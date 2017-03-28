@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,15 +15,15 @@ import fr.adaming.entities.Compte;
 @Repository
 public class CompteDaoImpl implements ICompteDao {
 
-	@Autowired
-	private EntityManagerFactory emf;
+	@PersistenceContext
+	private EntityManager em;
 	
-	
+
 	/**
-	 * @param emf the emf to set
+	 * @param em the em to set
 	 */
-	public void setEmf(EntityManagerFactory emf) {
-		this.emf = emf;
+	public void setEm(EntityManager em) {
+		this.em = em;
 	}
 
 	/**
@@ -30,8 +31,6 @@ public class CompteDaoImpl implements ICompteDao {
 	 */
 	@Override
 	public void addCompte(Compte compte) {
-		
-		EntityManager em=emf.createEntityManager();
 		
 		em.persist(compte);
 
@@ -43,9 +42,7 @@ public class CompteDaoImpl implements ICompteDao {
 	 */
 	@Override
 	public void deleteCompte(Compte compte) {
-		
-		EntityManager em=emf.createEntityManager();
-		
+	
 		em.remove(compte);
 		
 
@@ -58,8 +55,6 @@ public class CompteDaoImpl implements ICompteDao {
 	 */
 	@Override
 	public void updateCompte(Compte compte) {
-		
-		EntityManager em=emf.createEntityManager();
 		
 		// On retrouve le compte grâce à son id 
 		Compte compteUpdate=em.find(Compte.class, compte.getId_compte());
@@ -82,6 +77,8 @@ public class CompteDaoImpl implements ICompteDao {
 		else {
 		compteUpdate.setTaux(compte.getTaux());
 		}
+		
+		em.merge(compteUpdate);
 
 	}
 
@@ -93,8 +90,6 @@ public class CompteDaoImpl implements ICompteDao {
 	 */
 	@Override
 	public Compte getCompteById(int id) {
-		
-		EntityManager em=emf.createEntityManager();
 		
 		if (em.find(Compte.class, id)!=null){
 			return em.find(Compte.class, id);
@@ -112,8 +107,6 @@ public class CompteDaoImpl implements ICompteDao {
 	 */
 	@Override
 	public Compte getCompteByNumero(long numero) {
-		
-		EntityManager em=emf.createEntityManager();
 		
 		// Ecriture de la requete 
 		String req="select c from Compte c where c.numero=:pNumero";
@@ -136,9 +129,7 @@ public class CompteDaoImpl implements ICompteDao {
 	 */
 	@Override
 	public List<Compte> getAllCompte() {
-		
-		EntityManager em=emf.createEntityManager();
-		
+			
 		// Ecriture de la requete
 		String req="select c from Compte c";
 		
