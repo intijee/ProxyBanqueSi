@@ -49,7 +49,7 @@ public class CompteRest {
 			
 			Client client=clientService.getById(compte.getNumero_client());
 			
-			compte.setPclient(client);
+			compte.setpClient(client);
 			
 			compteService.addCompte(compte);
 			

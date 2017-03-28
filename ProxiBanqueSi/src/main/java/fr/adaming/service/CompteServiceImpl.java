@@ -44,18 +44,29 @@ public class CompteServiceImpl implements ICompteService {
 		int verif = 0;
 		
 		if (compte.isType() == true) {
+			
 			for (Compte cpt : listeCompteClient) {
+				
 				if (cpt.isType() == true) {
+					
 					verif = 1;
+					
 				} else {
+					
 					verif = 0;
+					
 				}
 			}
 		} else {
+			
 			for (Compte cpt : listeCompteClient) {
+				
 				if (cpt.isType() == false) {
+					
 					verif = 1;
+					
 				} else {
+					
 					verif = 0;
 				}
 			}
