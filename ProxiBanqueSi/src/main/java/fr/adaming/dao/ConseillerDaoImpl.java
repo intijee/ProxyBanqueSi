@@ -6,8 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.springframework.stereotype.Repository;
+
 import fr.adaming.entities.Conseiller;
 
+@Repository
 public class ConseillerDaoImpl implements IConseillerDao{
 
 	@PersistenceContext
