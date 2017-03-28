@@ -8,7 +8,7 @@ public interface ICompteService {
 
 	
 
-	public void addCompte(Compte compte);
+	public void addCompte(Compte compte) throws Exception;
 	
 	public void deleteCompte(Compte compte);
 	

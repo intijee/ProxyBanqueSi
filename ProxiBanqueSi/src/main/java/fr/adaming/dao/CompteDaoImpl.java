@@ -10,6 +10,7 @@ import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import fr.adaming.entities.Client;
 import fr.adaming.entities.Compte;
 
 @Repository
@@ -137,5 +138,6 @@ public class CompteDaoImpl implements ICompteDao {
 		
 		return query.getResultList();
 	}
+
 
 }
