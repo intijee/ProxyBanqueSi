@@ -7,6 +7,7 @@ import java.util.Date;
  * @author inti0226
  *
  */
+ 
 public class Agence implements Serializable {
 	
 	
