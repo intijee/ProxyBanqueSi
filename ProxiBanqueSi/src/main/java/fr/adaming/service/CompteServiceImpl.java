@@ -111,4 +111,31 @@ public class CompteServiceImpl implements ICompteService {
 		return compteDao.getAllCompte();
 	}
 
+	@Override
+	public void depot(Compte compte, double somme) {
+		compteDao.depot(compte,somme);
+		
+	}
+
+	@Override
+	public void retrait(Compte compte, double somme) throws Exception {
+		
+		if(compte.getSolde()+compte.getDecouvert() >= somme){
+			compteDao.retrait(compte,somme);
+		}else{
+			throw new Exception("Le solde du débiteur est insuffisant");
+		}
+		
+	}
+
+	@Override
+	public void virement(Compte debiteur, Compte credite, double somme) throws Exception {
+		
+			retrait(debiteur, somme);
+			
+			//Si pas d'excepion catchée (parce que l'inflation c'est mal)
+			depot(credite, somme);
+	
+	}
+
 }

@@ -139,5 +139,53 @@ public class CompteDaoImpl implements ICompteDao {
 		return query.getResultList();
 	}
 
+	
+	/**
+	 * Methode pour deposer de l'argent sur un compte
+	 * @param Le compte à créditer
+	 * @param La somme à créditer
+	 */
+	@Override
+	public void depot(Compte compte, double somme) {
+		
+		// Ecriture de la requete
+		String req="select c from Compte c where c.numero=:pNumero";
+		
+		Query query=em.createQuery(req);
+		
+		query.setParameter("pNumero", compte.getNumero());
+		
+		compte=(Compte) query.getSingleResult();
+		
+		compte.setSolde(compte.getSolde()+somme);
+		
+		em.merge(compte);
+	}
+
+	
+	/**
+	 * Methode pour retirer de l'argent sur un compte
+	 * @param Le compte à débiter
+	 * @param La somme à débiter
+	 */
+	@Override
+	public void retrait(Compte compte, double somme) {
+
+
+		// Ecriture de la requete
+				String req="select c from Compte c where c.numero=:pNumero";
+				
+				Query query=em.createQuery(req);
+				
+				query.setParameter("pNumero", compte.getNumero());
+				
+				compte=(Compte) query.getSingleResult();
+				
+				compte.setSolde(compte.getSolde()-somme);
+				
+				em.merge(compte);
+		
+	}
+
 
 }

@@ -19,6 +19,10 @@ public interface ICompteDao {
 	public Compte getCompteByNumero(long numero);
 	
 	public List<Compte> getAllCompte();
+	
+	public void depot(Compte compte, double somme);
+	
+	public void retrait(Compte compte, double somme);
 
 	
 }

@@ -20,6 +20,12 @@ public interface ICompteService {
 	
 	public List<Compte> getAllCompte();
 	
+	public void depot(Compte compte, double somme);
+	
+	public void retrait(Compte compte, double somme) throws Exception;
+	
+	public void virement(Compte debiteur, Compte credite, double somme) throws Exception;
+	
 	
 }
 
