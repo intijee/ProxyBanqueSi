@@ -111,4 +111,34 @@ public class CompteServiceImpl implements ICompteService {
 		return compteDao.getAllCompte();
 	}
 
+	@Override
+	public void depot(Compte compte, double somme) {
+		compteDao.depot(compte,somme);
+		
+	}
+
+	@Override
+	public void retrait(Compte compte, double somme) {
+		
+		if(compte.getSolde()+compte.getDecouvert() >= somme){
+			compteDao.retrait(compte,somme);
+		}else{
+			//throw Exception
+		}
+		
+	}
+
+	@Override
+	public void virement(Compte debiteur, Compte credite, double somme) {
+		
+		if(debiteur.getSolde()+debiteur.getDecouvert() >= somme){
+			retrait(debiteur, somme);
+			depot(credite, somme);
+		}else{
+			
+		}
+		
+		
+	}
+
 }
