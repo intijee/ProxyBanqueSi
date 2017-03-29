@@ -20,7 +20,7 @@
 			modelAttribute="modifierForm">
 			<table>
 
-				<tr>
+				<tr><td><form:label path="reference_conseiller">Référence du conseiller à modifier</form:label></td>
 					<td><form:select path="reference_conseiller">
 							<c:forEach var="conseiller" items="${conseillerListe}">
 								<option value=${conseiller.reference_conseiller}>${conseiller.getReference_conseiller()}</option>
@@ -51,7 +51,7 @@
 
 
 
-				<tr>
+				<tr><td><form:label path="pAgence.reference_agence">Référence de l'agence à modifier</form:label></td>
 					<td><form:select path="pAgence.reference_agence">
 							<c:forEach var="agence" items="${agenceListe}">
 								<option value=${agence.reference_agence}>${agence.getReference_agence()}</option>
