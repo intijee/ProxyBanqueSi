@@ -46,9 +46,12 @@
 				<tr>
 					<td><br /> <br /></td>
 				</tr>
-				<tr>
-					<td><form:label path="pAgence.reference_agence" >Référence de l'agence du conseiller</form:label></td>
-					<td><form:input path="pAgence.reference_agence" /></td>
+				<tr><td><form:label path="pAgence.reference_agence">Référence de l'agence à modifier</form:label></td>
+					<td><form:select path="pAgence.reference_agence">
+							<c:forEach var="agence" items="${agenceListe}">
+								<option value=${agence.reference_agence}>${agence.getReference_agence()}</option>
+							</c:forEach>
+						</form:select></td>
 				</tr>
 
 

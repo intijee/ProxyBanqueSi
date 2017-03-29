@@ -53,7 +53,8 @@ public class ConseillerController {
 	public String afficherFormAjouter(Model model){
 		
 		model.addAttribute("ajouterForm",new Conseiller());
-		
+		List<Agence> listeAgence=agenceService.getAllAgenceService();
+		model.addAttribute("agenceListe",listeAgence);
 		
 		
 		return "conseillerPages/ajouter";
