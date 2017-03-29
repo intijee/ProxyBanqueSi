@@ -69,7 +69,7 @@ public class ConseillerController {
 		
 	}
 	
-	
+	@RequestMapping(value="/modifier",method=RequestMethod.GET)
 	public String afficherFormModifier(Model model){
 		
 		
@@ -78,7 +78,7 @@ public class ConseillerController {
 		return "conseillerPages/modifier";
 	}
 	
-	
+	@RequestMapping(value="/soumettreModifier",method=RequestMethod.POST)
 	public String soumettreFormulaireModifier(Model model, @ModelAttribute("modifierForm") Conseiller conseiller){
 		
 		Conseiller cons=conseillerService.getConseillerByReference(conseiller.getReference_conseiller());
