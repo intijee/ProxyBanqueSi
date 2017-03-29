@@ -158,17 +158,13 @@ public class CompteController {
 	@RequestMapping(value = "/afficheModifierCompte", method = RequestMethod.GET)
 	public String afficherFormModif(Model model) {
 
-		List<Client> listeClients = clientService.getAllClient();
-
 		List<Compte> listeComptes = compteService.getAllCompte();
 		
-		model.addAttribute("listeComptes", listeComptes);
-		
-		model.addAttribute("listeClients", listeClients);
+		model.addAttribute("listeComptes", listeComptes);				
 
 		model.addAttribute("compteForm", new Compte());
 
-		return ("ajouter");
+		return ("modifier");
 
 	}
 	
