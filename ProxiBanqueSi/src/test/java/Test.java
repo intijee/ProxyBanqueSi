@@ -30,4 +30,5 @@ public class Test {
 		clientService.addClient(client);
 	}
 	//${pageContext.request.contextPath}
+	//<script type="text/javascript" src='<c:url value="/resources/jquery-3.1.1.js"/>'></script>
 }
