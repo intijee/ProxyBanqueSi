@@ -16,8 +16,8 @@
 <body>
 	<div
 		style="width: 400px; height: 500px; margin: auto; margin-top: 50px">
-		<form:form method="POST" action="soumettreAjouter"
-			modelAttribute="ajouterForm">
+		<form:form method="POST" action="soumettreFormModifier"
+			modelAttribute="modifierForm">
 			<table>
 
 				<tr>
@@ -47,7 +47,7 @@
 					<td><br /> <br /></td>
 				</tr>
 				<tr>
-					<td><form:label path="reference_agence" >Référence de l'agence du conseiller</form:label></td>
+					<td><form:label path="reference_agence" >Référence de l'agence</form:label></td>
 					<td><form:input path="reference_agence" /></td>
 				</tr>
 
@@ -56,7 +56,7 @@
 					<td><br /> <br /></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="Ajouter"
+					<td colspan="2"><input type="submit" value="Modifier"
 						style="margin-left: 120px"></td>
 				</tr>
 
