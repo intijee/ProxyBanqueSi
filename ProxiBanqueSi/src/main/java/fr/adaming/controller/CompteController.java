@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import fr.adaming.entities.ClasseAssociation;
 import fr.adaming.entities.Client;
 import fr.adaming.entities.Compte;
 
@@ -234,7 +235,9 @@ public class CompteController {
 	@RequestMapping(value = "/soumettreSupprimerCompte", method = RequestMethod.POST)
 	public String supprCompte(Model model, @ModelAttribute("compteForm") Compte compte) {
 
-		compteService.deleteCompte(compte);
+		Compte co = compteService.getCompteById(compte.getId_compte());
+			
+		compteService.deleteCompte(co);
 
 		// rafraichir la liste
 		List<Compte> listeComptes = compteService.getAllCompte();
@@ -245,6 +248,12 @@ public class CompteController {
 
 	}
 
+	/**
+	 * Afficher le formulaire des operations de virement
+	 * 
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/afficheOperationForm", method = RequestMethod.GET)
 	public String afficherFormOperation(Model model) {
 
@@ -252,30 +261,54 @@ public class CompteController {
 
 		model.addAttribute("listeComptes", listeComptes);
 
-		model.addAttribute("compteForm", new Compte());
-
-		model.addAttribute("sommeForm", new Double(0));
+		model.addAttribute("compteForm1", new ClasseAssociation());
+		
+		model.addAttribute("compteForm2", new ClasseAssociation());
+		
+		model.addAttribute("compteForm3", new ClasseAssociation());
+	
 
 		return ("comptePages/operation");
 
 	}
 
+	/**
+	 * 
+	 * Soumettre l'opération dépot
+	 * 
+	 * @param model
+	 * @param compte
+	 * @param somme
+	 * @return
+	 */
 	@RequestMapping(value = "/soumettreDepotCompte", method = RequestMethod.POST)
-	public String depot(Model model, @ModelAttribute("compteForm") Compte compte,
-			@ModelAttribute("sommeForm") double somme) {
+	public String depot(Model model, @ModelAttribute("compteForm1") ClasseAssociation asso) {
 
-		compteService.depot(compte, somme);
+		Compte compte = compteService.getCompteById(asso.getAssoCompte().getId_compte());
+		
+		compteService.depot(compte, asso.getSomme());
 
 		return "accueil";
 
 	}
 
+	/**
+	 * 
+	 * Soumettre l'opération retrait
+	 * 
+	 * @param model
+	 * @param compte
+	 * @param somme
+	 * @return
+	 */
 	@RequestMapping(value = "/soumettreRetraitCompte", method = RequestMethod.POST)
-	public String retrait(Model model, @ModelAttribute("compteForm") Compte compte,
-			@ModelAttribute("sommeForm") double somme) {
+	public String retrait(Model model, @ModelAttribute("compteForm2") ClasseAssociation asso) {
 
 		try {
-			compteService.retrait(compte, somme);
+			
+			Compte compte = compteService.getCompteById(asso.getAssoCompte().getId_compte());
+			
+			compteService.retrait(compte, asso.getSomme());
 
 			return "accueil";
 
@@ -286,13 +319,26 @@ public class CompteController {
 		}
 	}
 
+	/**
+	 * 
+	 * Soumettre l'opération virement
+	 * 
+	 * @param model
+	 * @param debiteur
+	 * @param somme
+	 * @param credite
+	 * @return
+	 */
 	@RequestMapping(value = "/soumettreVirementCompte", method = RequestMethod.POST)
-	public String depot(Model model, @ModelAttribute("debiteurForm") Compte debiteur,
-			@ModelAttribute("sommeForm") double somme, @ModelAttribute("crediteForm") Compte credite) {
+	public String virement(Model model, @ModelAttribute("compteForm3") ClasseAssociation asso ) {
 
 		try {
 
-			compteService.virement(debiteur, credite, somme);
+			Compte deb = compteService.getCompteById(asso.getAssoCompte().getId_compte());
+			
+			Compte cred = compteService.getCompteById(asso.getAssoCredite().getId_compte());
+			
+			compteService.virement(deb, cred, asso.getSomme());
 
 			return "accueil";
 

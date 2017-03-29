@@ -2,37 +2,41 @@ package fr.adaming.entities;
 
 /**
  * Classe association pour les web services
+ * 
  * @author inti0301
  *
  */
 public class ClasseAssociation {
-	
+
 	// attribut de l'agence
-	
+
 	private Agence assoAgence;
-	
-	//attribut du conseiler
-	
+
+	// attribut du conseiler
+
 	private Conseiller assoConseiller;
-	
-	//atribut du client
-	
+
+	// atribut du client
+
 	private Client assoClient;
-	
-	//attrribut du compte
-	
+
+	// attrribut du compte
+
 	private Compte assoCompte;
 
-	
-	
+	// attrribut du compte2
+
+	private Compte assoCredite;
+
+	// somme de l'opération
+	private double somme;
+
 	/**
 	 * constructeur vide
 	 */
 	public ClasseAssociation() {
 		super();
 	}
-	
-	
 
 	/**
 	 * constructeur plein
@@ -41,16 +45,19 @@ public class ClasseAssociation {
 	 * @param assoConseiller
 	 * @param assoClient
 	 * @param assoCompte
+	 * @param assoCredite
+	 * @param somme
 	 */
-	public ClasseAssociation(Agence assoAgence, Conseiller assoConseiller, Client assoClient, Compte assoCompte) {
+	public ClasseAssociation(Agence assoAgence, Conseiller assoConseiller, Client assoClient, Compte assoCompte,
+			Compte assoCredite, double somme) {
 		super();
 		this.assoAgence = assoAgence;
 		this.assoConseiller = assoConseiller;
 		this.assoClient = assoClient;
 		this.assoCompte = assoCompte;
+		this.assoCredite = assoCredite;
+		this.somme = somme;
 	}
-
-
 
 	/**
 	 * @return the assoAgence
@@ -60,7 +67,8 @@ public class ClasseAssociation {
 	}
 
 	/**
-	 * @param assoAgence the assoAgence to set
+	 * @param assoAgence
+	 *            the assoAgence to set
 	 */
 	public void setAssoAgence(Agence assoAgence) {
 		this.assoAgence = assoAgence;
@@ -74,7 +82,8 @@ public class ClasseAssociation {
 	}
 
 	/**
-	 * @param assoConseiller the assoConseiller to set
+	 * @param assoConseiller
+	 *            the assoConseiller to set
 	 */
 	public void setAssoConseiller(Conseiller assoConseiller) {
 		this.assoConseiller = assoConseiller;
@@ -88,7 +97,8 @@ public class ClasseAssociation {
 	}
 
 	/**
-	 * @param assoClient the assoClient to set
+	 * @param assoClient
+	 *            the assoClient to set
 	 */
 	public void setAssoClient(Client assoClient) {
 		this.assoClient = assoClient;
@@ -102,11 +112,41 @@ public class ClasseAssociation {
 	}
 
 	/**
-	 * @param assoCompte the assoCompte to set
+	 * @param assoCompte
+	 *            the assoCompte to set
 	 */
 	public void setAssoCompte(Compte assoCompte) {
 		this.assoCompte = assoCompte;
 	}
-	
-	
+
+	/**
+	 * @return the assoCredite
+	 */
+	public Compte getAssoCredite() {
+		return assoCredite;
+	}
+
+	/**
+	 * @param assoCredite
+	 *            the assoCredite to set
+	 */
+	public void setAssoCredite(Compte assoCredite) {
+		this.assoCredite = assoCredite;
+	}
+
+	/**
+	 * @return the somme
+	 */
+	public double getSomme() {
+		return somme;
+	}
+
+	/**
+	 * @param somme
+	 *            the somme to set
+	 */
+	public void setSomme(double somme) {
+		this.somme = somme;
+	}
+
 }
