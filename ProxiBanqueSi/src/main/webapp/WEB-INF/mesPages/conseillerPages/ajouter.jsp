@@ -47,8 +47,8 @@
 					<td><br /> <br /></td>
 				</tr>
 				<tr>
-					<td><form:label path="reference_agence" >Référence de l'agence du conseiller</form:label></td>
-					<td><form:input path="reference_agence" /></td>
+					<td><form:label path="pAgence.reference_agence" >Référence de l'agence du conseiller</form:label></td>
+					<td><form:input path="pAgence.reference_agence" /></td>
 				</tr>
 
 
