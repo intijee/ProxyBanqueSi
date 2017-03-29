@@ -78,6 +78,8 @@ public class ConseillerController {
 	public String afficherFormModifier(Model model){
 		
 		List<Agence> listeAgence=agenceService.getAllAgenceService();
+		List<Conseiller> listeConseiller = conseillerService.getAllConseiller();
+		model.addAttribute("conseillerListe",listeConseiller);
 		
 		model.addAttribute("agenceListe",listeAgence);
 		

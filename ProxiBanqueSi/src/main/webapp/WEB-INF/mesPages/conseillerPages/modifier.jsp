@@ -19,11 +19,14 @@
 		<form:form method="POST" action="soumettreModifier"
 			modelAttribute="modifierForm">
 			<table>
-				<tr>
-					<td><form:label path="reference_conseiller">Référence du conseiller à modifier</form:label></td>
-					<td><form:input path="reference_conseiller" /></td>
-				</tr>
 
+				<tr>
+					<td><form:select path="reference_conseiller">
+							<c:forEach var="conseiller" items="${conseillerListe}">
+								<option value=${conseiller.reference_conseiller}>${conseiller.getReference_conseiller()}</option>
+							</c:forEach>
+						</form:select></td>
+				</tr>
 
 				<tr>
 					<td><br /> <br /></td>
@@ -46,16 +49,16 @@
 					<td><br /> <br /></td>
 				</tr>
 
-		
+
 
 				<tr>
 					<td><form:select path="pAgence.reference_agence">
-					<c:forEach var="agence" items="${agenceListe}">
-							<option value=${agence.reference_agence}>${agence.getReference_agence()}</option>
+							<c:forEach var="agence" items="${agenceListe}">
+								<option value=${agence.reference_agence}>${agence.getReference_agence()}</option>
 							</c:forEach>
 						</form:select></td>
 				</tr>
-				
+
 				<tr>
 
 					<td><br /> <br /></td>
