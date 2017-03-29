@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>ajouter conseiller</title>
+<title>modifier conseiller</title>
 <script type="text/javascript"
 	src='<c:url value="/resources/bootstrap.js"/>'></script>
 <script type="text/javascript"
@@ -30,7 +30,7 @@
 				</tr>
 
 				<tr>
-					<td><form:label path="prenom" >Prenom</form:label></td>
+					<td><form:label path="prenom" >Prénom</form:label></td>
 					<td><form:input path="prenom" /></td>
 				</tr>
 
@@ -47,7 +47,7 @@
 					<td><br /> <br /></td>
 				</tr>
 				<tr>
-					<td><form:label path="reference_agence" >Référence de l'agence</form:label></td>
+					<td><form:label path="reference_agence" >Nouvelle agence</form:label></td>
 					<td><form:input path="reference_agence" /></td>
 				</tr>
 
