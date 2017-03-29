@@ -113,6 +113,7 @@ public class ConseillerController {
 		return "conseillerPages/accueil";
 	}
 	
+	
 	@RequestMapping(value="/supprimer",method=RequestMethod.GET)
 	public String afficherFormSupprimer(Model model){
 		
@@ -123,6 +124,9 @@ public class ConseillerController {
 		
 		return "conseillerPages/supprimer";
 	}
+	
+	
+	
 	@RequestMapping(value="/soumettreSupprimer",method=RequestMethod.POST)
 	public String soumettreFormulaireSupprimer(Model model, @ModelAttribute("supprimerForm") Conseiller conseiller){
 		
@@ -131,6 +135,28 @@ public class ConseillerController {
 		model.addAttribute("conseillerListe",listeConseiller);
 		return "conseillerPages/accueil";
 	}
+	
+	@RequestMapping(value="/ajouterAgence",method=RequestMethod.GET)
+	public String afficherFormAjouterAgence(Model model){
+		
+		model.addAttribute("agenceForm",new Agence());
+		
+		return "conseillerPages/ajouterAgence";
+	}
+	
+	@RequestMapping(value="/soumettreFormAjouterAgence", method=RequestMethod.POST)
+	public String soumettreFormAjouterAgence(Model model, @ModelAttribute("agenceForm") Agence agence){
+		
+		agenceService.addAgence(agence);
+		
+		List<Agence> agenceListe=agence.
+		model.addAttribute("agence",agenceListe);
+		
+		return "conseillerPages/informationAgence";
+	}
+	
+	
+	
 	
 
 }

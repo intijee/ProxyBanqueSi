@@ -7,21 +7,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>ajouter conseiller</title>
-<!-- JQuery libraries-->
-<script type="text/javascript" src="scripts/jquery.js"></script>
 
-<!-- Bootstrap libraries-->
-<script type="text/javascript" src=scripts/bootstrap.js"></script>
-<link rel="stylesheet" type="text/css" href="style/bootstrap.css">
-
-
-<!-- ref vers feuilles css -->
-<link rel="stylesheet" href="style/style.css">
 
 </head>
 <body>
 	<h1>Liste des conseillers de ProxyBanque</h1>
-	<table class="table table-hover">
+	<table>
 		<tr>
 			<th>Référence du conseiller</th>
 			<th>Nom</th>
