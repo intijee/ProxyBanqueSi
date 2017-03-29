@@ -12,43 +12,44 @@
 <script type="text/javascript" src=scripts/bootstrap.js"></script>
 <link rel="stylesheet" type="text/css" href="style/bootstrap.css">
 
-
 <!-- ref vers feuilles css -->
 <link rel="stylesheet" href="style/style.css">
+
 </head>
 <body>
 <div class="container-fluid" style="background-image: url('style/images/New-York-City.jpg');">
 	<div class="row">
 	<div  class="container" id="header">
-			<h1 style="color:#ffda28 ;  font-size: xx-large;"  >SKY-SCRAPPER BANK</h1>
-	</div>
-		<div  class="container">
-				<div class="row">
-	
-	
-				<nav class="navbar navbar-inverse" id="navbar" style="padding :5px;background:linear-gradient(to left, RGBA(255,255,255,0.01), RGBA(255,255,255,0.30)) ; ">
-					<ul class="nav nav-tabs">
+		<div  class="col-xs-2" >
+			<img id="building" alt="kong" src="style/images/building2.png" align="left"><h1 id="title" style="color:#ffda28 ;  font-size: x-large; text-align: center;"  >$KY-$CRAPPER <br/>BANK</h1>
+		</div>
+			<div  class="col-xs-10" >
+			<nav class="navbar navbar-inverse" id="navbar" style="padding :5px;background:linear-gradient(to right, RGBA(64,0,64,0.50), RGBA(255,255,255,0.10))  ; color: gold ;">
+					<ul class="nav nav-pills">
 						<li role="presentation"><a href="/accueil">Accueil</a></li>
 						<li role="presentation"><a href="/client">Clients</a></li>
 						<li role="presentation"><a href="/bien">Comptes</a></li>
 					</ul>
 				</nav>
-
-
-<div  class="col-xs-12" style="height: 500px;" >
+			</div>
+	</div>
+		<div  class="container">
+				<div class="row">
+	
+<div  class="col-xs-12" style="height: 525px;" >
 <div class="col-xs-2" id="leftmenu">
 				<div class="col-xs-12" style="margin-top: 15px">
 
-				
 				<div class="list-group">
-					<a href="/contrat" class="list-group-item list-group-item-info">Accueil Liste</a>
-  					<a href="/ajouterContrat" class="list-group-item list-group-item-info">Ajouter</a>
-  					<a href="/modifierContrat" class="list-group-item list-group-item-info">Modifier</a>
-  					<a href="/supprimerContrat" class="list-group-item list-group-item-info">Supprimer</a>
-  					<a href="/chercherContrat" class="list-group-item list-group-item-info">Chercher</a>
+					<a href="/contrat" class="list-group-item list-group-item-warning">Accueil Liste</a>
+  					<a href="/ajouterContrat" class="list-group-item list-group-item-warning">Ajouter</a>
+  					<a href="/modifierContrat" class="list-group-item list-group-item-warning">Modifier</a>
+  					<a href="/supprimerContrat" class="list-group-item list-group-item-warning">Supprimer</a>
+  					<a href="/chercherContrat" class="list-group-item list-group-item-warning">Chercher</a>
 				</div>
 				
 		</div>
+		<img id="godzilla" alt="godzilla" src="style/images/dollar-icon.png" align="middle">
 
 </div>	
 <div class="col-xs-10" id="maincontent">
