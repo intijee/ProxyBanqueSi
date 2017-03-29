@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.adaming.dao.IConseillerDao;
+import fr.adaming.entities.Agence;
 import fr.adaming.entities.Conseiller;
 
 @Service
@@ -73,5 +74,12 @@ public class ConseillerServiceImpl implements IConseillerService{
 		conseillerDao.deleteConseiller(reference_conseiller);
 		
 	}
+
+	@Override
+	public void associerAgenceConseiller(Agence agence, Conseiller conseiller) {
+		conseiller.setpAgence(agence);
+		conseillerDao.updateConseiller(conseiller);	
+	}
+	
 
 }
