@@ -7,11 +7,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>ajouter conseiller</title>
-<script type="text/javascript"
-	src='<c:url value="/resources/bootstrap.js"/>'></script>
-<script type="text/javascript"
-	src='<c:url value="/resources/jquery-3.1.1.js"/>'></script>
-<link rel='stylesheet' href='<c:url value="/resources/bootstrap.css"/>' />
+<!-- JQuery libraries-->
+<script type="text/javascript" src="scripts/jquery.js"></script>
+
+<!-- Bootstrap libraries-->
+<script type="text/javascript" src=scripts/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="style/bootstrap.css">
+
+
+<!-- ref vers feuilles css -->
+<link rel="stylesheet" href="style/style.css">
+
 </head>
 <body>
 	<h1>Liste des conseillers de ProxyBanque</h1>
