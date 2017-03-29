@@ -57,7 +57,7 @@ public class CompteController {
 
 		model.addAttribute("comptesListe", listeComptes);
 
-		return "afficher";
+		return "comptePages/afficher";
 	}
 
 	/**
@@ -75,7 +75,7 @@ public class CompteController {
 
 		model.addAttribute("compteForm", new Compte());
 
-		return ("ajouter");
+		return ("comptePages/ajouter");
 
 	}
 
@@ -103,11 +103,11 @@ public class CompteController {
 
 				model.addAttribute("comptesListe", listeComptes);
 
-				return "afficher";
+				return "comptePages/afficher";
 
 			} catch (Exception e) {
 
-				return "ajouter";
+				return "comptePages/ajouter";
 			}
 		} else {
 
@@ -118,7 +118,7 @@ public class CompteController {
 
 			model.addAttribute("comptesListe", listeComptes);
 
-			return "afficher";
+			return "comptePages/afficher";
 		}
 	}
 
@@ -138,7 +138,7 @@ public class CompteController {
 
 		model.addAttribute("compteForm", compteService.getCompteById(id_compte));
 
-		return ("ajouter");
+		return ("comptePages/ajouter");
 
 	}
 
@@ -161,7 +161,7 @@ public class CompteController {
 
 		model.addAttribute("comptesListe", listeComptes);
 
-		return ("afficher");
+		return ("comptePages/afficher");
 
 	}
 
@@ -180,7 +180,7 @@ public class CompteController {
 
 		model.addAttribute("compteForm", new Compte());
 
-		return ("modifier");
+		return ("comptePages/modifier");
 
 	}
 
@@ -201,7 +201,7 @@ public class CompteController {
 
 		model.addAttribute("comptesListe", listeComptes);
 
-		return "afficher";
+		return "comptePages/afficher";
 
 	}
 
@@ -220,7 +220,7 @@ public class CompteController {
 
 		model.addAttribute("compteForm", new Compte());
 
-		return ("supprimer");
+		return ("comptePages/supprimer");
 
 	}
 
@@ -241,7 +241,7 @@ public class CompteController {
 
 		model.addAttribute("comptesListe", listeComptes);
 
-		return "afficher";
+		return "comptePages/afficher";
 
 	}
 
@@ -256,7 +256,7 @@ public class CompteController {
 
 		model.addAttribute("sommeForm", new Double(0));
 
-		return ("operation");
+		return ("comptePages/operation");
 
 	}
 
@@ -281,7 +281,7 @@ public class CompteController {
 
 		} catch (Exception e) {
 
-			return "operation";
+			return "comptePages/operation";
 
 		}
 	}
@@ -298,7 +298,7 @@ public class CompteController {
 
 		} catch (Exception e) {
 
-			return "operation";
+			return "comptePages/operation";
 
 		}
 
