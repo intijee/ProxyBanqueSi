@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
+
+
+<!-- INDIQUER LA PRESENCE DU FICHIER .properties -->
+<context:property-placeholder location="classpath*:data-source-infos.properties" />
+		
+<!-- BEAN DATASOURCE -->
+	<bean id="dataSourceBean"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${info.driver}" />
+		<property name="url" value="${info.url}" />
+		<property name="username" value="${info.username}" />
+		<property name="password" value="${info.password}" />
+	</bean>	
+
+
+<!-- DECLARATION DES URL ET INTERCEPTIONS -->
+<security:http>
+	<!-- L'interception des url -->
+	<security:intercept-url pattern="client/**" access="ROLE_CONSEILLER"/>
+	<security:form-login login-page ="/login" authentication-failure-url="/login"/>	
+	
+	<security:intercept-url pattern="conseiller/**" access ="ROLE_CONSEILLER,ROLE_GERANT"/>
+	<security:form-login login-page ="/login" authentication-failure-url="/login"/>
+	
+	<security:logout invalidate-session="true" logout-success-url="/" />
+</security:http>
+
+
+<security:authentication-manager>
+	<security:authentication-provider>
+		<security:user-service>
+			<security:user name="gerant" password="gerant" authorities="ROLE_GERANT" />
+			<security:user name="conseiller" password="conseiller" authorities="ROLE_CONSEILLER"/>
+		</security:user-service>
+	</security:authentication-provider>
+</security:authentication-manager>
+
+
+</beans>
