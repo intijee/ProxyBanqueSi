@@ -9,14 +9,16 @@
 <body>
 	<div
 		style="width: 400px; height: 500px; margin: auto; margin-top: 50px">
-		<form:form method="POST" action="soumettreAjoutCompte"
+		<form:form method="POST" action="soumettreModifierCompte"
 			modelAttribute="compteForm">
 			<table>
 				<tr>
-					<td><form:label path="id_compte">ID du compte à modifier</form:label></td>
-					<td><form:input path="id_compte" /></td>
-				</tr>
-				
+					<td><form:select path="id_compte">
+							<c:forEach var="compte" items="${listeComptes}">
+								<option value=${compte.id_compte}>${compte.id_compte}</option>
+							</c:forEach>
+						</form:select></td>
+				</tr>	
 				<tr>
 					<td><form:label path="numero">numéro du compte </form:label></td>
 					<td><form:input path="numero" /></td>
@@ -40,6 +42,10 @@
 
 				<tr>
 					<td><br /> <br /></td>
+				</tr>
+				<tr>
+					<td><form:label path="pClient.reference_client">référence du client</form:label></td>
+					<td><form:input path="pClient.reference_client"/></td>
 				</tr>
 				<tr>
 					<td><form:select path="pClient.reference_client">
