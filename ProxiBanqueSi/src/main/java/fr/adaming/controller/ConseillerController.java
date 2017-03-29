@@ -44,7 +44,8 @@ public class ConseillerController {
 
 	@RequestMapping(value="/accueilConseiller",method=RequestMethod.GET)
 	public String accueil(ModelMap model){
-		
+		List<Conseiller> listeConseiller = conseillerService.getAllConseiller();
+		model.addAttribute("conseillerListe",listeConseiller);
 		return "conseillerPages/accueil";
 		
 	}
@@ -108,6 +109,23 @@ public class ConseillerController {
 		return "conseillerPages/accueil";
 	}
 	
+	@RequestMapping(value="/supprimer",method=RequestMethod.GET)
+	public String afficherFormSupprimer(Model model){
+		
+		List<Conseiller> listeConseiller = conseillerService.getAllConseiller();
+		model.addAttribute("conseillerListe",listeConseiller);
+		
+		model.addAttribute("supprimerForm",new Conseiller());
+		
+		return "conseillerPages/supprimer";
+	}
+	@RequestMapping(value="/soumettreSupprimer",method=RequestMethod.POST)
+	public String soumettreFormulaireSupprimer(Model model, @ModelAttribute("supprimerForm") Conseiller conseiller){
+		
+		conseillerService.deleteConseiller(conseiller.getReference_conseiller());
+		
+		return "conseillerPages/accueil";
+	}
 	
 
 }
