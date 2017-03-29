@@ -77,7 +77,7 @@ public class ConseillerController {
 	@RequestMapping(value="/modifier",method=RequestMethod.GET)
 	public String afficherFormModifier(Model model){
 		
-		List<Agence> listeAgence=new ArrayList<>();
+		List<Agence> listeAgence=agenceService.getAllAgenceService();
 		
 		model.addAttribute("agenceListe",listeAgence);
 		
@@ -89,6 +89,7 @@ public class ConseillerController {
 	@RequestMapping(value="/soumettreModifier",method=RequestMethod.POST)
 	public String soumettreFormulaireModifier(Model model, @ModelAttribute("modifierForm") Conseiller conseiller){
 		
+		System.out.println(conseiller.getpAgence().getReference_agence());
 		Conseiller cons=conseillerService.getConseillerByReference(conseiller.getReference_conseiller());
 		
 		cons.setNom(conseiller.getNom());
