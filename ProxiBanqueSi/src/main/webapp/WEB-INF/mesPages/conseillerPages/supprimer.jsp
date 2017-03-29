@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>modifier conseiller</title>
+<title>supprimer conseiller</title>
 <script type="text/javascript"
 	src='<c:url value="/resources/bootstrap.js"/>'></script>
 <script type="text/javascript"
@@ -16,47 +16,20 @@
 <body>
 	<div
 		style="width: 400px; height: 500px; margin: auto; margin-top: 50px">
-		<form:form method="POST" action="soumettreFormModifier"
-			modelAttribute="modifierForm">
+		<form:form method="POST" action="soumettreSupprimer"
+			modelAttribute="supprimerForm">
 			<table>
+
 				<tr>
-					<td><form:label path="reference_conseiller">Référence du conseiller à modifier</form:label></td>
+					<td><form:label path="reference_conseiller" >Référence du conseiller à supprimer</form:label></td>
 					<td><form:input path="reference_conseiller" /></td>
 				</tr>
 
-
 				<tr>
 					<td><br /> <br /></td>
 				</tr>
 				<tr>
-					<td><form:label path="nom">nom</form:label></td>
-					<td><form:input path="nom" /></td>
-				</tr>
-
-				<tr>
-					<td><br /> <br /></td>
-				</tr>
-
-				<tr>
-					<td><form:label path="prenom">Prénom</form:label></td>
-					<td><form:input path="prenom" /></td>
-				</tr>
-
-				<tr>
-					<td><br /> <br /></td>
-				</tr>
-
-				<tr>
-					<td><form:label path="reference_agence">Nouvelle agence</form:label></td>
-					<td><form:input path="reference_agence" /></td>
-				</tr>
-
-
-				<tr>
-					<td><br /> <br /></td>
-				</tr>
-				<tr>
-					<td colspan="2"><input type="submit" value="Modifier"
+					<td colspan="2"><input type="submit" value="Supprimer"
 						style="margin-left: 120px"></td>
 				</tr>
 
