@@ -29,5 +29,5 @@ public class Test {
 		client.setNom("toto");
 		clientService.addClient(client);
 	}
-
+	//${pageContext.request.contextPath}
 }
