@@ -16,6 +16,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 /**
  * Classe représentant l'agence et encapsulant les informations de son gérant
@@ -38,8 +39,7 @@ public class Agence implements Serializable {
 	@Column(name="reference_agence")
 	private String reference_agence;
 	@Column(name="date_creation")
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern="dd/MM/yyyy")
+	@DateTimeFormat(iso=ISO.DATE)
 	private Date date_creation;
 	@Column(name="nom_gerant")
 	private String nom_gerant;
