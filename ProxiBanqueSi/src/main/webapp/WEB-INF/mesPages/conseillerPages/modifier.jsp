@@ -16,7 +16,7 @@
 <body>
 	<div
 		style="width: 400px; height: 500px; margin: auto; margin-top: 50px">
-		<form:form method="POST" action="soumettreFormModifier"
+		<form:form method="PUT" action="soumettreFormModifier"
 			modelAttribute="modifierForm">
 			<table>
 				<tr>
