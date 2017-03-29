@@ -17,44 +17,45 @@
 
 </head>
 <body>
-<div class="container-fluid" style="background-image: url('style/images/New-York-City.jpg');">
+<div class="container-fluid" style="background-image: url('style/images/New-York-City.jpg'); ">
 	<div class="row">
-	<div  class="container" id="header">
-		<div  class="col-xs-2" >
-			<img id="building" alt="kong" src="style/images/building2.png" align="left"><h1 id="title" style="color:#ffda28 ;  font-size: x-large; text-align: center;"  >$KY-$CRAPPER <br/>BANK</h1>
+	<div  class="container" ">
+	<div  class="col-xs-4" ></div>
+		<div  class="col-xs-4" style="margin-top: 5%;">
+			
+			<h1 id="title1" style="color:#ffda28 ;  font-size: xx-large; text-align: center;"  >$KY-$CRAPPER <br/>BANK</h1>
+			
 		</div>
-			<div  class="col-xs-10" >
-			<nav class="navbar navbar-inverse" id="navbar" style="padding :5px;background:linear-gradient(to right, RGBA(64,0,64,0.50), RGBA(255,255,255,0.10))  ; color: gold ;">
-					<ul class="nav nav-pills">
-						<li role="presentation"><a href="/accueil">Accueil</a></li>
-						<li role="presentation"><a href="/client">Clients</a></li>
-						<li role="presentation"><a href="/bien">Comptes</a></li>
-					</ul>
-				</nav>
-			</div>
+	<div  class="col-xs-4" ></div>
 	</div>
-		<div  class="container">
+		<div  class="container" style="height: 100%;">
 				<div class="row">
 	
-<div  class="col-xs-12" style="height: 525px;" >
-<div class="col-xs-2" id="leftmenu">
-				<div class="col-xs-12" style="margin-top: 15px">
+<div  class="col-xs-12" style="height: 420px;" >
+<br/>
+<br/>
+<br/>
+<br/>
 
-				<div class="list-group">
-					<a href="/contrat" class="list-group-item list-group-item-warning">Accueil Liste</a>
-  					<a href="/ajouterContrat" class="list-group-item list-group-item-warning">Ajouter</a>
-  					<a href="/modifierContrat" class="list-group-item list-group-item-warning">Modifier</a>
-  					<a href="/supprimerContrat" class="list-group-item list-group-item-warning">Supprimer</a>
-  					<a href="/chercherContrat" class="list-group-item list-group-item-warning">Chercher</a>
-				</div>
-				
-		</div>
-		<img id="godzilla" alt="godzilla" src="style/images/dollar-icon.png" align="middle">
+<br/>
+<div  class="col-xs-2" ></div>
+<div  class="col-xs-4" >
 
-</div>	
-<div class="col-xs-10" id="maincontent">
-
-</div>		
+<a id="lien" href="#">
+<img id="logo" alt="godzilla" src="style/images/dollar-icon.png" align="right"></a>
+<h1 id="title3" 
+style="color:#ffda28 ;  font-size:xx-large; text-align: rigth; 
+background: linear-gradient(to right, RGBA(255, 255, 255, 0.01), 
+RGBA(64, 0, 64, 0.50));margin-right: 15px;"  >Accueil Gérant</h1>
+</div>
+<div  class="col-xs-4" >
+<a id="lien" href="#"><img id="logo" alt="godzilla" src="style/images/dollarBourse2.ico" align="left"></a><br/>
+<h1 id="title3" 
+style="color:#ffda28 ;  font-size: xx-large; text-align: rigth; 
+background: linear-gradient(to right, RGBA(64, 0, 64, 0.50),
+		RGBA(255, 255, 255, 0.01));margin-left: 15px;"  >Accueil Conseiller</h1>	
+	</div>
+<div  class="col-xs-2" ></div>		
 </div>
 			</div>
 		</div>
