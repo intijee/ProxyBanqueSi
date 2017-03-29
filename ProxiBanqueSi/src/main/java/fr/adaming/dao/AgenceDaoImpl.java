@@ -1,5 +1,7 @@
 package fr.adaming.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -34,6 +36,19 @@ public class AgenceDaoImpl implements IAgenceDao{
 	}else{
 		return null;
 	}
+	}
+
+
+
+	@Override
+	public List<Agence> getAllAgence() {
+		String req = "select a from Agence a";
+		Query query = em.createQuery(req);
+		if (query.getResultList().size()!=0) {
+			return query.getResultList();
+		}else{
+			return null;
+		}
 	}
 
 }
