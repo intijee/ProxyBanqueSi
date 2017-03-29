@@ -1,5 +1,8 @@
 package fr.adaming.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,6 +54,8 @@ public class ConseillerController {
 		
 		model.addAttribute("ajouterForm",new Conseiller());
 		
+		
+		
 		return "conseillerPages/ajouter";
 	}
 	
@@ -72,6 +77,9 @@ public class ConseillerController {
 	@RequestMapping(value="/modifier",method=RequestMethod.GET)
 	public String afficherFormModifier(Model model){
 		
+		List<Agence> listeAgence=new ArrayList<>();
+		
+		model.addAttribute("agenceListe",listeAgence);
 		
 		model.addAttribute("modifierForm",new Conseiller());
 		
