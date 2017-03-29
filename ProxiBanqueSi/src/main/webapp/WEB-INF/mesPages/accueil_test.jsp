@@ -5,28 +5,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<!-- JQuery libraries-->
-<script type="text/javascript" src="scripts/jquery.js"></script>
-
-<!-- Bootstrap libraries-->
-<script type="text/javascript" src=scripts/bootstrap.js"></script>
-<link rel="stylesheet" type="text/css" href="style/bootstrap.css">
-
-
-<!-- ref vers feuilles css -->
-<link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-<div class="container-fluid" style="background-image: url('style/images/New-York-City.jpg');">
+<body >
+<div class="container-fluid" style="background-image: url('resources/images/landscape.jpg');">
 	<div class="row">
 	<div  class="container" id="header">
-			<h1 style="color:#ffda28 ;  font-size: xx-large;"  >SKY-SCRAPPER BANK</h1>
+			<h1 style="color: #00007d ; font-family: Arial; font-size: xx-large;"  >TOTBank</h1>
 	</div>
 		<div  class="container">
 				<div class="row">
 	
 	
-				<nav class="navbar navbar-inverse" id="navbar" style="padding :5px;background:linear-gradient(to left, RGBA(255,255,255,0.01), RGBA(255,255,255,0.30)) ; ">
+				<nav class="navbar navbar-inverse" id="navbar" style="padding :5px; background-color: RGBA(255,255,255,0.50); align : center;">
 					<ul class="nav nav-tabs">
 						<li role="presentation"><a href="/accueil">Accueil</a></li>
 						<li role="presentation"><a href="/client">Clients</a></li>
@@ -57,14 +48,14 @@
 </div>
 			</div>
 		</div>
-	
+	</div>
 	<div class="col-xs-12" id="footer">	
 			<div class="row">
 
 				<h1 style="color: #ffda28;" >Website Footer</h1>
 			</div>
-	</div>
-	</div>
+			</div>
 </div>
+
 </body>
 </html>
