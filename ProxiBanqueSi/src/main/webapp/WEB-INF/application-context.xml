@@ -35,6 +35,8 @@
 		<!-- Les classes persistantes -->
 		<property name="packagesToScan" value="fr.adaming.entities"/>
 
+		<property name="persistenceUnitName" value="ProxyBanquePU"></property>
+		
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
 		</property>
