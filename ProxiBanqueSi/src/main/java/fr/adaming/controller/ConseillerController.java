@@ -47,7 +47,7 @@ public class ConseillerController {
 	}
 	
 	@RequestMapping(value="/ajouter",method=RequestMethod.GET)
-	public String ajouter(Model model){
+	public String afficherFormAjouter(Model model){
 		
 		model.addAttribute("ajouterForm",new Conseiller());
 		
@@ -59,7 +59,7 @@ public class ConseillerController {
 	public String soumettreFormulaireAjouter(Model model,@ModelAttribute("ajouterForm") Conseiller conseiller){
 		
 		
-		Agence agence=;
+		Agence agence=agenceService.getAgenceByRefService(conseiller.getpAgence().getReference_agence());
 		
 		conseiller.setpAgence(agence);
 		
@@ -67,7 +67,33 @@ public class ConseillerController {
 		
 		return "conseillerPages/accueil";
 		
+	}
+	
+	
+	public String afficherFormModifier(Model model){
 		
+		
+		model.addAttribute("modifierForm",new Conseiller());
+		
+		return "conseillerPages/modifier";
+	}
+	
+	
+	public String soumettreFormulaireModifier(Model model, @ModelAttribute("modifierForm") Conseiller conseiller){
+		
+		Conseiller cons=conseillerService.getConseillerByReference(conseiller.getReference_conseiller());
+		
+		cons.setNom(conseiller.getNom());
+		
+		cons.setPrenom(conseiller.getPrenom());
+		
+		Agence agence=agenceService.getAgenceByRefService(conseiller.getpAgence().getReference_agence());
+		
+		cons.setpAgence(agence);
+		
+		conseillerService.updateConseiller(cons);
+		
+		return "conseillerPages/accueil";
 	}
 	
 	
