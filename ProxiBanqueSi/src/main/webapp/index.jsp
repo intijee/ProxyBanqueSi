@@ -23,7 +23,7 @@
 	<div  class="col-xs-4" ></div>
 		<div  class="col-xs-4" style="margin-top: 5%;">
 			
-			<h1 id="title1" style="color:#ffda28 ;  font-size: xx-large; text-align: center;"  >$KY-$CRAPPER <br/>BANK</h1>
+			<h1 id="title1" style="color:#ffda28 ;  font-size: xx-large; text-align: center;"  >$KY-<br/>$CRAPPER <br/>BANK</h1>
 			
 		</div>
 	<div  class="col-xs-4" ></div>
@@ -49,7 +49,8 @@ background: linear-gradient(to right, RGBA(255, 255, 255, 0.01),
 RGBA(64, 0, 64, 0.50));margin-right: 15px;"  >Accueil Gérant</h1>
 </div>
 <div  class="col-xs-4" >
-<a id="lien" href="#"><img id="logo" alt="godzilla" src="style/images/dollarBourse2.ico" align="left"></a><br/>
+<a id="lien" href="conseiller/accueilConseiller">
+<img id="logo" alt="godzilla" src="style/images/dollarBourse2.ico" align="left"></a><br/>
 <h1 id="title3" 
 style="color:#ffda28 ;  font-size: xx-large; text-align: rigth; 
 background: linear-gradient(to right, RGBA(64, 0, 64, 0.50),
@@ -59,14 +60,16 @@ background: linear-gradient(to right, RGBA(64, 0, 64, 0.50),
 </div>
 			</div>
 		</div>
-	
+	</div>
+
+<br/>
 	<div class="col-xs-12" id="footer">	
 			<div class="row">
 
 				<h1 style="color: #ffda28;" >Website Footer</h1>
 			</div>
 	</div>
-	</div>
+	
 </div>
 </body>
 </html>

@@ -4,12 +4,17 @@
 	padding: 0px;
 }
 
+
+
 .container-fluid {
+	background-image: url('images/New-York-City.jpg');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	display: block;
 	background-size: cover;
 	padding: 0px;
+	height : 800px;
+	
 }
 
 #header {
@@ -38,7 +43,7 @@
 	height: 100%;
 	background: linear-gradient(to left, RGBA(255, 255, 255, 0.50),
 		RGBA(255, 255, 255, 0.01));
-	font-family: Arial;
+	font-family: monospace;
 	text-align: center;
 	color: #004080;
 	border-top: white 1px solid;
@@ -51,12 +56,13 @@
 	border-color: RGBA(255, 255, 255, 0.01);
 	background-color: linear-gradient(to bottom, RGBA(245, 222, 10, 0.01),
 		RGBA(245, 222, 10, 0.20));
+	font-family: monospace;
 }
 
 #maincontent {
 	height: 100%;
 	background-color: RGBA(255, 255, 255, 0.70);
-	font-family: Arial;
+	font-family: monospace;
 	border-color: white;
 	border-width: thin;
 	overflow: auto;
@@ -64,7 +70,7 @@
 
 #building {
 	max-width: 75px;
-	max-height: 110px;
+	max-height: 90px;
 }
 
 #building2 {
@@ -87,7 +93,7 @@
 a {
 	/* 	 background-color: RGBA(255,255,255,0.70); */
 	color: gold;
-	font-family: Arial;
+	font-family: monospace;
 	padding: 3px 5px;
 	text-align: center;
 	text-decoration: none;
@@ -96,7 +102,7 @@ a {
 }
 
 div {
-	font-family: Arial;
+	font-family: monospace;
 	text-align: center;
 	color: blue;
 	padding: 5px;
@@ -143,7 +149,7 @@ h2 {
 	border-color: gold;
 }
 h1 {
-	font-family: Arial;
+	font-family: monospace;
 	font-size: x-large;
 	text-align: center;
 	color: #00007d;
