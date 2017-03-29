@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.adaming.entities.ClasseAssociation;
 import fr.adaming.entities.Client;
 import fr.adaming.entities.Conseiller;
 import fr.adaming.service.IClientService;
@@ -105,6 +106,19 @@ public class ClientRest {
 			return null;
 		}
 	};
+	
+	@RequestMapping(value = "/associerConseiller", method = RequestMethod.PUT, consumes = "application/json")
+	public String associerClientConseillerWS(@RequestBody ClasseAssociation asso){
+		Conseiller conseiller = asso.getAssoConseiller();
+		Client client = asso.getAssoClient();
+		try {
+			clientservice.associerClientConseiller(client, conseiller);
+			return "Le client est bien associé au conseiller !";
+		} catch (Exception e) {
+			return "Le conseiler a déjà 10 clients  !";
+		
+		}
+	}
 	
 
 }
