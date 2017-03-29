@@ -1,5 +1,7 @@
 package fr.adaming.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -147,10 +149,12 @@ public class ConseillerController {
 	@RequestMapping(value="/soumettreFormAjouterAgence", method=RequestMethod.POST)
 	public String soumettreFormAjouterAgence(Model model, @ModelAttribute("agenceForm") Agence agence){
 		
+		
 		agenceService.addAgence(agence);
 		
-		List<Agence> agenceListe=agence.
-		model.addAttribute("agence",agenceListe);
+		List<Agence> agenceListe=agenceService.getAllAgenceService();
+		
+		model.addAttribute("listeAgence",agenceListe);
 		
 		return "conseillerPages/informationAgence";
 	}

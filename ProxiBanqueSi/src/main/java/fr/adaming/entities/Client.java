@@ -41,7 +41,7 @@ public class Client implements Serializable{
 	@Fetch(FetchMode.SUBSELECT)
 	private List<Compte> plListeCompte;
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn (name="client_id_fk",referencedColumnName="id_conseiller")
+	@JoinColumn (name="conseiller_id_fk",referencedColumnName="id_conseiller")
 	private Conseiller pConseiller;
 	/**
 	 * Ctor vide
