@@ -21,8 +21,8 @@
 			<table>
 
 				<tr>
-					<td><form:label path="nom">nom</form:label></td>
-					<td><form:input path="nom" /></td>
+					<td><form:label path="java.lang.Object.[0].nom">nom</form:label></td>
+					<td><form:input path="java.lang.Object.[0].nom" /></td>
 				</tr>
 
 				<tr>
