@@ -89,13 +89,13 @@ public class ClientServiceImpl implements IClientService {
 	}
 
 	@Override
-	public void associerClientConseiller(Client client, Conseiller conseiller) {
+	public void associerClientConseiller(Client client, Conseiller conseiller) throws Exception {
 		// Règle de gestion sur l'association d'un client et d'un conseiller
 		if (conseiller.getpListeClient().size() < 11) {
 			client.setpConseiller(conseiller);
 			clientDao.updateClient(client);
 		}else{
-			throw new Exception("Le nombre de clients est limité à 10 par conseiller")
+			throw new Exception("Le nombre de clients est limité à 10 par conseiller");
 		}
 	}
 
