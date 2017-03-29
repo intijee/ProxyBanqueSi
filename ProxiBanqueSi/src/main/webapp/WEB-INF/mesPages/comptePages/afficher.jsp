@@ -9,16 +9,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Accueil gestion des comptes</title>
 
-<!-- JQuery libraries-->
-<script type="text/javascript" src="scripts/jquery.js"></script>
-
-<!-- Bootstrap libraries-->
-<script type="text/javascript" src="scripts/bootstrap.js"></script>
-<link rel="stylesheet" type="text/css" href="style/bootstrap.css">
-
-
-<!-- ref vers feuilles css -->
-<link rel="stylesheet" href="style/style.css">
 
 </head>
 <body>
@@ -39,7 +29,7 @@
 						<td>${compte.solde}</td>
 						<td>${compte.date_ouverture}</td>
 						<td>${compte.pClient.reference_client}</td>
-						<td></td>
+						<td><a href="supprimerCompteAffiche/${compte.id_compte}">Supprimer</a> | <a href="modifierCompteAffiche?id_compte=${compte.id_compte}">modifier</a> </td>
 					</tr>
 				</c:forEach>
 	</table>
