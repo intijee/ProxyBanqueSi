@@ -42,7 +42,12 @@ public class ClientController {
 	//Afficher formulaire
 	@RequestMapping(value = "/afficherFormAjouter", method = RequestMethod.GET)
 	public ModelAndView ajouterClientFormulaire(){
-		return new ModelAndView("clientPages/formulaireAjout","clientForm",new Client());
+		List<Conseiller> listeConseiller = conseillerService.getAllConseiller();
+		ModelAndView model = new ModelAndView();
+		model.addObject("conseillerListe", listeConseiller);
+		model.addObject("clientForm", new Client());
+		model.setViewName("clientPages/formulaireAjout");
+		return model;
 	}
 	
 	//Soumettre formulaire
