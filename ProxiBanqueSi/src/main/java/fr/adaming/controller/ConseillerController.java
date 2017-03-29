@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import fr.adaming.entities.Agence;
 import fr.adaming.entities.Conseiller;
+import fr.adaming.service.IAgenceService;
 import fr.adaming.service.IConseillerService;
 
 @Controller
@@ -26,6 +27,18 @@ public class ConseillerController {
 		this.conseillerService = conseillerService;
 	}
 	
+	@Autowired
+	private IAgenceService agenceService;
+	
+	
+	
+	/**
+	 * @param agenceService the agenceService to set
+	 */
+	public void setAgenceService(IAgenceService agenceService) {
+		this.agenceService = agenceService;
+	}
+
 	@RequestMapping(value="/accueilConseiller",method=RequestMethod.GET)
 	public String accueil(ModelMap model){
 		
@@ -36,18 +49,17 @@ public class ConseillerController {
 	@RequestMapping(value="/ajouter",method=RequestMethod.GET)
 	public String ajouter(Model model){
 		
-		model.addAttribute("ajouterForm", new Object[]{new Conseiller(),new Agence()});
+		model.addAttribute("ajouterForm",new Conseiller());
 		
 		return "conseillerPages/ajouter";
 	}
 	
 	
 	@RequestMapping(value="/soumettreAjouter",method=RequestMethod.POST)
-	public String soumettreFormulaireAjouter(Model model,@ModelAttribute("ajouterForm") Object[] tab){
+	public String soumettreFormulaireAjouter(Model model,@ModelAttribute("ajouterForm") Conseiller conseiller){
 		
-		Conseiller conseiller=(Conseiller) tab[0];
 		
-		Agence agence=(Agence) tab[1];
+		Agence agence=;
 		
 		conseiller.setpAgence(agence);
 		

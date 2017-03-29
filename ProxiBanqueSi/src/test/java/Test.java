@@ -1,7 +1,9 @@
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.entities.Client;
 import fr.adaming.service.IClientService;
@@ -20,6 +22,8 @@ public class Test {
 	}
 	
 	@org.junit.Test
+	@Rollback
+	@Transactional
 	public void testAjout(){
 		Client client = new Client();
 		client.setNom("toto");

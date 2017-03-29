@@ -26,7 +26,7 @@ public class AgenceDaoImpl implements IAgenceDao{
 	@Override
 	public Agence getAgenceByRef(String ref_agence) {
 		
-	String req = "Select a from Agence ca Where a.reference_agence=:pRefAgence";
+	String req = "select a from Agence a where a.reference_agence=:pRefAgence";
 	Query query = em.createQuery(req);
 	query.setParameter("pRefAgence", ref_agence);
 		if ((Agence) query.getSingleResult() != null){
