@@ -25,7 +25,7 @@
 			<table>
 
 				<tr>
-					<td><form:label path="numero">numéro du comte </form:label></td>
+					<td><form:label path="numero">numéro du compte </form:label></td>
 					<td><form:input path="numero" /></td>
 				</tr>
 
