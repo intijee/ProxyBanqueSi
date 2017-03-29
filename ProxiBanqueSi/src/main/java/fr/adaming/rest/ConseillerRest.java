@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.adaming.entities.Agence;
+import fr.adaming.entities.ClasseAssociation;
 import fr.adaming.entities.Conseiller;
 import fr.adaming.service.IConseillerService;
 
@@ -96,5 +97,12 @@ public class ConseillerRest {
 			return null;
 		}
 	};
+	
+	@RequestMapping(value = "/associerAgence", method = RequestMethod.PUT, consumes = "application/json")
+	public void associerAgenceConseillerWS (@RequestBody ClasseAssociation asso){
+		Agence agence= asso.getAssoAgence();
+		Conseiller conseiller = asso.getAssoConseiller();
+		conseillerService.associerAgenceConseiller(agence, conseiller);
+	}
 	
 }
