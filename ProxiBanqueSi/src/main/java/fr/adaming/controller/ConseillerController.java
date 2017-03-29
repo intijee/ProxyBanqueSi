@@ -149,8 +149,9 @@ public class ConseillerController {
 		
 		agenceService.addAgence(agence);
 		
-		List<Agence> agenceListe=agence.
-		model.addAttribute("agence",agenceListe);
+		List<Agence> agenceListe=agenceService.getAllAgenceService();
+		
+		model.addAttribute("listeAgence",agenceListe);
 		
 		return "conseillerPages/informationAgence";
 	}

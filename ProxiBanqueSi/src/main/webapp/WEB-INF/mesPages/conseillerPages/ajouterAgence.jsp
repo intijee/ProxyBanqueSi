@@ -51,10 +51,11 @@
 				<tr>
 					<td><br /> <br /></td>
 				</tr>
-				<tr>
+			<tr>
 					<td><form:label path="date_creation">Date de création de l'agence</form:label></td>
 					<td><form:input type="date"  path="date_creation"  /></td>
 				</tr>
+				 
 
 
 				<tr>
