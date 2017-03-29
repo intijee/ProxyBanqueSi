@@ -7,6 +7,72 @@
 <title>Modifier un compte</title>
 </head>
 <body>
+	<div
+		style="width: 400px; height: 500px; margin: auto; margin-top: 50px">
+		<form:form method="POST" action="soumettreAjoutCompte"
+			modelAttribute="compteForm">
+			<table>
+				<tr>
+					<td><form:label path="id_compte">ID du compte à modifier</form:label></td>
+					<td><form:input path="id_compte" /></td>
+				</tr>
+				
+				<tr>
+					<td><form:label path="numero">numéro du compte </form:label></td>
+					<td><form:input path="numero" /></td>
+				</tr>
+
+				<tr>
+					<td><br /> <br /></td>
+				</tr>
+				<tr>
+					<td><form:label path="solde">Solde du compte</form:label></td>
+					<td><form:input path="solde" /></td>
+				</tr>
+
+				<tr>
+					<td><br /> <br /></td>
+				</tr>
+				<tr>
+					<td><form:label path="date_ouverture">date d'ouverture du compte</form:label></td>
+					<td><form:input path="date_ouverture" type="date" /></td>
+				</tr>
+
+				<tr>
+					<td><br /> <br /></td>
+				</tr>
+				<tr>
+					<td><form:select path="pClient.reference_client">
+							<c:forEach var="client" items="${listeClients}">
+								<option value=${client.reference_client}>${client.nom}
+									${client.prenom}</option>
+							</c:forEach>
+						</form:select></td>
+				</tr>
+
+				<tr>
+					<td><form:radiobutton path="type" value="true"/> epargne </td>
+					<td><form:radiobutton path="type" value="false"/> courant</td>
+				</tr>
+				
+
+
+				<tr>
+					<td><br /> <br /></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="Ajouter"
+						style="margin-left: 120px"></td>
+				</tr>
+
+			</table>
+
+		</form:form>
+
+	</div>
+
+
+
 
 </body>
 </html>

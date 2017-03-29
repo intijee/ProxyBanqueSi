@@ -10,12 +10,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Ajouter un compte</title>
 
-<script type="text/javascript"
-	src='<c:url value="/resources/bootstrap.js"/>'></script>
-<script type="text/javascript"
-	src='<c:url value="/resources/jquery-3.1.1.js"/>'></script>
-<link rel='stylesheet' href='<c:url value="/resources/bootstrap.css"/>' />
-
 </head>
 <body>
 	<div
@@ -42,7 +36,7 @@
 				</tr>
 				<tr>
 					<td><form:label path="date_ouverture">date d'ouverture du compte</form:label></td>
-					<td><form:input path="date_ouverture" /></td>
+					<td><form:input path="date_ouverture" type="date" /></td>
 				</tr>
 
 				<tr>
@@ -56,6 +50,13 @@
 							</c:forEach>
 						</form:select></td>
 				</tr>
+
+				<tr>
+					<td><form:radiobutton path="type" value="true"/> epargne </td>
+					<td><form:radiobutton path="type" value="false"/> courant</td>
+				</tr>
+				
+
 
 				<tr>
 					<td><br /> <br /></td>

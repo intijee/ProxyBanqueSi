@@ -13,6 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 /**
  * nom de la table 
  * @author inti0277
@@ -36,6 +39,7 @@ public class Compte implements Serializable {
 	@Column(name="solde")
 	private double solde;
 	@Column(name="date_ouverture")
+	@DateTimeFormat(iso=ISO.DATE)
 	private Date date_ouverture;
 
 	/**
