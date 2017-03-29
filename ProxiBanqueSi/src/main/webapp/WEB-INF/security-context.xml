@@ -26,26 +26,26 @@
 
 
 <!-- DECLARATION DES URL ET INTERCEPTIONS -->
-<security:http>
-	<!-- L'interception des url -->
-	<security:intercept-url pattern="/client/**" access="ROLE_CONSEILLER,ROLE_GERANT"/>
-	<security:form-login login-page ="/loginConseiller" authentication-failure-url="/loginConseiller"/>	
+<!-- <security:http> -->
+<!-- L'interception des url -->
+<!-- 	<security:intercept-url pattern="/client/**" access="ROLE_CONSEILLER,ROLE_GERANT"/> -->
+<!-- 	<security:form-login login-page ="/loginConseiller" authentication-failure-url="/loginConseiller"/>	 -->
 	
-	<security:intercept-url pattern="/conseiller/**" access ="ROLE_GERANT"/>
-	<security:form-login login-page ="/loginGerant" authentication-failure-url="/loginGerant"/>
+<!-- 	<security:intercept-url pattern="/conseiller/**" access ="ROLE_GERANT"/> -->
+<!-- 	<security:form-login login-page ="/loginGerant" authentication-failure-url="/loginGerant"/> -->
 	
-	<security:logout invalidate-session="true" logout-success-url="/" />
-</security:http>
+<!-- 	<security:logout invalidate-session="true" logout-success-url="/" /> -->
+<!-- </security:http> -->
 
 
-<security:authentication-manager>
-	<security:authentication-provider>
-		<security:user-service>
-			<security:user name="gerant" password="gerant" authorities="ROLE_GERANT" />
-			<security:user name="conseiller" password="conseiller" authorities="ROLE_CONSEILLER"/>
-		</security:user-service>
-	</security:authentication-provider>
-</security:authentication-manager>
+<!-- <security:authentication-manager> -->
+<!-- 	<security:authentication-provider> -->
+<!-- 		<security:user-service> -->
+<!-- 			<security:user name="gerant" password="gerant" authorities="ROLE_GERANT" /> -->
+<!-- 			<security:user name="conseiller" password="conseiller" authorities="ROLE_CONSEILLER"/> -->
+<!-- 		</security:user-service> -->
+<!-- 	</security:authentication-provider> -->
+<!-- </security:authentication-manager> -->
 
 
 </beans>
