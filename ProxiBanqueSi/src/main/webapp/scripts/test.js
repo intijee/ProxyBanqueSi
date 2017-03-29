@@ -5,15 +5,15 @@
 
 function hideTaux($){
 	
-	$(taux).disable(true);
-	$(decouvert).disable(false);
+	$(taux).display(true);
+	$(decouvert).display(false);
 	
 };
 
-function hideDecouver($){
+function hideDecouvert($){
 	
-	$(taux).disable(false);
-	$(decouvert).disable(true);
+	$(taux).display(false);
+	$(decouvert).display(true);
 	
 };
 
