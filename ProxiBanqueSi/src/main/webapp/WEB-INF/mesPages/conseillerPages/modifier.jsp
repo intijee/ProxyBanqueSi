@@ -47,11 +47,19 @@
 				</tr>
 
 				<tr>
-					<td><form:label path="pAgence.reference_agence">Nouvelle agence</form:label></td>
+					<td><form:label path="pAgence.reference_agence" >Nouvelle agence</form:label></td>
 					<td><form:input path="pAgence.reference_agence" /></td>
 				</tr>
-
-
+<tr>
+<td><FORM>
+<SELECT>
+<c:forEach var="agence" items="${agenceListe}">
+<option value="pAgence.reference_agence">${agence.getReference_agence()}</option>
+</c:forEach>
+</SELECT>
+</FORM>
+</td>
+</tr>
 				<tr>
 					<td><br /> <br /></td>
 				</tr>

@@ -1,5 +1,7 @@
 package fr.adaming.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +27,12 @@ public class AgenceServiceImpl implements IAgenceService{
 	public Agence getAgenceByRefService(String ref_agence) {
 		
 		return agenceDao.getAgenceByRef(ref_agence);
+	}
+
+	@Override
+	public List<Agence> getAllAgenceService() {
+		
+		return agenceDao.getAllAgence();
 	}
 
 }
