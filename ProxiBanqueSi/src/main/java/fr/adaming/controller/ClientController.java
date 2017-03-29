@@ -46,7 +46,7 @@ public class ClientController {
 	}
 	
 	//Soumettre formulaire
-	@RequestMapping(value = "/soumettreFormAjouter", method = RequestMethod.GET)
+	@RequestMapping(value = "/soumettreFormAjouter", method = RequestMethod.POST)
 	public String soumettreFormulaireAjouter(Model model, @ModelAttribute("clientForm") Client client){
 		
 		Conseiller conseiller = conseillerService.getConseillerByReference(client.getpConseiller().getReference_conseiller());

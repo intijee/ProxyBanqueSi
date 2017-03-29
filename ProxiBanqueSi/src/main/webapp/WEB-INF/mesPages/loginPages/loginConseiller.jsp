@@ -8,5 +8,26 @@
 </head>
 <body>
 
+	<div align="center">
+		<form method="POST" , action ="j_spring_security_check">
+		
+		<table>
+			<tr>
+				<td>Login :</td>
+				<td><input type = "text" name ="j_username"/></td>
+			</tr>
+			<tr>
+				<td>Password :</td>
+				<td><input type = "text" name ="j_password"/></td>
+			</tr>
+			<tr>
+				<td><input type = "submit" value ="Se Connecter"/></td>
+			</tr>
+		</table>
+	
+	
+		</form>
+	</div>
+
 </body>
 </html>
