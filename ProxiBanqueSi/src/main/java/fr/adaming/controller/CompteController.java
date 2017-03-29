@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.adaming.entities.Client;
 import fr.adaming.entities.Compte;
@@ -19,7 +19,8 @@ import fr.adaming.service.IClientService;
 import fr.adaming.service.ICompteService;
 
 /**
- * Controller gérant les ajout/modification/affichage/suppression/association des comptes
+ * Controller gérant les ajout/modification/affichage/suppression/association
+ * des comptes
  * 
  * 
  * @author Team Défonce Tout
@@ -97,6 +98,11 @@ public class CompteController {
 
 				compteService.addCompte(compte);
 
+				// rafraichir la liste
+				List<Compte> listeComptes = compteService.getAllCompte();
+
+				model.addAttribute("comptesListe", listeComptes);
+
 				return "afficher";
 
 			} catch (Exception e) {
@@ -106,6 +112,11 @@ public class CompteController {
 		} else {
 
 			compteService.updateCompte(compte);
+
+			// rafraichir la liste
+			List<Compte> listeComptes = compteService.getAllCompte();
+
+			model.addAttribute("comptesListe", listeComptes);
 
 			return "afficher";
 		}
@@ -130,7 +141,7 @@ public class CompteController {
 		return ("ajouter");
 
 	}
-	
+
 	/**
 	 * Supprimer un compte depuis la liste affichée
 	 * 
@@ -138,19 +149,24 @@ public class CompteController {
 	 * @param id_compte
 	 * @return
 	 */
-	@RequestMapping(value = "/supprimerCompteAffiche/{id_compte}", method = RequestMethod.GET)
-	public String supprimerCompteAffiche(Model model, @PathVariable("id_compte") int id_compte) {
-		
+	@RequestMapping(value = "/supprimerCompteAffiche", method = RequestMethod.GET)
+	public String supprimerCompteAffiche(Model model, @RequestParam("id_compte") int id_compte) {
+
 		Compte compte = compteService.getCompteById(id_compte);
-		
+
 		compteService.deleteCompte(compte);
+
+		// rafraichir la liste
+		List<Compte> listeComptes = compteService.getAllCompte();
+
+		model.addAttribute("comptesListe", listeComptes);
 
 		return ("afficher");
 
 	}
-	
+
 	/**
-	 * Affiche le formulaire d'ajout
+	 * Affiche le formulaire de modification
 	 * 
 	 * @param model
 	 * @return
@@ -159,15 +175,133 @@ public class CompteController {
 	public String afficherFormModif(Model model) {
 
 		List<Compte> listeComptes = compteService.getAllCompte();
-		
-		model.addAttribute("listeComptes", listeComptes);				
+
+		model.addAttribute("listeComptes", listeComptes);
 
 		model.addAttribute("compteForm", new Compte());
 
 		return ("modifier");
 
 	}
-	
-	
+
+	/**
+	 * Soumettre le formulaire d'ajout
+	 * 
+	 * @param model
+	 * @param compte
+	 * @return
+	 */
+	@RequestMapping(value = "/soumettreModifierCompte", method = RequestMethod.POST)
+	public String modifCompte(Model model, @ModelAttribute("compteForm") Compte compte) {
+
+		compteService.updateCompte(compte);
+
+		// rafraichir la liste
+		List<Compte> listeComptes = compteService.getAllCompte();
+
+		model.addAttribute("comptesListe", listeComptes);
+
+		return "afficher";
+
+	}
+
+	/**
+	 * Affiche le formulaire de suppression
+	 * 
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/afficheSupprimerCompte", method = RequestMethod.GET)
+	public String afficherFormSuppr(Model model) {
+
+		List<Compte> listeComptes = compteService.getAllCompte();
+
+		model.addAttribute("listeComptes", listeComptes);
+
+		model.addAttribute("compteForm", new Compte());
+
+		return ("supprimer");
+
+	}
+
+	/**
+	 * Soumettre le formulaire d'ajout
+	 * 
+	 * @param model
+	 * @param compte
+	 * @return
+	 */
+	@RequestMapping(value = "/soumettreSupprimerCompte", method = RequestMethod.POST)
+	public String supprCompte(Model model, @ModelAttribute("compteForm") Compte compte) {
+
+		compteService.deleteCompte(compte);
+
+		// rafraichir la liste
+		List<Compte> listeComptes = compteService.getAllCompte();
+
+		model.addAttribute("comptesListe", listeComptes);
+
+		return "afficher";
+
+	}
+
+	@RequestMapping(value = "/afficheOperationForm", method = RequestMethod.GET)
+	public String afficherFormOperation(Model model) {
+
+		List<Compte> listeComptes = compteService.getAllCompte();
+
+		model.addAttribute("listeComptes", listeComptes);
+
+		model.addAttribute("compteForm", new Compte());
+
+		model.addAttribute("sommeForm", new Double(0));
+
+		return ("operation");
+
+	}
+
+	@RequestMapping(value = "/soumettreDepotCompte", method = RequestMethod.POST)
+	public String depot(Model model, @ModelAttribute("compteForm") Compte compte,
+			@ModelAttribute("sommeForm") double somme) {
+
+		compteService.depot(compte, somme);
+
+		return "accueil";
+
+	}
+
+	@RequestMapping(value = "/soumettreRetraitCompte", method = RequestMethod.POST)
+	public String retrait(Model model, @ModelAttribute("compteForm") Compte compte,
+			@ModelAttribute("sommeForm") double somme) {
+
+		try {
+			compteService.retrait(compte, somme);
+
+			return "accueil";
+
+		} catch (Exception e) {
+
+			return "operation";
+
+		}
+	}
+
+	@RequestMapping(value = "/soumettreVirementCompte", method = RequestMethod.POST)
+	public String depot(Model model, @ModelAttribute("debiteurForm") Compte debiteur,
+			@ModelAttribute("sommeForm") double somme, @ModelAttribute("crediteForm") Compte credite) {
+
+		try {
+
+			compteService.virement(debiteur, credite, somme);
+
+			return "accueil";
+
+		} catch (Exception e) {
+
+			return "operation";
+
+		}
+
+	}
 
 }
