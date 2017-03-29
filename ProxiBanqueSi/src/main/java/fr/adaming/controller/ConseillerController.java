@@ -71,6 +71,8 @@ public class ConseillerController {
 		conseiller.setpAgence(agence);
 		
 		conseillerService.addConseiller(conseiller);
+		List<Conseiller> listeConseiller = conseillerService.getAllConseiller();
+		model.addAttribute("conseillerListe",listeConseiller);
 		
 		return "conseillerPages/accueil";
 		
@@ -105,6 +107,8 @@ public class ConseillerController {
 		cons.setpAgence(agence);
 		
 		conseillerService.updateConseiller(cons);
+		List<Conseiller> listeConseiller = conseillerService.getAllConseiller();
+		model.addAttribute("conseillerListe",listeConseiller);
 		
 		return "conseillerPages/accueil";
 	}
@@ -123,7 +127,8 @@ public class ConseillerController {
 	public String soumettreFormulaireSupprimer(Model model, @ModelAttribute("supprimerForm") Conseiller conseiller){
 		
 		conseillerService.deleteConseiller(conseiller.getReference_conseiller());
-		
+		List<Conseiller> listeConseiller = conseillerService.getAllConseiller();
+		model.addAttribute("conseillerListe",listeConseiller);
 		return "conseillerPages/accueil";
 	}
 	
