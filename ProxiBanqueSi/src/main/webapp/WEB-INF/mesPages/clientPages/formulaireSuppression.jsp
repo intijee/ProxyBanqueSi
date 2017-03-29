@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,63 +11,33 @@
 </head>
 <body>
 
-	<%-- <%@ include file="header.html"  %> --%>
+	<div
+		style="width: 400px; height: 500px; margin: auto; margin-top: 50px">
+		<form:form method="POST" action="soumettreFormSupprimer"
+			modelAttribute="supprimerForm">
+			<table>
 
-	<div class="container">
-		<header class="row col-sm-12">
-		<div class="page-header">
-			<h1 class="police_titre">Supprimer un client</h1>
-		</div>
-		</header>
+				<tr>
+					<td><form:label path="reference_client">Référence du client à supprimer</form:label></td>
+					<td><form:select path="reference_client">
+							<c:forEach var="client" items="${clientListe}">
+								<option value=${client.reference_client}>${conseiller.getReference_client()}</option>
+							</c:forEach>
+						</form:select></td>
+				</tr>
 
-		<!--colonne de gauche-->
-		<div class="row col-sm-12">
-			<nav class="col-sm-3">
+				<tr>
+					<td><br /> <br /></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="Supprimer"
+						style="margin-left: 120px"></td>
+				</tr>
 
-			<ul class="nav nav-pills nav-stacked" id="menu">
-				<h3>Menu</h3>
-				<li><a href="formulaireAjout.jsp">Ajout client</a></li>
-				<li><a href="formulaireSuppression.jsp">Suppression client</a></li>
-				<!-- <li><a href="update.jsp">Update compte</a></li> -->
+			</table>
 
-			</ul>
-			</nav>
+		</form:form>
 
-			<section class="col-sm-9">
-
-			<div class="panel panel-default">
-
-				<div class="panel-body">
-
-					<form class="form-horizontal" action="afficherFormSupprimer"
-						method="post">
-						<div class="form-group">
-							<label class="control-label col-sm-5" for="reference_client">Référence du
-								client:</label>
-							<div class="col-sm-5">
-								<input type="text" name="reference_client" class="form-group" />
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-sm-offset-5 col-sm-5">
-								<button type="submit" class="btn btn-default">Submit</button>
-							</div>
-						</div>
-
-					</form>
-				</div>
-			</div>
-
-
-			</section>
-
-		</div>
-		<!--pied de page-->
-		<footer class="row col-sm-12"> Accès aux opérations sur client
-		client </footer>
 	</div>
-
-
 </body>
 </html>

@@ -69,14 +69,18 @@ public class ClientController {
 	//=======================Supprimer Client==========================================
 	//Afficher formulaire
 	@RequestMapping(value = "/affichFormSupprimer", method = RequestMethod.GET)
-	public String supprimerClientFormulaire(){
+	public String supprimerClientFormulaire(Model model){
+		
+		List<Client> listeClient=clientService.getAllClient();
+		model.addAttribute("clientListe",listeClient);
+		model.addAttribute("supprimerForm",new Client());
 		return "clientPages/formulaireSuppression";
 	}
 		
 	//Soumettre formulaire
 	@RequestMapping(value = "/soumettreFormSupprimer", method = RequestMethod.POST)
-	public String soumettreFormulaireSupprimer(Model model, @RequestParam("reference_param") String reference){
-		clientService.deleteClient(reference);
+	public String soumettreFormulaireSupprimer(Model model, @ModelAttribute("supprimerForm") Client client){
+		clientService.deleteClient(client);
 		
 		//MAJ de la liste
 		List<Client> listeClient = clientService.getAllClient();

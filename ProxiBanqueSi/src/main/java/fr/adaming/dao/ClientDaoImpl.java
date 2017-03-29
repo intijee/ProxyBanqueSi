@@ -86,12 +86,10 @@ public class ClientDaoImpl implements IClientDao {
 	 * @param Référence
 	 *            du client à supprimer
 	 */
-	public void deleteClient(String reference_client) {
-		// EntityManager em = emf.createEntityManager();
-		Client c = getByReference(reference_client);
-		if (c != null) {
-			 em.remove(c);
-		} 
+	public void deleteClient(Client client) {
+
+			 em.remove(client);
+		
 	}
 
 	/**

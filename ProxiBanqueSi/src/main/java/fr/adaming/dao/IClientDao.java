@@ -9,7 +9,7 @@ public interface IClientDao {
 	public Client getByReference (String reference_client);
 	public Client getById (int id_client);
 	public void addClient (Client client);
-	public void deleteClient (String reference_client);
+	public void deleteClient (Client client);
 	public void updateClient (Client client);
 	
 }

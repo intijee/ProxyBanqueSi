@@ -67,8 +67,8 @@ public class ClientServiceImpl implements IClientService {
 	 * @param Référence
 	 *            du client à supprimer
 	 */
-	public void deleteClient(String reference_client) {
-		clientDao.deleteClient(reference_client);
+	public void deleteClient(Client client) {
+		clientDao.deleteClient(client);
 
 	}
 

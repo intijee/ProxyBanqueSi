@@ -72,8 +72,10 @@ public class ClientRest {
 	@RequestMapping(value = "/delete/{ref_param}", method = RequestMethod.DELETE, produces = "application/json")
 	public int deleteClientWS(@PathVariable("ref_param") String reference_client) {
 		try {
+			
+			
 			// Supprimer le client dans la base de données
-			clientservice.deleteClient(reference_client);
+			clientservice.deleteClient(clientservice.getByReference(reference_client));
 			// Retourne 1 si la suppression a reussi
 			return new Integer(1);
 		} catch (Exception e) {
