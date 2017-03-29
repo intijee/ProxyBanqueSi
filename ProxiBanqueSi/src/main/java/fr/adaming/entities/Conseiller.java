@@ -1,14 +1,21 @@
 package fr.adaming.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 /**
  * 
  * @author Team Défonce Tout
@@ -34,6 +41,10 @@ public class Conseiller implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="agence_id_fk", referencedColumnName="id_agence")
 	private Agence pAgence;
+	
+	@OneToMany(mappedBy="pConseiller",fetch=FetchType.EAGER)
+	@Fetch(FetchMode.SUBSELECT)
+	private List<Client> pListeClient;
 	
 	/**
 	 * Ctor vide
@@ -141,6 +152,20 @@ public class Conseiller implements Serializable{
 	 */
 	public void setpAgence(Agence pAgence) {
 		this.pAgence = pAgence;
+	}
+
+	/**
+	 * @return the pListeClient
+	 */
+	public List<Client> getpListeClient() {
+		return pListeClient;
+	}
+
+	/**
+	 * @param pListeClient the pListeClient to set
+	 */
+	public void setpListeClient(List<Client> pListeClient) {
+		this.pListeClient = pListeClient;
 	}
 
 	
