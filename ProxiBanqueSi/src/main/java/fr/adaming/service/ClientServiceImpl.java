@@ -93,6 +93,9 @@ public class ClientServiceImpl implements IClientService {
 		// Règle de gestion sur l'association d'un client et d'un conseiller
 		if (conseiller.getpListeClient().size() < 11) {
 			client.setpConseiller(conseiller);
+			clientDao.updateClient(client);
+		}else{
+			throw new Exception("Le nombre de clients est limité à 10 par conseiller")
 		}
 	}
 
