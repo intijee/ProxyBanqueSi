@@ -77,16 +77,6 @@ public class ClientServiceImpl implements IClientService{
 
 	@Override
 	public void associerClientConseiller(Client client, Conseiller conseiller) {
-				
-		List<Client> listeClients = clientDao.getAllClient();
-		int verif = 0;
-		for (Client cl : listeClients) {
-			if(cl.getpConseiller().equals(conseiller))
-				verif=verif++;
-			if (verif<=10) {
-				client.setpConseiller(conseiller);
-			} 
-		}
-	}
-
+	}		
+		
 }
