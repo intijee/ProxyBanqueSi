@@ -42,11 +42,11 @@ public class ClientController {
 	//Afficher formulaire
 	@RequestMapping(value = "/afficherFormAjouter", method = RequestMethod.GET)
 	public ModelAndView ajouterClientFormulaire(){
-		return new ModelAndView("formulaireAjout","clientForm",new Client());
+		return new ModelAndView("clientPages/formulaireAjout","clientForm",new Client());
 	}
 	
 	//Soumettre formulaire
-	@RequestMapping(value = "/soumettreFormAjouter", method = RequestMethod.POST)
+	@RequestMapping(value = "/soumettreFormAjouter", method = RequestMethod.GET)
 	public String soumettreFormulaireAjouter(Model model, @ModelAttribute("clientForm") Client client){
 		
 		Conseiller conseiller = conseillerService.getConseillerByReference(client.getpConseiller().getReference_conseiller());
@@ -65,11 +65,11 @@ public class ClientController {
 	//Afficher formulaire
 	@RequestMapping(value = "/affichFormSupprimer", method = RequestMethod.GET)
 	public String supprimerClientFormulaire(){
-		return "formulaireSuppression";
+		return "clientPages/formulaireSuppression";
 	}
 		
 	//Soumettre formulaire
-	@RequestMapping(value = "/soumettreFormSupprimer", method = RequestMethod.GET)
+	@RequestMapping(value = "/soumettreFormSupprimer", method = RequestMethod.POST)
 	public String soumettreFormulaireSupprimer(Model model, @RequestParam("reference_param") String reference){
 		clientService.deleteClient(reference);
 		
@@ -84,7 +84,7 @@ public class ClientController {
 	//Afficher formulaire
 	@RequestMapping(value = "/affichFormRechercher", method = RequestMethod.GET)
 	public ModelAndView rechercherEmployeFormulaire(){
-		return new ModelAndView("formulaireRecherche", "clientForm", new Client());
+		return new ModelAndView("clientPages/formulaireRecherche", "clientForm", new Client());
 	}
 	
 	//Soumettre formulaire
@@ -103,7 +103,7 @@ public class ClientController {
 	//Afficher formulaire
 	@RequestMapping(value = "/affichFormModifier", method = RequestMethod.GET)
 	public ModelAndView modifierEmployeFormulaire(){
-		return new ModelAndView("formulaireModication", "clientModifForm", new Client());
+		return new ModelAndView("affichFormRechercher/formulaireModication", "clientModifForm", new Client());
 	}
 	
 	//Soumettre formulaire
@@ -131,13 +131,5 @@ public class ClientController {
 		return "clientPages/accueil";
 	}
 	
-	@RequestMapping(value = "/listeClient", method = RequestMethod.GET)
-	public String afficherEmployes(ModelMap model){
-		
-		List<Client> listeClient =clientService.getAllClient();
-		
-		model.addAttribute("clientListe",listeClient);
-		return "clientPages/afficheListe";
-	}
 
 }
