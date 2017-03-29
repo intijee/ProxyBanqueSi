@@ -34,7 +34,7 @@ public class Client implements Serializable{
 	private String code_postal;
 	private String ville;
 	private String telephone;
-	private long reference_client;
+	private String reference_client;
 	private Boolean humain_0_entreprise_1;
 	// Association
 	@OneToMany(mappedBy="pClient",fetch=FetchType.EAGER,cascade=CascadeType.REMOVE)
@@ -62,7 +62,7 @@ public class Client implements Serializable{
 	 * @param humain_0_entreprise_1
 	 */
 	public Client(String nom, String prenom, String adresse, String code_postal, String ville, String telephone,
-			long reference_client, Boolean humain_0_entreprise_1) {
+			String reference_client, Boolean humain_0_entreprise_1) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -87,7 +87,7 @@ public class Client implements Serializable{
 	 * @param humain_0_entreprise_1
 	 */
 	public Client(int id_client, String nom, String prenom, String adresse, String code_postal, String ville,
-			String telephone, long reference_client, Boolean humain_0_entreprise_1) {
+			String telephone, String reference_client, Boolean humain_0_entreprise_1) {
 		super();
 		this.id_client = id_client;
 		this.nom = nom;
@@ -196,13 +196,13 @@ public class Client implements Serializable{
 	 * @return the reference_client
 	 */
 	@XmlElement
-	public long getReference_client() {
+	public String getReference_client() {
 		return reference_client;
 	}
 	/**
 	 * @param reference_client the reference_client to set
 	 */
-	public void setReference_client(long reference_client) {
+	public void setReference_client(String reference_client) {
 		this.reference_client = reference_client;
 	}
 	
@@ -249,12 +249,7 @@ public class Client implements Serializable{
 		this.pConseiller = pConseiller;
 	}
 
-	@Override
-	public String toString() {
-		return "Client [id_client=" + id_client + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse
-				+ ", code_postal=" + code_postal + ", ville=" + ville + ", telephone=" + telephone
-				+ ", reference_client=" + reference_client + "]";
-	}
+
 	
 	
 	

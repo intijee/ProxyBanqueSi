@@ -35,4 +35,22 @@ public class AgenceServiceImpl implements IAgenceService{
 		return agenceDao.getAllAgence();
 	}
 
+	@Override
+	public void addAgence(Agence agence) {
+		agenceDao.addAgence(agence);
+		
+	}
+
+	@Override
+	public void deleteAgence(String reference_agence) {
+		agenceDao.deleteAgence(reference_agence);
+		
+	}
+
+	@Override
+	public void updateAgence(Agence agence) {
+		agenceDao.updateAgence(agence);
+		
+	}
+
 }

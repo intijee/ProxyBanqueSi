@@ -20,9 +20,12 @@
 			modelAttribute="supprimerForm">
 			<table>
 
-				<tr>
-					<td><form:label path="reference_conseiller" >Référence du conseiller à supprimer</form:label></td>
-					<td><form:input path="reference_conseiller" /></td>
+				<tr><td><form:label path="reference_conseiller">Référence du conseiller à supprimer</form:label></td>
+					<td><form:select path="reference_conseiller">
+							<c:forEach var="conseiller" items="${conseillerListe}">
+								<option value=${conseiller.reference_conseiller}>${conseiller.getReference_conseiller()}</option>
+							</c:forEach>
+						</form:select></td>
 				</tr>
 
 				<tr>

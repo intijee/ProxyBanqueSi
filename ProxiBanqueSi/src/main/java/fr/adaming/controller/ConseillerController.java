@@ -44,7 +44,8 @@ public class ConseillerController {
 
 	@RequestMapping(value="/accueilConseiller",method=RequestMethod.GET)
 	public String accueil(ModelMap model){
-		
+		List<Conseiller> listeConseiller = conseillerService.getAllConseiller();
+		model.addAttribute("conseillerListe",listeConseiller);
 		return "conseillerPages/accueil";
 		
 	}
@@ -53,7 +54,8 @@ public class ConseillerController {
 	public String afficherFormAjouter(Model model){
 		
 		model.addAttribute("ajouterForm",new Conseiller());
-		
+		List<Agence> listeAgence=agenceService.getAllAgenceService();
+		model.addAttribute("agenceListe",listeAgence);
 		
 		
 		return "conseillerPages/ajouter";
@@ -69,6 +71,8 @@ public class ConseillerController {
 		conseiller.setpAgence(agence);
 		
 		conseillerService.addConseiller(conseiller);
+		List<Conseiller> listeConseiller = conseillerService.getAllConseiller();
+		model.addAttribute("conseillerListe",listeConseiller);
 		
 		return "conseillerPages/accueil";
 		
@@ -77,7 +81,9 @@ public class ConseillerController {
 	@RequestMapping(value="/modifier",method=RequestMethod.GET)
 	public String afficherFormModifier(Model model){
 		
-		List<Agence> listeAgence=new ArrayList<>();
+		List<Agence> listeAgence=agenceService.getAllAgenceService();
+		List<Conseiller> listeConseiller = conseillerService.getAllConseiller();
+		model.addAttribute("conseillerListe",listeConseiller);
 		
 		model.addAttribute("agenceListe",listeAgence);
 		
@@ -89,6 +95,7 @@ public class ConseillerController {
 	@RequestMapping(value="/soumettreModifier",method=RequestMethod.POST)
 	public String soumettreFormulaireModifier(Model model, @ModelAttribute("modifierForm") Conseiller conseiller){
 		
+		System.out.println(conseiller.getpAgence().getReference_agence());
 		Conseiller cons=conseillerService.getConseillerByReference(conseiller.getReference_conseiller());
 		
 		cons.setNom(conseiller.getNom());
@@ -100,9 +107,56 @@ public class ConseillerController {
 		cons.setpAgence(agence);
 		
 		conseillerService.updateConseiller(cons);
+		List<Conseiller> listeConseiller = conseillerService.getAllConseiller();
+		model.addAttribute("conseillerListe",listeConseiller);
 		
 		return "conseillerPages/accueil";
 	}
+	
+	
+	@RequestMapping(value="/supprimer",method=RequestMethod.GET)
+	public String afficherFormSupprimer(Model model){
+		
+		List<Conseiller> listeConseiller = conseillerService.getAllConseiller();
+		model.addAttribute("conseillerListe",listeConseiller);
+		
+		model.addAttribute("supprimerForm",new Conseiller());
+		
+		return "conseillerPages/supprimer";
+	}
+	
+	
+	
+	@RequestMapping(value="/soumettreSupprimer",method=RequestMethod.POST)
+	public String soumettreFormulaireSupprimer(Model model, @ModelAttribute("supprimerForm") Conseiller conseiller){
+		
+		conseillerService.deleteConseiller(conseiller.getReference_conseiller());
+		List<Conseiller> listeConseiller = conseillerService.getAllConseiller();
+		model.addAttribute("conseillerListe",listeConseiller);
+		return "conseillerPages/accueil";
+	}
+	
+	@RequestMapping(value="/ajouterAgence",method=RequestMethod.GET)
+	public String afficherFormAjouterAgence(Model model){
+		
+		model.addAttribute("agenceForm",new Agence());
+		
+		return "conseillerPages/ajouterAgence";
+	}
+	
+	@RequestMapping(value="/soumettreFormAjouterAgence", method=RequestMethod.POST)
+	public String soumettreFormAjouterAgence(Model model, @ModelAttribute("agenceForm") Agence agence){
+		
+		agenceService.addAgence(agence);
+		
+		List<Agence> agenceListe=agenceService.getAllAgenceService();
+		
+		model.addAttribute("listeAgence",agenceListe);
+		
+		return "conseillerPages/informationAgence";
+	}
+	
+	
 	
 	
 
