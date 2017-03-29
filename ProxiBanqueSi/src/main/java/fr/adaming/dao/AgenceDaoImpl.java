@@ -51,4 +51,36 @@ public class AgenceDaoImpl implements IAgenceDao{
 		}
 	}
 
+
+
+	@Override
+	public void addAgence(Agence agence) {
+		em.persist(agence);
+		
+	}
+
+
+
+	@Override
+	public void deleteAgence(String reference_agence) {
+		Agence a = getAgenceByRef(reference_agence);
+		if (a != null) {
+			 em.remove(a);
+		} 
+		
+	}
+
+
+
+	@Override
+	public void updateAgence(Agence agence) {
+		Agence a = em.find(Agence.class, agence.getId());
+		a.setDate_creation(agence.getDate_creation());
+		a.setNom_gerant(agence.getNom_gerant());
+		a.setReference_gerant(agence.getReference_gerant());
+		a.setReference_agence(agence.getReference_agence());
+		a.setPassword_gerant(agence.getPassword_gerant());
+		em.merge(a);
+	}
+
 }
