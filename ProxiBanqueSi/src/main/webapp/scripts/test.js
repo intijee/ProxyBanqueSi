@@ -3,17 +3,17 @@
  */
 
 
-function hideTaux($){
-	
-	$(taux).display(true);
-	$(decouvert).display(false);
+function hideTaux(){
+
+	document.getElementById("taux").disabled=true;
+	document.getElementById("decouvert").disabled=false;
 	
 };
 
-function hideDecouvert($){
+function hideDecouvert(){
 	
-	$(taux).display(false);
-	$(decouvert).display(true);
+	document.getElementById("taux").disabled=false;
+	document.getElementById("decouvert").disabled=true;
 	
 };
 

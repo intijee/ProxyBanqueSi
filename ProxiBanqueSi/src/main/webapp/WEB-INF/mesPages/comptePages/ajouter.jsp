@@ -8,6 +8,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<!-- JQuery libraries-->
+<script type="text/javascript" src='<c:url value="/scripts/jquery.js"/>'></script>
+
+<script type="text/javascript" src='<c:url value="/scripts/test.js"/>'></script>
+
+
+
 <title>Ajouter un compte</title>
 
 </head>
@@ -43,6 +51,7 @@
 					<td><br /> <br /></td>
 				</tr>
 				<tr>
+				<td><form:label path="pClient.reference_client">référence du proprietaire du compte</form:label></td>
 					<td><form:select path="pClient.reference_client">
 							<c:forEach var="client" items="${listeClients}">
 								<option value=${client.reference_client}>${client.nom}
@@ -52,11 +61,21 @@
 				</tr>
 
 				<tr>
-					<td><form:radiobutton path="type" value="true"/> epargne </td>
-					<td><form:radiobutton path="type" value="false"/> courant</td>
+					<td><form:radiobutton path="type" value="true" onclick="hideDecouvert()"/> epargne </td>
+					<td><form:radiobutton path="type" value="false" onclick="hideTaux()"/> courant</td>
 				</tr>
 				
-
+				<tr>
+					<td><form:label path="taux">Taux du compte</form:label></td>
+					<td><form:input id="taux" path="taux" disabled="true"/></td>
+				</tr>
+				
+				<tr>
+					<td><form:label path="decouvert">découvert autorisé</form:label></td>
+					<td><form:input id="decouvert" path="decouvert"/></td>
+				</tr>
+				
+				
 
 				<tr>
 					<td><br /> <br /></td>
