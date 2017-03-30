@@ -28,13 +28,14 @@
 <!-- DECLARATION DES URL ET INTERCEPTIONS -->
 <security:http>
 <!-- L'interception des url -->
-	<security:intercept-url pattern="/clientTEST/**" access="ROLE_CONSEILLER,ROLE_GERANT"/>		
-	<security:form-login login-page ="/login/loginConseiller" authentication-failure-url="/login/loginConseiller"/>	
+	<security:intercept-url pattern="/clientTEST/**" access="ROLE_CONSEILLER"/>		
+	<security:form-login login-page ="/loginConseiller" authentication-failure-url="/loginConseiller"/>	
+
 	
 	<security:intercept-url pattern="/conseillerTEST/**" access ="ROLE_GERANT"/>
-	<security:form-login login-page ="/login/loginGerant" authentication-failure-url="/login/loginGerant"/>
+	<security:form-login login-page ="/loginGerant" authentication-failure-url="/loginGerant"/>
+	<security:logout invalidate-session="true" logout-success-url="/logoutGerant" />
 	
-	<security:logout invalidate-session="true" logout-success-url="/" />
 </security:http>
 
 
