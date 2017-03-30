@@ -167,5 +167,7 @@
 </html>
 
 
-
+<%-- <form:form action="${pageContext.request.contextPath}/j_spring_security_logout"> --%>
+<%-- <form:input type=submit value="Se Deconnecter"/> --%>
+<%-- </form:form> --%>
 
