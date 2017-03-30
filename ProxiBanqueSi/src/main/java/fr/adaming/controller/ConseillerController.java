@@ -70,6 +70,8 @@ public class ConseillerController {
 		
 		Agence agence=agenceService.getAgenceByRefService(conseiller.getpAgence().getReference_agence());
 		
+		conseiller.setActivated(true);
+		conseiller.setRole_id(1);
 		conseiller.setpAgence(agence);
 		
 		conseillerService.addConseiller(conseiller);
