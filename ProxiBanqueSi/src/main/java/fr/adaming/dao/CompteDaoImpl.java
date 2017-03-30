@@ -43,8 +43,8 @@ public class CompteDaoImpl implements ICompteDao {
 	 */
 	@Override
 	public void deleteCompte(Compte compte) {
-	
-		em.remove(compte);
+	 Compte co = getCompteById(compte.getId_compte());
+		em.remove(co);
 		
 
 	}

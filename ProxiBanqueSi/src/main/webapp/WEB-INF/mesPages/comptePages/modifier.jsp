@@ -13,7 +13,11 @@
 		style="width: 400px; height: 500px; margin: auto; margin-top: 50px">
 		<form:form method="POST" action="soumettreModifierCompte"
 			modelAttribute="compteForm">
+			
 			<table>
+			<tr>
+					<td><br /> <br />Modifier un compte :</td>
+				</tr>
 				<tr>
 					<td><form:select path="id_compte">
 							<c:forEach var="compte" items="${listeComptes}">

@@ -140,8 +140,8 @@ public class CompteController {
 	 * @param id_compte
 	 * @return
 	 */
-	@RequestMapping(value = "/supprimerCompteAffiche", method = RequestMethod.GET)
-	public String supprimerCompteAffiche(Model model, @RequestParam("id_compte") int id_compte) {
+	@RequestMapping(value = "/supprimerCompteAffiche/{id_compte}", method = RequestMethod.GET)
+	public String supprimerCompteAffiche(Model model, @PathVariable("id_compte") int id_compte) {
 
 		Compte compte = compteService.getCompteById(id_compte);
 

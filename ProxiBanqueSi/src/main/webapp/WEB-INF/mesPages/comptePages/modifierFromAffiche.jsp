@@ -15,7 +15,7 @@
 			modelAttribute="compteForm">
 			<table>
 				<tr>
-					<td>Compte à modifier n°${compteForm.numero}</td>
+					<td>Compte à modifier n°${compteForm.numero} :<br /> <br /></td>
 				</tr>	
 				<tr>
 					<td><form:label path="numero">numéro du compte </form:label></td>

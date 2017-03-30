@@ -29,7 +29,7 @@
 						<td>${compte.solde}</td>
 						<td>${compte.date_ouverture}</td>
 						<td>${compte.pClient.reference_client}</td>
-						<td><a href="${pageContext.request.contextPath}/supprimerCompteAffiche/${compte.id_compte}">Supprimer</a> | <a href="${pageContext.request.contextPath}/modifierCompteAffiche?id_compte=${compte.id_compte}">modifier</a> </td>
+						<td><a href="supprimerCompteAffiche/${compte.id_compte}">Supprimer</a> | <a href="modifierCompteAffiche/${compte.id_compte}">modifier</a> </td>
 					</tr>
 				</c:forEach>
 	</table>

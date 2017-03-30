@@ -15,11 +15,14 @@
 		<form:form method="POST" action="soumettreSupprimerCompte"
 			modelAttribute="compteForm">
 			<table>
+			<tr>
+					<td><br /> <br />Supprimer un compte :</td>
+				</tr>
 
 				<tr>
-					<td><form:select path="compte.numero">
+					<td><form:select path="id_compte">
 							<c:forEach var="compte" items="${listeComptes}">
-								<option value=${compte.numero}>${compte.numero}</option>
+								<option value=${compte.id_compte}>${compte.id_compte} # ${compte.numero} </option>
 							</c:forEach>
 						</form:select></td>
 				</tr>
