@@ -1,5 +1,6 @@
 package fr.adaming.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,6 +10,9 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 import fr.adaming.entities.Agence;
+import fr.adaming.entities.Client;
+import fr.adaming.entities.Compte;
+import fr.adaming.entities.Conseiller;
 
 @Repository
 public class AgenceDaoImpl implements IAgenceDao{
@@ -82,5 +86,25 @@ public class AgenceDaoImpl implements IAgenceDao{
 		a.setPassword_gerant(agence.getPassword_gerant());
 		em.merge(a);
 	}
+	
+	@Override
+public List<Compte> getCompteByAgence(Agence agence) {
+List<Conseiller> listeCon = agence.getpConseiller();
+List<Client> listeClient = new ArrayList<>();
+List<Compte> listeCompte = new ArrayList<>();
+
+for(Conseiller c : listeCon){
+	c.getpListeClient();
+	
+	for(Client client : listeClient){
+		client.getPlListeCompte();
+		
+		for(Compte compte : client.getPlListeCompte()){
+			listeCompte.add(compte);
+		}
+	}
+}
+	return listeCompte;
+}
 
 }

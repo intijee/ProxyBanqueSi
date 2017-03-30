@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import fr.adaming.entities.Agence;
+import fr.adaming.entities.Compte;
 import fr.adaming.entities.Conseiller;
 import fr.adaming.service.IAgenceService;
 import fr.adaming.service.IConseillerService;
@@ -161,16 +162,41 @@ public class ConseillerController {
 		return "conseillerPages/informationAgence";
 	}
 	
-	//=======================Afficher Agence============================================
+	//=======================Afficher liste de toutes les agences ============================================
 	@RequestMapping(value= "/accueilAgence", method = RequestMethod.GET)
 	public String accueilAgence(ModelMap model){
 		
 		List<Agence> listeAgence =agenceService.getAllAgenceService();
 		model.addAttribute("agenceListe",listeAgence);
+		
+		model.addAttribute("auditForm", new Agence());
 		return "conseillerPages/informationAgence";
+		
+		
 	}
 	
+	//===================Afficher liste des comptes de l'agence ==========================
 	
+	@RequestMapping(value="/auditAgence", method = RequestMethod.GET)
+	public String auditAgence(ModelMap model,@ModelAttribute("auditForm") Agence agence){
+		List<Compte> listeCompteEntreprise = new ArrayList<>();		
+		List<Compte> listeCompteHumain = new ArrayList<>();
+		
+		List<Compte> listeCompte = agenceService.getCompteByAgenceService(agence);
+		
+		for(Compte c : listeCompte){
+			boolean b = c.getpClient().getHumain_0_entreprise_1();
+			if(b == true){
+				listeCompteEntreprise.add(c);
+			}else{
+				listeCompteHumain.add(c);
+			}
+		}
+		
+		model.addAttribute("entrepriseListe", listeCompteEntreprise);
+		model.addAttribute("humainListe", listeCompteHumain);
+		return "conseillerPages/auditAgence";
+	}
 	
 
 }

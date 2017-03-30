@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import fr.adaming.dao.IAgenceDao;
 import fr.adaming.dao.IConseillerDao;
 import fr.adaming.entities.Agence;
+import fr.adaming.entities.Compte;
 import fr.adaming.entities.Conseiller;
 
 @Service
@@ -68,6 +69,11 @@ public class AgenceServiceImpl implements IAgenceService {
 	public void updateAgence(Agence agence) {
 		agenceDao.updateAgence(agence);
 
+	}
+
+	@Override
+	public List<Compte> getCompteByAgenceService(Agence agence) {
+		return agenceDao.getCompteByAgence(agence);
 	}
 
 }
