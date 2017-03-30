@@ -1,5 +1,7 @@
 package fr.adaming.entities;
 
+import java.math.BigDecimal;
+
 /**
  * Classe association pour les web services
  * 
@@ -36,6 +38,11 @@ public class ClasseAssociation {
 	
 	// Quantité d'action
 	private int quantite;
+	
+	// Nom de l'action
+	private String nom_action;
+	// Valeur de l'action
+	private BigDecimal cours_action;
 
 	/**
 	 * constructeur vide
@@ -196,6 +203,34 @@ public class ClasseAssociation {
 	 */
 	public void setQuantite(int quantite) {
 		this.quantite = quantite;
+	}
+
+	/**
+	 * @return the nom_action
+	 */
+	public String getNom_action() {
+		return nom_action;
+	}
+
+	/**
+	 * @param nom_action the nom_action to set
+	 */
+	public void setNom_action(String nom_action) {
+		this.nom_action = nom_action;
+	}
+
+	/**
+	 * @return the cours_action
+	 */
+	public BigDecimal getCours_action() {
+		return cours_action;
+	}
+
+	/**
+	 * @param cours_action the cours_action to set
+	 */
+	public void setCours_action(BigDecimal cours_action) {
+		this.cours_action = cours_action;
 	}
 
 }

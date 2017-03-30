@@ -203,11 +203,11 @@ public class ClientController {
 			}		
 		}
 		// Cours de la bourse
+		
+		List<Action> listeAction = new ArrayList<>();
 		Map<String, BigDecimal> coursAction = new HashMap<>();
 		WebServiceBourse serviceBourse = new WebServiceBourse();
 		coursAction = serviceBourse.getStocks();
-		List<Action> listeAction = new ArrayList<>();
-
 		for (int i = 0; i < coursAction.size(); i++) {
 			Action action = new Action();
 			action.setNom((String) coursAction.keySet().toArray()[i]);
@@ -225,9 +225,22 @@ public class ClientController {
 	@RequestMapping(value = "/soumettreAction", method = RequestMethod.POST)
 	public String soumettreClientFortune(ModelMap model,  @ModelAttribute("actionForm") ClasseAssociation classeAssociation){
 		Compte compte = compteService.getCompteByNumero(classeAssociation.getAssoCompte().getNumero());
-		Action action = classeAssociation.getAssoAction();
+		String nom_action = classeAssociation.getNom_action();
+		
 		int quantite = classeAssociation.getQuantite();
-		Double somme = quantite*action.getCours().doubleValue();
+		//
+		Map<String, BigDecimal> coursAction = new HashMap<>();
+		WebServiceBourse serviceBourse = new WebServiceBourse();
+		coursAction = serviceBourse.getStocks();
+		
+		// Retourner le cours de l'action gràce à sa clé
+		BigDecimal cours = coursAction.get(classeAssociation.getNom_action());
+		//Debuggage
+		System.out.println("compte : "+compte.getNumero());
+		System.out.println("action : "+nom_action);
+		System.out.println("cours : "+ cours);
+		System.out.println("quantite : "+quantite);
+		Double somme = quantite*cours.doubleValue();
 		try {
 			compteService.retrait(compte, somme);
 		} catch (Exception e) {

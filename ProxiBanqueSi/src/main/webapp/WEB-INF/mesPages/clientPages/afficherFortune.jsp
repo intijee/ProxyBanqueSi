@@ -53,155 +53,144 @@
 							href="${pageContext.request.contextPath}/compte/listeComptes">Comptes</a></li>
 					</ul>
 					</nav>
-				</div>
-			</div>
-			<br />
-			<div class="container">
-				<div class="row">
 
-					<div class="col-xs-12" style="height: 525px;">
-						<div class="col-xs-2" id="leftmenu">
-							<div class="col-xs-12" style="margin-top: 15px">
+					<br />
+					<div class="container">
+						<div class="row">
 
-								<div class="list-group">
-									<a href="accueil"
-										class="list-group-item list-group-item-warning">Accueil
-										Liste</a> <a href="afficherFormAjouter"
-										class="list-group-item list-group-item-warning">Ajouter</a> <a
-										href="affichFormModifier"
-										class="list-group-item list-group-item-warning">Modifier</a> <a
-										href="affichFormSupprimer"
-										class="list-group-item list-group-item-warning">Supprimer</a>
+							<div class="col-xs-12" style="height: 525px;">
+								<div class="col-xs-2" id="leftmenu">
+									<div class="col-xs-12" style="margin-top: 15px">
+
+										<div class="list-group">
+											<a href="accueil"
+												class="list-group-item list-group-item-warning">Accueil
+												Liste</a> <a href="afficherFormAjouter"
+												class="list-group-item list-group-item-warning">Ajouter</a>
+											<a href="affichFormModifier"
+												class="list-group-item list-group-item-warning">Modifier</a>
+											<a href="affichFormSupprimer"
+												class="list-group-item list-group-item-warning">Supprimer</a>
+
+										</div>
+
+									</div>
+
 
 								</div>
+								<div class="col-xs-10" id="maincontent">
 
-							</div>
+									<h1>Liste des Comptes VIP</h1>
+									<br />
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th>Numéro du compte</th>
+												<th>Solde</th>
+												<th>Nom du client</th>
+												<th>Prénom du client</th>
+												<th>Référence du client</th>
+											</tr>
+										</thead>
+										<tbody>
+											<c:forEach var="compte" items="${fortuneListe}">
+												<tr>
+													<td>${compte.numero}</td>
+													<td>${compte.solde}</td>
+													<td>${compte.pClient.nom}</td>
+													<td>${compte.pClient.prenom}</td>
+													<td>${compte.pClient.reference_client}</td>
+												</tr>
+											</c:forEach>
+										</tbody>
 
+									</table>
+									<h1>Liste des actions en bourse</h1>
 
-						</div>
-						<div class="col-xs-10" id="maincontent">
-
-							<h1>Liste des Comptes VIP</h1>
-							<br />
-							<table class="table table-hover">
-								<thead>
-									<tr>
-										<th>Numéro du compte</th>
-										<th>Solde</th>
-										<th>Nom du client</th>
-										<th>Prénom du client</th>
-										<th>Référence du client</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach var="compte" items="${fortuneListe}">
+									<table class="table table-hover">
 										<tr>
-											<td>${compte.numero}</td>
-											<td>${compte.solde}</td>
-											<td>${compte.pClient.nom}</td>
-											<td>${compte.pClient.prenom}</td>
-											<td>${compte.pClient.reference_client}</td>
+											<th>Nom de la compagnie</th>
+											<th>Cours de l'action</th>
 										</tr>
-									</c:forEach>
-								</tbody>
 
-							</table>
+										<tr>
+											<td><c:forEach var="action" items="${actionListe}">
+													<tr>
+														<td>${action.nom}</td>
+														<td>${action.cours}</td>
+													</tr>
+												</c:forEach></td>
+										</tr>
+
+									</table>
+
+									<h1>Boursicoter</h1>
+
+									<div
+										style="width: 400px; height: 500px; margin: auto; margin-top: 20px">
+										<form:form method="POST" action="soumettreAction"
+											modelAttribute="actionForm">
+											<table>
+
+												<tr>
+													<td><form:label path="assoCompte.numero">Numéro du compte</form:label></td>
+													<td><form:select path="assoCompte.numero">
+															<c:forEach var="fortune" items="${fortuneListe}">
+																<option value=${fortune.numero}>${fortune.getNumero()}</option>
+															</c:forEach>
+														</form:select></td>
+												</tr>
+
+												<tr>
+													<td><br /></td>
+												</tr>
+
+												<tr>
+													<td><form:label path="nom_action">Nom de l'action</form:label></td>
+													<td><form:select path="nom_action">
+															<c:forEach var="action" items="${actionListe}">
+																<option value=${action.nom}>${action.getNom()}</option>
+															</c:forEach>
+														</form:select></td>
+												</tr>
+
+												<tr>
+													<td><br /></td>
+												</tr>
+
+												<tr>
+													<td><form:label path="quantite">Nombre d'action à ajouter</form:label></td>
+													<td><form:input path="quantite" /></td>
+												</tr>
+
+
+												<tr>
+													<td><br /> <br /></td>
+												</tr>
+
+												<tr>
+													<td colspan="2"><input type="submit"
+														value="Boursicoter" style="margin-left: 120px"></td>
+												</tr>
+
+											</table>
+
+										</form:form>
+
+									</div>
+
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+				<div class="col-xs-12" id="footer">
+					<div class="row">
 
-
-
-			<h1>Liste des actions en bourse</h1>
-
-			<table class="table table-hover">
-				<tr>
-					<th>Nom de la compagnie</th>
-					<th>Cours de l'action</th>
-				</tr>
-
-				<tr>
-					<td><c:forEach var="action" items="${actionListe}">
-							<tr>
-								<td>${action.nom}</td>
-								<td>${action.cours}</td>
-							</tr>
-						</c:forEach></td>
-				</tr>
-
-			</table>
-
-<div class="col-xs-10" id="maincontent">
-
-<h1>Ajouter un client</h1>
-
-	<div
-		style="width: 400px; height: 500px; margin: auto; margin-top: 20px">
-		<form:form method="POST" action="soumettreAction"
-			modelAttribute="actionForm">
-			<table>
-
-				<tr>
-					<td><form:label path="assoCompte.numero">Numéro du compte</form:label></td>
-					<td><form:select path="assoCompte.numero">
-							<c:forEach var="fortune" items="${fortuneListe}">
-								<option value=${fortune.numero}>${fortune.getNumero()}</option>
-							</c:forEach>
-						</form:select></td>
-				</tr>
-
-				<tr>
-					<td><br /></td>
-				</tr>
-				
-				<tr>
-					<td><form:label path="assoAction.nom">Nom de l'action</form:label></td>
-					<td><form:select path="assoAction.nom">
-							<c:forEach var="action" items="${actionListe}">
-								<option value=${action.nom}>${action.getNom()}</option>
-							</c:forEach>
-						</form:select></td>
-				</tr>
-
-				<tr>
-					<td><br /></td>
-				</tr>
-				
-				<tr>
-					<td><form:label path="quantite">Nombre d'action à ajouter</form:label></td>
-					<td><form:input path="quantite" /></td>
-				</tr>
-
-
-				<tr>
-					<td><br /> <br /></td>
-				</tr>
-				
-				<tr>
-					<td colspan="2"><input type="submit" value="Boursicoter"
-						style="margin-left: 120px"></td>
-				</tr>
-
-			</table>
-
-		</form:form>
-
-	</div>
-
-</div>		
-
-
-
-
-			<br />
-			<div class="col-xs-12" id="footer">
-				<div class="row">
-
-					<h1 style="color: #ffda28;">Website Footer</h1>
+						<h1 style="color: #ffda28;">Website Footer</h1>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 </body>
 </html>
