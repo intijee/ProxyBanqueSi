@@ -101,5 +101,35 @@
 	</div>
 	</div>
 </div>
+
+	<div
+		style="width: 400px; height: 500px; margin: auto; margin-top: 50px">
+		<form:form method="POST" action="soumettreSupprimer"
+			modelAttribute="auditForm">
+			<table>
+
+				<tr><td><form:label path="reference_agence">Référence du conseiller à auditer</form:label></td>
+					<td><form:select path="reference_agence">
+							<c:forEach var="agence" items="${agenceListe}">
+								<option value=${agence.reference_agence}>${agence.getReference_agence()}</option>
+							</c:forEach>
+						</form:select></td>
+				</tr>
+
+				<tr>
+					<td><br /> <br /></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="Auditer"
+						style="margin-left: 120px"></td>
+				</tr>
+
+			</table>
+
+		</form:form>
+
+	</div>
+
+
 </body>
 </html>
