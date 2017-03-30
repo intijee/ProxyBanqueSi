@@ -28,26 +28,26 @@
 <!-- DECLARATION DES URL ET INTERCEPTIONS -->
 <security:http>
 <!-- L'interception des url -->
-	<security:intercept-url pattern="/clientTEST/**" access="ROLE_CONSEILLER"/>		
-	<security:form-login login-page ="/loginConseiller" authentication-failure-url="/loginConseiller"/>	
-
-	
 	<security:intercept-url pattern="/conseillerTEST/**" access ="ROLE_GERANT"/>
-	<security:form-login login-page ="/loginGerant" authentication-failure-url="/loginGerant"/>
-	<security:logout invalidate-session="true" logout-success-url="/logoutGerant" />
+	<security:form-login login-page ="/loginGeneral" authentication-failure-url="/loginGeneral"/>		
+	<security:intercept-url pattern="/clientTEST/**" access="ROLE_CONSEILLER,ROLE_GERANT"/>	
+	<security:form-login login-page ="/loginGeneral" authentication-failure-url="/loginGeneral"/>	
+	<security:logout invalidate-session="true" logout-success-url="/logout" />
+	
+	<security:access-denied-handler error-page="/accessRefuse"/>
 	
 </security:http>
 
 
 <security:authentication-manager>
 	<security:authentication-provider>
-		<security:user-service>
-			<security:user name="gerant" password="gerant" authorities="ROLE_GERANT" />
-			<security:user name="conseiller" password="conseiller" authorities="ROLE_CONSEILLER"/>
-		</security:user-service>
-<!-- 		<security:jdbc-user-service data-source-ref="dataSourceBean"  -->
-<!-- 	users-by-username-query="SELECT nom_gerant,password_gerant,activated FROM gerants WHERE nom_gerant=?" -->
-<!-- 	authorities-by-username-query="SELECT u.nom_gerant, r.rolename FROM gerants g, roles r WHERE r.id_role=g.role_id and u.nom_gerant=?"/> -->
+<!-- 		<security:user-service> -->
+<!-- 			<security:user name="g" password="g" authorities="ROLE_GERANT" /> -->
+<!-- 			<security:user name="c" password="c" authorities="ROLE_CONSEILLER"/> -->
+<!-- 		</security:user-service> -->
+		<security:jdbc-user-service data-source-ref="dataSourceBean" 
+	users-by-username-query="SELECT nom,prenom,activated FROM conseillers WHERE nom=?"
+	authorities-by-username-query="SELECT c.nom, r.rolename FROM conseillers c, roles r WHERE r.id_role=c.role_id and c.nom=?"/>
 	</security:authentication-provider>
 </security:authentication-manager>
 
