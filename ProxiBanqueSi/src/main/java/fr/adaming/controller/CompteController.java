@@ -94,7 +94,7 @@ public class CompteController {
 
 		compte.setpClient(client);
 
-		if (compte.getId_compte() == 0) {
+		
 			try {
 
 				compteService.addCompte(compte);
@@ -110,17 +110,7 @@ public class CompteController {
 
 				return "comptePages/ajouter";
 			}
-		} else {
 
-			compteService.updateCompte(compte);
-
-			// rafraichir la liste
-			List<Compte> listeComptes = compteService.getAllCompte();
-
-			model.addAttribute("comptesListe", listeComptes);
-
-			return "comptePages/afficher";
-		}
 	}
 
 	/**
@@ -139,7 +129,7 @@ public class CompteController {
 
 		model.addAttribute("compteForm", compteService.getCompteById(id_compte));
 
-		return ("comptePages/ajouter");
+		return ("comptePages/modifierFromAffiche");
 
 	}
 

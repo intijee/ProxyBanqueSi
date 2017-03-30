@@ -15,11 +15,7 @@
 			modelAttribute="compteForm">
 			<table>
 				<tr>
-					<td><form:select path="id_compte">
-							<c:forEach var="compte" items="${listeComptes}">
-								<option value=${compte.id_compte}>${compte.id_compte}</option>
-							</c:forEach>
-						</form:select></td>
+					<td>Compte à modifier n°${compteForm.numero}</td>
 				</tr>	
 				<tr>
 					<td><form:label path="numero">numéro du compte </form:label></td>
