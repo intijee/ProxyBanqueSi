@@ -34,7 +34,7 @@
 			<div  class="col-xs-10" >
 			<nav class="navbar navbar-inverse" id="navbar" style="padding :5px;background:linear-gradient(to right, RGBA(64,0,64,0.50), RGBA(255,255,255,0.10))  ; color: gold ;font-family: monospace;">
 					<ul class="nav nav-pills">
-						<li role="presentation"><a href="${pageContext.request.contextPath}/index.jsp">Accueil</a></li>
+						<li role="presentation"><a href="${pageContext.request.contextPath}/j_spring_security_logout">">Accueil/Deconnexion</a></li>
 						<li role="presentation" class="active"><a href="${pageContext.request.contextPath}/conseiller/accueilConseiller">Conseillers</a></li>
 						<li role="presentation"><a href="${pageContext.request.contextPath}/client/accueil">Clients</a></li>
 						<li role="presentation"><a href="${pageContext.request.contextPath}/compte/listeComptes">Comptes</a></li>
