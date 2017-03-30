@@ -107,7 +107,13 @@ public class CompteController {
 				return "comptePages/afficher";
 
 			} catch (Exception e) {
+				
+				List<Client> listeClient = clientService.getAllClient();
 
+				model.addAttribute("listeClients", listeClient);
+
+				model.addAttribute("compteForm", new Compte());
+				
 				return "comptePages/ajouter";
 			}
 
