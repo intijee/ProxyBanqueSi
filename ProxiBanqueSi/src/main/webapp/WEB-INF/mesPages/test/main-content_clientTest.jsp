@@ -33,8 +33,8 @@
 					<ul class="nav nav-pills">
 						<li role="presentation"><a href="#">Accueil</a></li>
 						<li role="presentation"><a href="conseiller/accueilConseiller">Conseillers</a></li>
-						<li role="presentation"><a href="client/accueilClient">Clients</a></li>
-						<li role="presentation"><a href="compte/accueilCompte">Comptes</a></li>
+						<li role="presentation"><a href="client/accueil">Clients</a></li>
+						<li role="presentation"><a href="compte/listeComptes">Comptes</a></li>
 					</ul>
 				</nav>
 			</div>
