@@ -101,7 +101,7 @@ public class ClientDaoImpl implements IClientDao {
 	 */
 	public void updateClient(Client client) {
 		// EntityManager em = emf.createEntityManager();
-		Client c = em.find(Client.class, client.getId_client());
+		Client c = getByReference(client.getReference_client());
 		// Modification des infos du client
 		c.setNom(client.getNom());
 		c.setPrenom(client.getPrenom());
