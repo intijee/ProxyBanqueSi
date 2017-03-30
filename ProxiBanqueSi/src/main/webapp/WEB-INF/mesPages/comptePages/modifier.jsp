@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,31 +45,13 @@
 				<tr>
 					<td><br /> <br /></td>
 				</tr>
-				<tr>
-					<td><form:label path="pClient.reference_client">référence du client</form:label></td>
-					<td><form:input path="pClient.reference_client"/></td>
-				</tr>
-				<tr>
-					<td><form:select path="pClient.reference_client">
-							<c:forEach var="client" items="${listeClients}">
-								<option value=${client.reference_client}>${client.nom}
-									${client.prenom}</option>
-							</c:forEach>
-						</form:select></td>
-				</tr>
-
-				<tr>
-					<td><form:radiobutton path="type" value="true"/> epargne </td>
-					<td><form:radiobutton path="type" value="false"/> courant</td>
-				</tr>
-				
 
 
 				<tr>
 					<td><br /> <br /></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="Ajouter"
+					<td colspan="2"><input type="submit" value="Modifier"
 						style="margin-left: 120px"></td>
 				</tr>
 
