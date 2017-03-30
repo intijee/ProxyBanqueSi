@@ -278,7 +278,7 @@ public class CompteController {
 		
 		compteService.depot(compte, asso.getSomme());
 
-		return "accueil";
+		return "afficher";
 
 	}
 
@@ -300,7 +300,7 @@ public class CompteController {
 			
 			compteService.retrait(compte, asso.getSomme());
 
-			return "accueil";
+			return "afficher";
 
 		} catch (Exception e) {
 
@@ -330,7 +330,7 @@ public class CompteController {
 			
 			compteService.virement(deb, cred, asso.getSomme());
 
-			return "accueil";
+			return "afficher";
 
 		} catch (Exception e) {
 

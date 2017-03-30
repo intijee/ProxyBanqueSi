@@ -17,7 +17,7 @@
 				<tr>
 					<td><form:select path="id_compte">
 							<c:forEach var="compte" items="${listeComptes}">
-								<option value=${compte.id_compte}>${compte.id_compte}</option>
+								<option value=${compte.id_compte}>${compte.id_compte} # ${compte.numero} </option>
 							</c:forEach>
 						</form:select></td>
 				</tr>	

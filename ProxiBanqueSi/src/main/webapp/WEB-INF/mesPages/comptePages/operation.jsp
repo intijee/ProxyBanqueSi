@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<h1>déposer de l'argent</h1>
+<h1>Effectuer un dépôt :</h1>
 
 	<div
 		style="width: 400px; height: 500px; margin: auto; margin-top: 50px">
@@ -18,13 +18,12 @@
 			modelAttribute="compteForm1">
 			<table>
 				<tr>
-					<td><br /> <br /></td>
+					<td><br /> <br />Compte à créditer</td>
 				</tr>
 				<tr>
 					<td><form:select path="assoCompte.id_compte">
 							<c:forEach var="c" items="${listeComptes}">
-								<option value=${c.assoCompte.id_compte}>${c.assoCompte.numero}
-									${c.assoCompte.solde}</option>
+								<option value=${c.id_compte}># ${c.numero} ; solde : ${c.solde} &euro; </option>
 							</c:forEach>
 						</form:select></td>
 				</tr>
@@ -47,7 +46,7 @@
 
 	</div>
 	
-<h1>retirer de l'argent</h1>
+<h1>Effectuer un retrait :</h1>
 
 	<div
 		style="width: 400px; height: 500px; margin: auto; margin-top: 50px">
@@ -55,13 +54,12 @@
 			modelAttribute="compteForm2">
 			<table>
 				<tr>
-					<td><br /> <br /></td>
+					<td><br /> <br />Compte à débiter :</td>
 				</tr>
 				<tr>
 					<td><form:select path="assoCompte.id_compte">
 							<c:forEach var="c" items="${listeComptes}">
-								<option value=${c.assoCompte.id_compte}>${c.assoCompte.numero}
-									${c.assoCompte.solde}</option>
+								<option value=${c.id_compte}># ${c.numero} ; solde : ${c.solde} &euro; </option>
 							</c:forEach>
 						</form:select></td>
 				</tr>
@@ -92,25 +90,23 @@
 			modelAttribute="compteForm3">
 			<table>
 				<tr>
-					<td><br /> <br /></td>
+					<td><br /> <br />Compte à débiter :</td>
 				</tr>
 				<tr>
 					<td><form:select path="assoCompte.id_compte">
 							<c:forEach var="c" items="${listeComptes}">
-								<option value=${c.assoCompte.id_compte}>${c.assoCompte.numero}
-									${c.assoCompte.solde}</option>
+								<option value=${c.id_compte}># ${c.numero} ; solde : ${c.solde} &euro; </option>
 							</c:forEach>
 						</form:select></td>
 				</tr>
 				
 				<tr>
-					<td><br /> <br /></td>
+					<td><br /> <br />Compte à créditer :</td>
 				</tr>
 				<tr>
 					<td><form:select path="assoCredite.id_compte">
 							<c:forEach var="c" items="${listeComptes}">
-								<option value=${c.assoCredite.id_compte}>${c.assoCredite.numero}
-									${c.assoCredite.solde}</option>
+								<option value=${c.id_compte}># ${c.numero} ; solde : ${c.solde} &euro; </option>
 							</c:forEach>
 						</form:select></td>
 				</tr>
