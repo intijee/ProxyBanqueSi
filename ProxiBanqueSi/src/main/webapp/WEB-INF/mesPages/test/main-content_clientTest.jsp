@@ -48,7 +48,7 @@
 				<div class="col-xs-12" style="margin-top: 15px">
 
 				<div class="list-group">
-					<a href="conseiller/accueilConseiller" class="list-group-item list-group-item-warning">Accueil Liste</a>
+					<a href="conseiller/accueilClient" class="list-group-item list-group-item-warning">Accueil Liste</a>
   					<a href="conseiller/ajouter" class="list-group-item list-group-item-warning">Ajouter</a>
   					<a href="conseiller/modifier" class="list-group-item list-group-item-warning">Modifier</a>
   					<a href="conseiller/supprimer" class="list-group-item list-group-item-warning">Supprimer</a>
@@ -61,7 +61,7 @@
 </div>	
 <div class="col-xs-10" id="maincontent">
 
-<!-- ============================ INSERER VOTRE FORMULAIRE ICI ================================================== -->
+<!-- =========================== INSERER VOTRE FORMULAIRE ICI ====================================================== -->
 
 </div>		
 </div>
@@ -79,4 +79,3 @@
 </div>
 </body>
 </html>
-

@@ -41,15 +41,19 @@
 <div  class="col-xs-2" ></div>
 <div  class="col-xs-4" >
 
-<a id="lien" href="#">
+<a id="lien" href="conseiller/accueilConseiller">
 <img id="logo" alt="godzilla" src="style/images/dollar-icon.png" align="right"></a>
 <h1 id="title3" 
 style="color:#ffda28 ;  font-size:xx-large; text-align: rigth; 
 background: linear-gradient(to right, RGBA(255, 255, 255, 0.01), 
 RGBA(64, 0, 64, 0.50));margin-right: 15px;"  >Accueil Gérant</h1>
 </div>
+
+
+
 <div  class="col-xs-4" >
 <a id="lien" href="conseiller/accueilConseiller">
+
 <img id="logo" alt="godzilla" src="style/images/dollarBourse2.ico" align="left"></a><br/>
 <h1 id="title3" 
 style="color:#ffda28 ;  font-size: xx-large; text-align: rigth; 

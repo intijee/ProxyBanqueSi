@@ -31,9 +31,10 @@
 			<div  class="col-xs-10" >
 			<nav class="navbar navbar-inverse" id="navbar" style="padding :5px;background:linear-gradient(to right, RGBA(64,0,64,0.50), RGBA(255,255,255,0.10))  ; color: gold ;font-family: monospace;">
 					<ul class="nav nav-pills">
-						<li role="presentation"><a href="/accueil">Accueil</a></li>
-						<li role="presentation"><a href="/client">Clients</a></li>
-						<li role="presentation"><a href="/bien">Comptes</a></li>
+						<li role="presentation"><a href="#">Accueil</a></li>
+						<li role="presentation"><a href="conseiller/accueilConseiller">Conseillers</a></li>
+						<li role="presentation"><a href="client/accueilClient">Clients</a></li>
+						<li role="presentation"><a href="compte/accueilCompte">Comptes</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -47,11 +48,11 @@
 				<div class="col-xs-12" style="margin-top: 15px">
 
 				<div class="list-group">
-					<a href="#" class="list-group-item list-group-item-warning">Accueil Liste</a>
-  					<a href="#" class="list-group-item list-group-item-warning">Ajouter</a>
-  					<a href="#" class="list-group-item list-group-item-warning">Modifier</a>
-  					<a href="#" class="list-group-item list-group-item-warning">Supprimer</a>
-  					<a href="#" class="list-group-item list-group-item-warning">Chercher</a>
+					<a href="conseiller/accueilConseiller" class="list-group-item list-group-item-warning">Accueil Liste</a>
+  					<a href="conseiller/ajouter" class="list-group-item list-group-item-warning">Ajouter</a>
+  					<a href="conseiller/modifier" class="list-group-item list-group-item-warning">Modifier</a>
+  					<a href="conseiller/supprimer" class="list-group-item list-group-item-warning">Supprimer</a>
+ 
 				</div>
 				
 		</div>
@@ -60,7 +61,7 @@
 </div>	
 <div class="col-xs-10" id="maincontent">
 
-<h1>Liste des conseillers de ProxyBanque</h1>
+<h1>Liste des conseillers</h1>
 	<table class="table table-hover">
 		<tr>
 			<th>Référence du conseiller</th>
