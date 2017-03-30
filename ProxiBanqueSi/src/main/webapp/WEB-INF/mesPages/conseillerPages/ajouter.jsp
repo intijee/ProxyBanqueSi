@@ -20,6 +20,9 @@
 <link rel="stylesheet" type="text/css" href='<c:url value="/style/style.css"/>'>
 
 
+<!-- ref vers feuilles js -->
+<script type="text/javascript" src='<c:url value="/scripts/script.js"/>'></script>
+
 </head>
 <body>
 <div class="container-fluid">
