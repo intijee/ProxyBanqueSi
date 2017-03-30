@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,14 +15,14 @@
 <body>
 
 
-<h1>Liste des clients</h1>
+	<h1>Liste des clients</h1>
 	<table class="table table-hover">
 
 
 
 		<thead>
 			<tr>
-				<th>Id</th>
+				<th>Type de client</th>
 				<th>Nom</th>
 				<th>Prénom</th>
 				<th>Adresse</th>
@@ -30,13 +30,14 @@
 				<th>Code Postal</th>
 				<th>telephone</th>
 				<th>Référence client</th>
-<!-- 				<th>Référence conseiller</th> -->
+				<th>Référence du conseiller</th>
+				<!-- 				<th>Référence conseiller</th> -->
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="client" items="${clientListe}">
 				<tr>
-					<td>${client.id_client}</td>
+					<td><c:if test="${client.humain_0_entreprise_1} == 0"></c:if>Humain<c:if test="${client.humain_0_entreprise_1} == 1">Entreprise</c:if></td>
 					<td>${client.nom}</td>
 					<td>${client.prenom}</td>
 					<td>${client.adresse}</td>
@@ -44,6 +45,7 @@
 					<td>${client.code_postal}</td>
 					<td>${client.telephone}</td>
 					<td>${client.reference_client}</td>
+					<td>${client.pConseiller.reference_conseiller}</td>
 				</tr>
 			</c:forEach>
 		</tbody>
