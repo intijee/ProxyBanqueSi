@@ -1,6 +1,9 @@
 package fr.adaming.controller;
 
+import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import fr.adaming.WSSoapClient.WebServiceBourse;
 import fr.adaming.dao.ClientDaoImpl;
 import fr.adaming.entities.Client;
 import fr.adaming.entities.Conseiller;
@@ -150,6 +154,15 @@ public class ClientController {
 		model.addAttribute("clientListe",listeClient);
 		return "clientPages/accueil";
 	}
+	//=======================Afficher Cours de la bourse ============================================
+	@RequestMapping(value= "/action", method = RequestMethod.GET)
+	public String coursAction (ModelMap model){
+		Map<String, BigDecimal> coursAction = new HashMap<>();
+		WebServiceBourse serviceBourse = new WebServiceBourse();
+		coursAction = serviceBourse.getStocks();
+		model.addAttribute("actionListe", coursAction);
+		return "clientPages/bourse";
+	}
+	//=======================Boursicoter============================================
 	
-
 }
