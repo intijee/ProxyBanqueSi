@@ -77,7 +77,7 @@
 		</tr>
 
 		<tr>
-			<td><c:forEach var="agence" items="${listeAgence}">
+			<td><c:forEach var="agence" items="${agenceListe}">
 		<tr>
 			<td>${agence.date_creation}</td>
 			<td>${agence.nom_gerant}</td>
@@ -86,29 +86,15 @@
 		</tr>
 </c:forEach>
 	</table>
-
-</div>		
-</div>
-			</div>
-		</div>
-
-<br/>
-	<div class="col-xs-12" id="footer">	
-			<div class="row">
-
-				<h1 style="color: #ffda28;" >Website Footer</h1>
-			</div>
-	</div>
-	</div>
-</div>
-
-	<div
+	
+	
+		<div
 		style="width: 400px; height: 500px; margin: auto; margin-top: 50px">
-		<form:form method="POST" action="soumettreSupprimer"
+		<form:form method="POST" action="auditAgence"
 			modelAttribute="auditForm">
 			<table>
 
-				<tr><td><form:label path="reference_agence">Référence du conseiller à auditer</form:label></td>
+				<tr><td><form:label path="reference_agence">Référence de l'agence à auditer</form:label></td>
 					<td><form:select path="reference_agence">
 							<c:forEach var="agence" items="${agenceListe}">
 								<option value=${agence.reference_agence}>${agence.getReference_agence()}</option>
@@ -129,6 +115,23 @@
 		</form:form>
 
 	</div>
+
+</div>		
+</div>
+			</div>
+		</div>
+
+<br/>
+	<div class="col-xs-12" id="footer">	
+			<div class="row">
+
+				<h1 style="color: #ffda28;" >Website Footer</h1>
+			</div>
+	</div>
+	</div>
+</div>
+
+
 
 
 </body>

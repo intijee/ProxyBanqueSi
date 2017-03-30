@@ -55,7 +55,7 @@ public class Agence implements Serializable {
 	/***
 	 * déclaration de l'association 
 	 */
-	@OneToMany(mappedBy="pAgence",fetch=FetchType.LAZY,cascade={CascadeType.PERSIST,CascadeType.REMOVE})
+	@OneToMany(mappedBy="pAgence",fetch=FetchType.EAGER,cascade={CascadeType.PERSIST,CascadeType.REMOVE})
 	// Cascade pour la propagation des operations
 	private List<Conseiller> pConseiller;
 	
