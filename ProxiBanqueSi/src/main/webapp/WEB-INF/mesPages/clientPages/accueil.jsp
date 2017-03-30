@@ -37,11 +37,11 @@
 		<tbody>
 			<c:forEach var="client" items="${clientListe}">
 				<tr>
-					<td><c:if test="${client.humain_0_entreprise_1} == 0"></c:if>Humain<c:if test="${client.humain_0_entreprise_1} == 1">Entreprise</c:if></td>
+					<td><c:if test="${client.humain_0_entreprise_1 == false}">Humain</c:if><c:if test="${client.humain_0_entreprise_1 == true}">Entreprise</c:if></td>
 					<td>${client.nom}</td>
 					<td>${client.prenom}</td>
 					<td>${client.adresse}</td>
-					<th>${client.ville}</th>
+					<td>${client.ville}</td>
 					<td>${client.code_postal}</td>
 					<td>${client.telephone}</td>
 					<td>${client.reference_client}</td>
