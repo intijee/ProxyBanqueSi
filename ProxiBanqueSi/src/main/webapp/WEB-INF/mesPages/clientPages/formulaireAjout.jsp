@@ -77,10 +77,7 @@
 					<td><form:input path="nom" /></td>
 				</tr>
 
-				<tr>
-					<td><br /> <br /></td>
-				</tr>
-
+			
 				<tr>
 					<td><form:label path="prenom">Prenom du client</form:label></td>
 					<td><form:input path="prenom" /></td>
@@ -114,10 +111,7 @@
 					<td><form:input path="reference_client" /></td>
 				</tr>
 
-
-				<tr>
-					<td><br /> <br /></td>
-				</tr>
+>
 				<tr>
 					<td><form:label path="pConseiller.reference_conseiller">Référence du conseiller à modifier</form:label></td>
 					<td><form:select path="pConseiller.reference_conseiller">
@@ -139,7 +133,7 @@
 					<td><br /></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="Ajouter"
+					<td colspan="2"><input type="submit" class="btn btn-info" value="Ajouter"
 						style="margin-left: 120px"></td>
 				</tr>
 
