@@ -133,7 +133,7 @@
 					<td><br /></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" class="btn btn-info" value="Ajouter"
+					<td colspan="2"><input type="submit" class="btn btn-default" value="Ajouter"
 						style="margin-left: 120px"></td>
 				</tr>
 
