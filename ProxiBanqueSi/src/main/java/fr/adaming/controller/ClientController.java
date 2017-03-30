@@ -115,12 +115,20 @@ public class ClientController {
 	//Afficher formulaire
 	@RequestMapping(value = "/affichFormModifier", method = RequestMethod.GET)
 	public ModelAndView modifierEmployeFormulaire(){
-		return new ModelAndView("affichFormRechercher/formulaireModication", "clientModifForm", new Client());
+		
+		List<Conseiller> listeConseiller=conseillerService.getAllConseiller();
+		List<Client> listeClient=clientService.getAllClient();
+		ModelAndView model=new ModelAndView();
+		model.addObject("clientListe",listeClient);
+		model.addObject("clientModifForm", new Client());
+		model.addObject("conseillerListe",listeConseiller);
+		model.setViewName("clientPages/formulaireModification");
+		return model;
 	}
 	
 	//Soumettre formulaire
 	@RequestMapping(value = "/soumettreFormModifier", method = RequestMethod.POST)
-	public String soumettreFormulaireModifier(Model model, Client client){
+	public String soumettreFormulaireModifier(Model model,@ModelAttribute("clientModifForm") Client client){
 		
 	Conseiller conseiller = conseillerService.getConseillerByReference(client.getpConseiller().getReference_conseiller());
 	client.setpConseiller(conseiller);
