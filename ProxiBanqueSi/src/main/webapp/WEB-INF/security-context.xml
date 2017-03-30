@@ -28,9 +28,9 @@
 <!-- DECLARATION DES URL ET INTERCEPTIONS -->
 <security:http>
 <!-- L'interception des url -->
-	<security:intercept-url pattern="/conseillerTEST/**" access ="ROLE_GERANT"/>
+	<security:intercept-url pattern="/conseiller/**" access ="ROLE_GERANT"/>
 	<security:form-login login-page ="/loginGeneral" authentication-failure-url="/loginGeneral"/>		
-	<security:intercept-url pattern="/clientTEST/**" access="ROLE_CONSEILLER,ROLE_GERANT"/>	
+	<security:intercept-url pattern="/client/**" access="ROLE_CONSEILLER,ROLE_GERANT"/>	
 	<security:form-login login-page ="/loginGeneral" authentication-failure-url="/loginGeneral"/>	
 	<security:logout invalidate-session="true" logout-success-url="/logout" />
 	

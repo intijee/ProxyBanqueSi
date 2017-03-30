@@ -16,7 +16,7 @@ public class LoginController {
 	
 	@RequestMapping(value ="/logout")
 	public String pageLogoutGerant(){
-		return "index";
+		return "home";
 	}
 	
 	@RequestMapping(value = "/accessRefuse")
