@@ -19,6 +19,8 @@
 <!-- ref vers feuilles css -->
 <link rel="stylesheet" type="text/css" href='<c:url value="/style/style.css"/>'>
 
+<!-- ref vers feuilles js -->
+<script type="text/javascript" src='<c:url value="/scripts/script.js"/>'></script>
 
 </head>
 <body>
@@ -32,7 +34,7 @@
 			<nav class="navbar navbar-inverse" id="navbar" style="padding :5px;background:linear-gradient(to right, RGBA(64,0,64,0.50), RGBA(255,255,255,0.10))  ; color: gold ;font-family: monospace;">
 					<ul class="nav nav-pills">
 						<li role="presentation"><a href="#">Accueil</a></li>
-						<li role="presentation"><a href="conseiller/accueilConseiller">Conseillers</a></li>
+						<li role="presentation" class="active"><a href="accueilConseiller">Conseillers</a></li>
 						<li role="presentation"><a href="client/accueil">Clients</a></li>
 						<li role="presentation"><a href="compte/listeComptes">Comptes</a></li>
 					</ul>
