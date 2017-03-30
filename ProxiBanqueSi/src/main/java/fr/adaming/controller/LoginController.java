@@ -23,4 +23,10 @@ public class LoginController {
 	public String pageAccesRefuse(){
 		return "accesRefusePage";
 	}
+	
+	@RequestMapping(value = "/home")
+	public String pageIndexToGlobal(){
+		return "home";
+	}
+	
 }
