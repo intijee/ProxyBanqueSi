@@ -21,7 +21,7 @@
 					<td><form:label path="reference_client">Référence du client à supprimer</form:label></td>
 					<td><form:select path="reference_client">
 							<c:forEach var="client" items="${clientListe}">
-								<option value=${client.reference_client}>${conseiller.getReference_client()}</option>
+								<option value=${client.reference_client}>${client.getReference_client()}</option>
 							</c:forEach>
 						</form:select></td>
 				</tr>

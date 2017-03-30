@@ -14,23 +14,12 @@
 </head>
 <body>
 
-<div class="container">
-<header class="row col-sm-12">
-        <div class="page-header">
- <h2 class="police_titre">Afficher les clients</h2>
-        </div>
-    </header>
-    
-   <a href="accueil.jsp">Retour vers Accueil</a><br/>
-   
-<form action="accueil" method="get">
-<p><input type="submit"  value="valider" /></p>
-</form>
 
-	<table class="table table-bordered">
+<h1>Liste des clients</h1>
+	<table class="table table-hover">
 
-<!-- affichage de la liste des clients  -->
-<h3>Client: </h3>
+
+
 		<thead>
 			<tr>
 				<th>Id</th>
@@ -45,9 +34,9 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="client" items="${listeClient}">
+			<c:forEach var="client" items="${clientListe}">
 				<tr>
-					<th>${client.id}</th>
+					<td>${client.id_client}</td>
 					<td>${client.nom}</td>
 					<td>${client.prenom}</td>
 					<td>${client.adresse}</td>
@@ -55,7 +44,6 @@
 					<td>${client.code_postal}</td>
 					<td>${client.telephone}</td>
 					<td>${client.reference_client}</td>
-<!-- 					<td>${client.conseiller_id_fk}</td> -->
 				</tr>
 			</c:forEach>
 		</tbody>

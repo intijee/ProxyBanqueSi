@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import fr.adaming.dao.ClientDaoImpl;
 import fr.adaming.entities.Client;
 import fr.adaming.entities.Conseiller;
 import fr.adaming.service.IClientService;
@@ -80,7 +81,9 @@ public class ClientController {
 	//Soumettre formulaire
 	@RequestMapping(value = "/soumettreFormSupprimer", method = RequestMethod.POST)
 	public String soumettreFormulaireSupprimer(Model model, @ModelAttribute("supprimerForm") Client client){
-		clientService.deleteClient(client);
+		
+		
+		clientService.deleteClient(client.getReference_client());
 		
 		//MAJ de la liste
 		List<Client> listeClient = clientService.getAllClient();

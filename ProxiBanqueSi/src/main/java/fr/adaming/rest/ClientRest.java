@@ -75,7 +75,7 @@ public class ClientRest {
 			
 			
 			// Supprimer le client dans la base de données
-			clientservice.deleteClient(clientservice.getByReference(reference_client));
+			clientservice.deleteClient(reference_client);
 			// Retourne 1 si la suppression a reussi
 			return new Integer(1);
 		} catch (Exception e) {
