@@ -95,9 +95,7 @@
 								<form:form method="POST" action="soumettreAjoutCompte"
 									modelAttribute="compteForm">
 									<table>
-										<tr>
-											<td><br /> <br /></td>
-										</tr>
+										
 										
 										<tr>
 											<td><form:label cssClass="control-label" path="numero">numéro du compte </form:label></td>
@@ -105,7 +103,7 @@
 										</tr>
 
 										<tr>
-											<td><br /> <br /></td>
+											<td><br /> </td>
 										</tr>
 										<tr>
 											<td><form:label cssClass="control-label" path="solde">Solde du compte</form:label></td>
@@ -113,7 +111,7 @@
 										</tr>
 
 										<tr>
-											<td><br /> <br /></td>
+											<td><br /> </td>
 										</tr>
 										<tr>
 											<td><form:label cssClass="control-label"
@@ -124,7 +122,7 @@
 										
 										
 										<tr>
-											<td><br /> <br /></td>
+											<td><br /> </td>
 										</tr>
 										<tr>
 											<td><form:label path="pClient.reference_client">référence du proprietaire du compte</form:label></td>
@@ -137,7 +135,7 @@
 												</form:select></td>
 										</tr>
 										<tr>
-											<td><br /> <br /></td>
+											<td><br /> </td>
 										</tr>
 
 										<tr>
@@ -163,7 +161,7 @@
 										</div>
 
 										<tr>
-											<td><br /> <br /></td>
+											<td><br /> </td>
 										</tr>
 										<tr>
 											<td colspan="2" ><input type="submit" value="Ajouter"

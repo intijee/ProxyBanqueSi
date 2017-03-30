@@ -90,7 +90,7 @@
 									modelAttribute="compteForm1">
 									<table>
 										<tr>
-											<td><br /> <br /><label cssClass="control-label" >Compte à créditer:</label></td>
+											<td><br /> <label cssClass="control-label" >Compte à créditer:</label></td>
 										</tr>
 										<tr>
 											<td><form:select cssClass="form-control" path="assoCompte.id_compte">
@@ -132,7 +132,7 @@
 									modelAttribute="compteForm2">
 									<table>
 										<tr>
-											<td><br /> <br /><label cssClass="control-label" >Compte à débiter:</label></td>
+											<td><br /> <label cssClass="control-label" >Compte à débiter:</label></td>
 										</tr>
 										<tr>
 											<td><form:select  cssClass="form-control" path="assoCompte.id_compte">
@@ -175,7 +175,7 @@
 
 									<table>
 										<tr>
-											<td><br /> <br /><label cssClass="control-label" >Compte à débiter:</label></td>
+											<td><br /> <label cssClass="control-label" >Compte à débiter:</label></td>
 										</tr>
 										<tr>
 											<td><form:select  cssClass="form-control" path="assoCompte.id_compte">

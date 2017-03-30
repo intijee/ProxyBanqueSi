@@ -48,7 +48,7 @@
 							<li role="presentation"><a
 								href="${pageContext.request.contextPath}/client/accueil">Clients</a></li>
 							<li role="presentation" class="active"><a
-								href="${pageContext.request.contextPath}/compte/listeComptes">Comptes</a></li>F
+								href="${pageContext.request.contextPath}/compte/listeComptes">Comptes</a></li>
 						</ul>
 					</nav>
 				</div>
