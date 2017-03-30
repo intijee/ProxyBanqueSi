@@ -19,6 +19,8 @@
 <!-- ref vers feuilles css -->
 <link rel="stylesheet" type="text/css" href='<c:url value="/style/style.css"/>'>
 
+<!-- ref vers feuilles js -->
+<script type="text/javascript" src='<c:url value="/scripts/script.js"/>'></script>
 
 </head>
 <body>
@@ -31,10 +33,10 @@
 			<div  class="col-xs-10" >
 			<nav class="navbar navbar-inverse" id="navbar" style="padding :5px;background:linear-gradient(to right, RGBA(64,0,64,0.50), RGBA(255,255,255,0.10))  ; color: gold ;font-family: monospace;">
 					<ul class="nav nav-pills">
-						<li role="presentation"><a href="#">Accueil</a></li>
-						<li role="presentation"><a href="conseiller/accueilConseiller">Conseillers</a></li>
-						<li role="presentation"><a href="client/accueil">Clients</a></li>
-						<li role="presentation"><a href="compte/listeComptes">Comptes</a></li>
+						<li role="presentation"><a href="${pageContext.request.contextPath}/index.jsp">Accueil</a></li>
+						<li role="presentation" class="active"><a href="${pageContext.request.contextPath}/conseiller/accueilConseiller">Conseillers</a></li>
+						<li role="presentation"><a href="${pageContext.request.contextPath}/client/accueil">Clients</a></li>
+						<li role="presentation"><a href="${pageContext.request.contextPath}/compte/listeComptes">Comptes</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -51,7 +53,7 @@
 					<a href="accueilConseiller" class="list-group-item list-group-item-warning">Accueil Liste</a>
   					<a href="ajouter" class="list-group-item list-group-item-warning">Ajouter</a>
   					<a href="ajouterAgence" class="list-group-item list-group-item-warning">Ajouter Agence</a>
-  					<a href="soumettreFormAjouterAgence" class="list-group-item list-group-item-warning">Infos Agence</a>
+  					<a href="accueilAgence" class="list-group-item list-group-item-warning">Infos Agence</a>
   					<a href="modifier" class="list-group-item list-group-item-warning">Modifier</a>
   					<a href="supprimer" class="list-group-item list-group-item-warning">Supprimer</a>
  
@@ -64,7 +66,8 @@
 <div class="col-xs-10" id="maincontent">
 
 <h1>Informations de l'Agence</h1>
-	<table>
+<br/>
+	<table class="table table-hover">
 	
 		<tr>
 			<th>date creation</th>
