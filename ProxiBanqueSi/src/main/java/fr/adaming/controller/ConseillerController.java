@@ -177,8 +177,11 @@ public class ConseillerController {
 	
 	//===================Afficher liste des comptes de l'agence ==========================
 	
-	@RequestMapping(value="/auditAgence", method = RequestMethod.GET)
+	@RequestMapping(value="/auditAgence", method = RequestMethod.POST)
 	public String auditAgence(ModelMap model,@ModelAttribute("auditForm") Agence agence){
+		
+		System.out.println(agence.getReference_agence());
+		agence=agenceService.getAgenceByRefService(agence.getReference_agence());
 		List<Compte> listeCompteEntreprise = new ArrayList<>();		
 		List<Compte> listeCompteHumain = new ArrayList<>();
 		
