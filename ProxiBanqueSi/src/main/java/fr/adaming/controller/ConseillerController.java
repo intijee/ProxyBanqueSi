@@ -159,6 +159,14 @@ public class ConseillerController {
 		return "conseillerPages/informationAgence";
 	}
 	
+	//=======================Afficher Agence============================================
+	@RequestMapping(value= "/accueilAgence", method = RequestMethod.GET)
+	public String accueilAgence(ModelMap model){
+		
+		List<Agence> listeAgence =agenceService.getAllAgenceService();
+		model.addAttribute("agenceListe",listeAgence);
+		return "conseillerPages/informationAgence";
+	}
 	
 	
 	
