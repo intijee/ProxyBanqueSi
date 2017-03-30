@@ -86,27 +86,27 @@
 									modelAttribute="compteForm">
 									<table>
 										<tr>
-											<td>Compte à modifier n°${compteForm.numero} :<br /> <br /></td>
+											<td><label cssClass="control-label" >Compte à modifier n°${compteForm.numero} :</label><br /> <br /></td>
 										</tr>
 										<tr>
-											<td><form:label path="numero">numéro du compte </form:label></td>
-											<td><form:input path="numero" /></td>
+											<td><form:label cssClass="control-label" path="numero">numéro du compte </form:label></td>
+											<td><form:input cssClass="form-control" path="numero" /></td>
 										</tr>
 
 										<tr>
 											<td><br /> <br /></td>
 										</tr>
 										<tr>
-											<td><form:label path="solde">Solde du compte</form:label></td>
-											<td><form:input path="solde" /></td>
+											<td><form:label cssClass="control-label" path="solde">Solde du compte</form:label></td>
+											<td><form:input cssClass="form-control" path="solde" /></td>
 										</tr>
 
 										<tr>
 											<td><br /> <br /></td>
 										</tr>
 										<tr>
-											<td><form:label path="date_ouverture">date d'ouverture du compte</form:label></td>
-											<td><form:input path="date_ouverture" type="date" /></td>
+											<td><form:label cssClass="control-label" path="date_ouverture">date d'ouverture du compte</form:label></td>
+											<td><form:input cssClass="form-control" path="date_ouverture" type="date" /></td>
 										</tr>
 
 										<tr>
@@ -114,12 +114,10 @@
 										</tr>
 
 
-										<tr>
-											<td><br /> <br /></td>
-										</tr>
+					
 										<tr>
 											<td colspan="2"><input type="submit" value="Modifier"
-												style="margin-left: 120px"></td>
+												class="form-control"></td>
 										</tr>
 
 									</table>

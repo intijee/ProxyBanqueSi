@@ -83,54 +83,51 @@
 						<div class="col-xs-10" id="maincontent">
 
 							<div
-								style="width: 300px; height: 400px; margin: auto; margin-top: 50px">
+								style="width: 300px; height: 400px; margin: auto;">
+								<h1>Modifier un compte:</h1>
 								<form:form method="POST" action="soumettreModifierCompte"
 									modelAttribute="compteForm">
 
 									<table>
 										<tr>
-											<td><br /> <br />Modifier un compte :</td>
+											<td><label cssClass="control-label" >Choisissez le compte :</label></td>
 										</tr>
 										<tr>
-											<td><form:select path="id_compte">
+											<td><form:select cssClass="form-control" path="id_compte">
 													<c:forEach var="compte" items="${listeComptes}">
 														<option value=${compte.id_compte}>${compte.id_compte}
 															# ${compte.numero}</option>
 													</c:forEach>
-												</form:select></td>
+												</form:select><br /> <br /></td>
 										</tr>
 										<tr>
-											<td><form:label path="numero">numéro du compte </form:label></td>
-											<td><form:input path="numero" /></td>
+											<td><form:label cssClass="control-label" path="numero">numéro du compte </form:label></td>
+											<td><form:input cssClass="form-control" path="numero" /></td>
 										</tr>
 
 										<tr>
 											<td><br /> <br /></td>
 										</tr>
 										<tr>
-											<td><form:label path="solde">Solde du compte</form:label></td>
-											<td><form:input path="solde" /></td>
+											<td><form:label cssClass="control-label" path="solde">Solde du compte</form:label></td>
+											<td><form:input cssClass="form-control" path="solde" /></td>
 										</tr>
 
 										<tr>
 											<td><br /> <br /></td>
 										</tr>
 										<tr>
-											<td><form:label path="date_ouverture">date d'ouverture du compte</form:label></td>
-											<td><form:input path="date_ouverture" type="date" /></td>
+											<td><form:label cssClass="control-label" path="date_ouverture">date d'ouverture du compte</form:label></td>
+											<td><form:input cssClass="form-control" path="date_ouverture" type="date" /></td>
 										</tr>
 
 										<tr>
 											<td><br /> <br /></td>
 										</tr>
 
-
-										<tr>
-											<td><br /> <br /></td>
-										</tr>
 										<tr>
 											<td colspan="2"><input type="submit" value="Modifier"
-												style="margin-left: 120px"></td>
+												class="form-control"></td>
 										</tr>
 
 									</table>

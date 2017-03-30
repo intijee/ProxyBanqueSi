@@ -132,7 +132,7 @@
 									modelAttribute="compteForm2">
 									<table>
 										<tr>
-											<td><br /> <br />Compte à débiter:</td>
+											<td><br /> <br /><label cssClass="control-label" >Compte à débiter:</label></td>
 										</tr>
 										<tr>
 											<td><form:select  cssClass="form-control" path="assoCompte.id_compte">
@@ -175,7 +175,7 @@
 
 									<table>
 										<tr>
-											<td><br /> <br />Compte à débiter:</td>
+											<td><br /> <br /><label cssClass="control-label" >Compte à débiter:</label></td>
 										</tr>
 										<tr>
 											<td><form:select  cssClass="form-control" path="assoCompte.id_compte">
@@ -187,7 +187,7 @@
 										</tr>
 
 										<tr>
-											<td><br /> <br />Compte à créditer:</td>
+											<td><br /> <br /><label cssClass="control-label" >Compte à créditer:</label></td>
 										</tr>
 										<tr>
 											<td><form:select  cssClass="form-control" path="assoCredite.id_compte">

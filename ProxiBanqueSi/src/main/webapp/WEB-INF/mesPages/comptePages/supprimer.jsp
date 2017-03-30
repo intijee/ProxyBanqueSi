@@ -82,16 +82,17 @@
 						<div class="col-xs-10" id="maincontent">
 
 							<div
-								style="width: 300px; height: 400px; margin: auto; margin-top: 50px">
+								style="width: 300px; height: 400px; margin: auto; margin-top: 50px; display: inline-block;">
+								<h1>Supprimer un compte:</h1>
 								<form:form method="POST" action="soumettreSupprimerCompte"
 									modelAttribute="compteForm">
-									<table>
+									<table style="display: inline-block;">
 										<tr>
-											<td><br /> <br />Supprimer un compte :</td>
+											<td><br /> <br /><label cssClass="control-label" >Supprimer un compte :</label></td>
 										</tr>
 
 										<tr>
-											<td><form:select path="id_compte">
+											<td><form:select cssClass="form-control" path="id_compte">
 													<c:forEach var="compte" items="${listeComptes}">
 														<option value=${compte.id_compte}>${compte.id_compte}
 															# ${compte.numero}</option>
@@ -104,7 +105,7 @@
 										</tr>
 										<tr>
 											<td colspan="2"><input type="submit" value="Supprimer"
-												style="margin-left: 120px"></td>
+												class="form-control"></td>
 										</tr>
 
 									</table>

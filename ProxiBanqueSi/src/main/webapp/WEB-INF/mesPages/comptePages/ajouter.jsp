@@ -45,13 +45,14 @@
 					<nav class="navbar navbar-inverse" id="navbar"
 						style="padding: 5px; background: linear-gradient(to right, RGBA(64, 0, 64, 0.50), RGBA(255, 255, 255, 0.10)); color: gold; font-family: monospace;">
 						<ul class="nav nav-pills">
-							<li role="presentation"><a href="${pageContext.request.contextPath}">Accueil</a></li>
-									<li role="presentation"><a
+							<li role="presentation"><a
+								href="${pageContext.request.contextPath}">Accueil</a></li>
+							<li role="presentation"><a
 								href="${pageContext.request.contextPath}/conseiller/accueilConseiller">Conseillers</a></li>
 							<li role="presentation"><a
 								href="${pageContext.request.contextPath}/client/accueil">Clients</a></li>
 							<li role="presentation" class="active"><a
-								href="${pageContext.request.contextPath}/compte/listeComptes">Comptes</a></li>FS
+								href="${pageContext.request.contextPath}/compte/listeComptes">Comptes</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -89,71 +90,84 @@
 
 
 
-							<div
-								style="width: 300px; height: 400px; margin: auto; margin-top: 50px">
+							<div style="width: 300px; height: 400px; margin: auto;">
+								<h1>Ajouter un compte:</h1>
 								<form:form method="POST" action="soumettreAjoutCompte"
 									modelAttribute="compteForm">
 									<table>
-
 										<tr>
-											<td><form:label path="numero">numéro du compte </form:label></td>
-											<td><form:input path="numero" /></td>
+											<td><br /> <br /></td>
+										</tr>
+										
+										<tr>
+											<td><form:label cssClass="control-label" path="numero">numéro du compte </form:label></td>
+											<td><form:input cssClass="form-control" path="numero" /></td>
 										</tr>
 
 										<tr>
 											<td><br /> <br /></td>
 										</tr>
 										<tr>
-											<td><form:label path="solde">Solde du compte</form:label></td>
-											<td><form:input path="solde" /></td>
+											<td><form:label cssClass="control-label" path="solde">Solde du compte</form:label></td>
+											<td><form:input cssClass="form-control" path="solde" /></td>
 										</tr>
 
 										<tr>
 											<td><br /> <br /></td>
 										</tr>
 										<tr>
-											<td><form:label path="date_ouverture">date d'ouverture du compte</form:label></td>
-											<td><form:input path="date_ouverture" type="date" /></td>
+											<td><form:label cssClass="control-label"
+													path="date_ouverture">date d'ouverture du compte</form:label></td>
+											<td><form:input cssClass="form-control"
+													path="date_ouverture" type="date" /></td>
 										</tr>
-
+										
+										
 										<tr>
 											<td><br /> <br /></td>
 										</tr>
 										<tr>
 											<td><form:label path="pClient.reference_client">référence du proprietaire du compte</form:label></td>
-											<td><form:select path="pClient.reference_client">
+											<td><form:select cssClass="form-control"
+													path="pClient.reference_client">
 													<c:forEach var="client" items="${listeClients}">
 														<option value=${client.reference_client}>${client.nom}
 															${client.prenom}</option>
 													</c:forEach>
 												</form:select></td>
 										</tr>
+										<tr>
+											<td><br /> <br /></td>
+										</tr>
 
 										<tr>
 											<td><form:radiobutton path="type" value="true"
-													onclick="hideDecouvert()" /> epargne</td>
+													onclick="hideDecouvert()" /> <label cssClass="control-label" > Epargne</label></td>
 											<td><form:radiobutton path="type" value="false"
-													onclick="hideTaux()" /> courant</td>
+													onclick="hideTaux()" /><label cssClass="control-label" > Courant</label></td>
 										</tr>
 
 										<tr>
-											<td><form:label path="taux">Taux du compte</form:label></td>
-											<td><form:input id="taux" path="taux" disabled="true" /></td>
+											<td><form:label cssClass="control-label" path="taux">Taux du compte</form:label></td>
+											<td><form:input cssClass="form-control" id="taux"
+													path="taux" disabled="true" /></td>
 										</tr>
 
 										<tr>
-											<td><form:label path="decouvert">découvert autorisé</form:label></td>
-											<td><form:input id="decouvert" path="decouvert" /></td>
+											<td><form:label cssClass="control-label"
+													path="decouvert">découvert autorisé</form:label></td>
+											<td><form:input cssClass="form-control" id="decouvert"
+													path="decouvert" /></td>
 										</tr>
 
-
+										</div>
 
 										<tr>
 											<td><br /> <br /></td>
 										</tr>
 										<tr>
-											<td colspan="2"><input type="submit" value="Ajouter"
-												style="margin-left: 120px"></td>
+											<td colspan="2" ><input type="submit" value="Ajouter"
+												class="form-control"></td>
 										</tr>
 
 									</table>
