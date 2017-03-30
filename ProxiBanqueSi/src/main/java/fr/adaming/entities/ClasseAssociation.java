@@ -27,9 +27,15 @@ public class ClasseAssociation {
 	// attrribut du compte2
 
 	private Compte assoCredite;
+	
+	//Attribut de l'action
+	private Action assoAction;
 
 	// somme de l'opération
 	private double somme;
+	
+	// Quantité d'action
+	private int quantite;
 
 	/**
 	 * constructeur vide
@@ -57,6 +63,21 @@ public class ClasseAssociation {
 		this.assoCompte = assoCompte;
 		this.assoCredite = assoCredite;
 		this.somme = somme;
+	}
+	
+	
+
+	public ClasseAssociation(Agence assoAgence, Conseiller assoConseiller, Client assoClient, Compte assoCompte,
+			Compte assoCredite, Action assoAction, double somme, int quantite) {
+		super();
+		this.assoAgence = assoAgence;
+		this.assoConseiller = assoConseiller;
+		this.assoClient = assoClient;
+		this.assoCompte = assoCompte;
+		this.assoCredite = assoCredite;
+		this.assoAction = assoAction;
+		this.somme = somme;
+		this.quantite = quantite;
 	}
 
 	/**
@@ -147,6 +168,34 @@ public class ClasseAssociation {
 	 */
 	public void setSomme(double somme) {
 		this.somme = somme;
+	}
+
+	/**
+	 * @return the assoAction
+	 */
+	public Action getAssoAction() {
+		return assoAction;
+	}
+
+	/**
+	 * @param assoAction the assoAction to set
+	 */
+	public void setAssoAction(Action assoAction) {
+		this.assoAction = assoAction;
+	}
+
+	/**
+	 * @return the quantite
+	 */
+	public int getQuantite() {
+		return quantite;
+	}
+
+	/**
+	 * @param quantite the quantite to set
+	 */
+	public void setQuantite(int quantite) {
+		this.quantite = quantite;
 	}
 
 }

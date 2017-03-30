@@ -20,12 +20,12 @@
 		</tr>
 
 		<tr>
-			<td><c:forTokens var="action" items="${actionListe}">
+			<td><c:forEach var="action" items="${actionListe}">
 			<tr>
-			<td>${action.key}</td>
-			<td>${action.value}</td>
+			<td>${action.nom}</td>
+			<td>${action.cours}</td>
 			</tr>
-			</c:forTokens></td>
+			</c:forEach></td>
 		</tr>
 
 	</table>
