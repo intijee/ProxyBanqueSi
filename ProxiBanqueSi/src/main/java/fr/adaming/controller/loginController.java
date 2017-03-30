@@ -4,15 +4,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/login")
 public class loginController {
 
-	@RequestMapping("/loginGerant")
+	@RequestMapping(value = "/loginGerant")
 	public String pageLoginGerant(){
-		return "loginPageGerant";
+		return "loginPages/loginPagesGerant";
 	}
 	
-	@RequestMapping("/loginConseiller")
+	@RequestMapping(value ="/loginConseiller")
 	public String pageLoginConseiller(){
-		return "loginPageGerant";
+		return "loginPages/loginPagesConseiller";
 	}
 }

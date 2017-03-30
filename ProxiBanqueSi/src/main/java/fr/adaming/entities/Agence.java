@@ -47,6 +47,10 @@ public class Agence implements Serializable {
 	private String reference_gerant;
 	@Column(name="password_gerant")
 	private String password_gerant;
+	
+	//Securite
+	private Boolean activated = true;
+	private int role_id = 2;
 
 	/***
 	 * déclaration de l'association 
@@ -191,9 +195,24 @@ public class Agence implements Serializable {
 	public void setPassword_gerant(String password_gerant) {
 		this.password_gerant = password_gerant;
 	}
+	
 
-	
-	
+	public Boolean getActivated() {
+		return activated;
+	}
+
+	public void setActivated(Boolean activated) {
+		this.activated = activated;
+	}
+
+	public int getRole_id() {
+		return role_id;
+	}
+
+	public void setRole_id(int role_id) {
+		this.role_id = role_id;
+	}
+
 	@Override
 	public String toString() {
 		return "Agence [id=" + id_agence + ", reference_agence=" + reference_agence + ", date_creation=" + date_creation

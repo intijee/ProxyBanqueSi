@@ -30,12 +30,13 @@ public class Conseiller implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id_conseiller;
-	
 	private String nom;
-	
 	private String prenom;
-	
 	private String reference_conseiller;
+	
+	//Securite
+	private Boolean activated = true;
+	private int role_id = 1;
 	
 
 	@ManyToOne
@@ -168,5 +169,21 @@ public class Conseiller implements Serializable{
 		this.pListeClient = pListeClient;
 	}
 
+	public Boolean getActivated() {
+		return activated;
+	}
+
+	public void setActivated(Boolean activated) {
+		this.activated = activated;
+	}
+
+	public int getRole_id() {
+		return role_id;
+	}
+
+	public void setRole_id(int role_id) {
+		this.role_id = role_id;
+	}
 	
+
 }
