@@ -244,7 +244,7 @@ public class CompteController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/afficheOperationForm", method = RequestMethod.GET)
+	@RequestMapping(value = "/afficheOperation", method = RequestMethod.GET)
 	public String afficherFormOperation(Model model) {
 
 		List<Compte> listeComptes = compteService.getAllCompte();
