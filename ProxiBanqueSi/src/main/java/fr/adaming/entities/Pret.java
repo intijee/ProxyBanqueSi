@@ -20,6 +20,8 @@ public class Pret {
 	private int duree_mois;
 	
 	private double mensualites;
+	
+	private double cout_pret;
 
 	
 	
@@ -142,6 +144,20 @@ public class Pret {
 	 */
 	public void setMensualites(double mensualites) {
 		this.mensualites = mensualites;
+	}
+
+	/**
+	 * @return the cout_pret
+	 */
+	public double getCout_pret() {
+		return cout_pret;
+	}
+
+	/**
+	 * @param cout_pret the cout_pret to set
+	 */
+	public void setCout_pret(double cout_pret) {
+		this.cout_pret = cout_pret;
 	}
 
 
