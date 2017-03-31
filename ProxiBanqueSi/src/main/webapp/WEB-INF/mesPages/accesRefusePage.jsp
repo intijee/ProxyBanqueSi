@@ -27,7 +27,7 @@
 
 <div class="container-fluid" style="background-image: url('style/images/New-York-City.jpg'); ">
 	<div class="row">
-	<div  class="container" ">
+	<div  class="container">
 	<div  class="col-xs-4" ></div>
 		<div  class="col-xs-4" style="margin-top: 5%;">
 			
@@ -42,7 +42,7 @@
 					<div align="center">
 					
 							<h1>Vous n'etes pas autorise pour des raisons d'hygiene</h1>
-							<a type ="buuton" href="${pageContext.request.contextPath}">Accueil</a>
+							<a type ="button" href="${pageContext.request.contextPath}">Accueil</a>
 						
 					</div>
 			</div>
