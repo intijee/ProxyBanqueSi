@@ -4,10 +4,54 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Access denied</title>
+<!-- JQuery libraries-->
+<script type="text/javascript" src='<c:url value="/scripts/jquery.js"/>'></script>
+
+<!-- Bootstrap libraries-->
+<script type="text/javascript" src='<c:url value="/scripts/bootstrap.js"/>'></script>
+<link rel="stylesheet" type="text/css" href='<c:url value="/style/bootstrap.css"/>'>
+
+
+<!-- ref vers feuilles css -->
+<link rel="stylesheet" type="text/css" href='<c:url value="/style/style.css"/>'>
+
+
+<!-- ref vers feuilles js -->
+<script type="text/javascript" src='<c:url value="/scripts/script.js"/>'></script>
+
 </head>
+
+
 <body>
-	Vous n'etes pas autorise pour des raisons d'hygiene
-	<a href="${pageContext.request.contextPath}">Accueil</a>
+
+<div class="container-fluid" style="background-image: url('style/images/New-York-City.jpg'); ">
+	<div class="row">
+	<div  class="container" ">
+	<div  class="col-xs-4" ></div>
+		<div  class="col-xs-4" style="margin-top: 5%;">
+			
+			<h1 id="title1" style="color:#ffda28 ;  font-size: xx-large; text-align: center;"  >$KY-<br/>$CRAPPER <br/>BANK</h1>
+			
+		</div>
+	<div  class="col-xs-4" ></div>
+	</div>
+		<div  class="container" style="height: 100%;">
+				<div class="row">
+	
+					<div align="center">
+					
+							<h1>Vous n'etes pas autorise pour des raisons d'hygiene</h1>
+							<a type ="buuton" href="${pageContext.request.contextPath}">Accueil</a>
+						
+					</div>
+			</div>
+		</div>
+	</div>
+
+<br/>
+	
+</div>
+
 </body>
 </html>
