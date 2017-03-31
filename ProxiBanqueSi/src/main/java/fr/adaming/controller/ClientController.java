@@ -238,6 +238,7 @@ public class ClientController {
 		// Retourner le cours de l'action gràce à sa clé
 		BigDecimal cours = coursAction.get(classeAssociation.getNom_action());
 		//Debuggage
+		System.out.println("-----------"+ coursAction.containsKey(classeAssociation.getNom_action()));
 		System.out.println("compte : "+compte.getNumero());
 		System.out.println("action : "+nom_action);
 		System.out.println("cours : "+ cours);
@@ -249,6 +250,31 @@ public class ClientController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		// -------------------- Retour des informations des comptes et de la bourse----------------------//
+		List<Compte> listeCompte = compteService.getAllCompte();
+		List<Compte> listeCompteRiches = new ArrayList<>();
+		for (Compte compte2 : listeCompte) {
+			if (compte2.getSolde() > 500000 && compte2.isType()) {
+				listeCompteRiches.add(compte2);
+			}		
+		}
+		// Cours de la bourse
+		
+		List<Action> listeAction = new ArrayList<>();
+		Map<String, BigDecimal> coursAction2 = new HashMap<>();
+		WebServiceBourse serviceBourse2 = new WebServiceBourse();
+		coursAction2 = serviceBourse2.getStocks();
+		for (int i = 0; i < coursAction2.size(); i++) {
+			Action action = new Action();
+			action.setNom((String) coursAction2.keySet().toArray()[i]);
+			action.setCours((BigDecimal) coursAction2.get(coursAction2.keySet().toArray()[i]));
+			listeAction.add(action);
+		}
+		
+		// Retour des attributs model
+		model.addAttribute("actionForm",new ClasseAssociation()); // formulaire pour boursicoter
+		model.addAttribute("fortuneListe",listeCompteRiches); // liste des comptes riches
+		model.addAttribute("actionListe", listeAction); // liste des actions
 		return "clientPages/afficherFortune";
 		
 	}
