@@ -56,7 +56,7 @@
   					<a href="accueilAgence" class="list-group-item list-group-item-warning">Infos Agence</a>
   					<a href="modifier" class="list-group-item list-group-item-warning">Modifier</a>
   					<a href="supprimer" class="list-group-item list-group-item-warning">Supprimer</a>
-  					<a href="auditAgence" class="list-group-item list-group-item-warning">Audit Agence</a>
+  					
  
 				</div>
 				
