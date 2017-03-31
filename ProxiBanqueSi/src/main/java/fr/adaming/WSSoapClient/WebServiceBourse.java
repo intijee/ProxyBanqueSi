@@ -26,4 +26,23 @@ public class WebServiceBourse {
 		return action;
 	}
 
+	
+	public Map<String, BigDecimal> getValues(){
+		
+		Map<String, BigDecimal> valeurAction=new HashMap<>();
+		
+		valeurAction.put("Apple",monService.getQuickQuote(tab[0], "0"));
+		valeurAction.put("Ecopetrol",monService.getQuickQuote(tab[1], "0"));
+		valeurAction.put("Kellogg",monService.getQuickQuote(tab[2], "0"));
+		valeurAction.put("Ford",monService.getQuickQuote(tab[3], "0"));
+		valeurAction.put("ManpowerGroup",monService.getQuickQuote(tab[4], "0"));
+		valeurAction.put("Royal",monService.getQuickQuote(tab[5], "0"));
+		valeurAction.put("Boston",monService.getQuickQuote(tab[6], "0"));
+		valeurAction.put("Uranium",monService.getQuickQuote(tab[7], "0"));
+		valeurAction.put("Yum!",monService.getQuickQuote(tab[8], "0"));
+		valeurAction.put("Pacific",monService.getQuickQuote(tab[9], "0"));
+		
+		
+		return valeurAction;
+	}
 }

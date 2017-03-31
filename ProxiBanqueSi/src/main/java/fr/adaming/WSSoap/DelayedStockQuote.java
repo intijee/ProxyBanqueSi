@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "DelayedStockQuote", targetNamespace = "http://ws.cdyne.com/", wsdlLocation = "file:/C:/Users/inti0297/git/ProxyBanqueSi/ProxiBanqueSi/src/main/java/fr/adaming/WSSoap/delayedstockquote.asmx.xml")
+@WebServiceClient(name = "DelayedStockQuote", targetNamespace = "https://ws.cdyne.com/delayedstockquote/delayedstockquote.asmx?WSDL")
 public class DelayedStockQuote
     extends Service
 {
@@ -30,7 +30,7 @@ public class DelayedStockQuote
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/C:/Users/inti0297/git/ProxyBanqueSi/ProxiBanqueSi/src/main/java/fr/adaming/WSSoap/delayedstockquote.asmx.xml");
+            url = new URL("https://ws.cdyne.com/delayedstockquote/delayedstockquote.asmx?WSDL");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
