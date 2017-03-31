@@ -68,13 +68,13 @@
 								<div class="list-group">
 									<a href="listeComptes"
 										class="list-group-item list-group-item-warning">Accueil
-										Liste</a> <a href="afficheAjoutCompte"
+										Liste</a> <a href="${pageContext.request.contextPath}/compte/afficheAjoutCompte"
 										class="list-group-item list-group-item-warning">Ajouter un
-										compte</a> <a href="afficheModifierCompte"
+										compte</a> <a href="${pageContext.request.contextPath}/compte/afficheModifierCompte"
 										class="list-group-item list-group-item-warning">Modifier
-										un compte</a> <a href="afficheSupprimerCompte"
+										un compte</a> <a href="${pageContext.request.contextPath}/compte/afficheSupprimerCompte"
 										class="list-group-item list-group-item-warning">Supprimer
-										un compte</a> <a href="afficheOperation"
+										un compte</a> <a href="${pageContext.request.contextPath}/compte/afficheOperation"
 										class="list-group-item list-group-item-warning">Effectuer
 										une opération</a>
 
@@ -161,7 +161,7 @@
 										</div>
 
 										<tr>
-											<td><br /> </td>
+											<td><br /><span style="color: red; font-size:large; ;"> ${errorMessage} </span></td>
 										</tr>
 										<tr>
 											<td colspan="2" ><input type="submit" value="Ajouter"

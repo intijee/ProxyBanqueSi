@@ -75,6 +75,8 @@ public class CompteController {
 		model.addAttribute("listeClients", listeClient);
 
 		model.addAttribute("compteForm", new Compte());
+		
+		model.addAttribute("errorMessage", "");
 
 		return ("comptePages/ajouter");
 
@@ -113,6 +115,8 @@ public class CompteController {
 				model.addAttribute("listeClients", listeClient);
 
 				model.addAttribute("compteForm", new Compte());
+				
+				model.addAttribute("errorMessage", "Ce client possède déjà un compte de ce type !");
 				
 				return "comptePages/ajouter";
 			}

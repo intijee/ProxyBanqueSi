@@ -86,7 +86,7 @@
 									modelAttribute="compteForm">
 									<table>
 										<tr>
-											<td><label cssClass="control-label" >Compte à modifier n°${compteForm.numero} :</label><br /> <br /></td>
+											<td><label cssClass="control-label" >Modification du compte n°${compteForm.numero}:</label><br /> <br /></td>
 										</tr>
 										<tr>
 											<td><form:label cssClass="control-label" path="numero">numéro du compte </form:label></td>
