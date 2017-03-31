@@ -1,19 +1,20 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>fr.adaming.nantes.groupeBenoit</groupId>
-  <artifactId>ProxiBanqueSi</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
-  
-  
-<properties>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>fr.adaming.nantes.groupeBenoit</groupId>
+	<artifactId>ProxiBanqueSi</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+
+	<properties>
 		<spring.version>4.1.9.RELEASE</spring.version>
 		<hibernate.version>4.2.21.Final</hibernate.version>
-</properties>
-  
-  <dependencies>
-  
-  <!-- LA DEPENDANCE DE SPRING -->
+	</properties>
+
+	<dependencies>
+
+		<!-- LA DEPENDANCE DE SPRING -->
 
 		<!--spring-context -->
 		<dependency>
@@ -42,104 +43,104 @@
 			<artifactId>spring-context-support</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
-		<!-- spring-webmvc -->
-	<dependency>
-    	<groupId>org.springframework</groupId>
-    	<artifactId>spring-webmvc</artifactId>
-    	<version>${spring.version}</version>
-	</dependency>
-	
-		<!--spring-web -->
-	<dependency>
-    	<groupId>org.springframework</groupId>
-   	 	<artifactId>spring-web</artifactId>
-    	<version>${spring.version}</version>
-	</dependency>
-	
-		<!-- spring-orm -->
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-orm</artifactId>
-		<version>${spring.version}</version>
-	</dependency>
 
-	<!-- spring-tx -->
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-tx</artifactId>
-		<version>${spring.version}</version>
-	</dependency>
-	
-			<!-- spring-test -->
+		<!-- spring-webmvc -->
 		<dependency>
-    		<groupId>org.springframework</groupId>
-   		 	<artifactId>spring-test</artifactId>
-    		<version>${spring.version}</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!--spring-web -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- spring-orm -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- spring-tx -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- spring-test -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
 		</dependency>
 
 		<!-- junit -->
 		<dependency>
-    		<groupId>junit</groupId>
-    		<artifactId>junit</artifactId>
-   			<version>4.10</version>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
 		</dependency>
 
-<!--spring-security-core -->
-<dependency>
-    <groupId>org.springframework.security</groupId>
-    <artifactId>spring-security-core</artifactId>
-    <version>3.2.0.RELEASE</version>
-</dependency>
+		<!--spring-security-core -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>3.2.0.RELEASE</version>
+		</dependency>
 
-<!-- spring-security-web -->
-<dependency>
-    <groupId>org.springframework.security</groupId>
-    <artifactId>spring-security-web</artifactId>
-    <version>3.2.0.RELEASE</version>
-</dependency>
+		<!-- spring-security-web -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>3.2.0.RELEASE</version>
+		</dependency>
 
-<!--spring-security-config -->
-<dependency>
-    <groupId>org.springframework.security</groupId>
-    <artifactId>spring-security-config</artifactId>
-    <version>3.2.0.RELEASE</version>
-</dependency>
+		<!--spring-security-config -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>3.2.0.RELEASE</version>
+		</dependency>
 
 
-<!-- SERVLET API -->
+		<!-- SERVLET API -->
 
-	<!--javax.servlet-api -->
-	<dependency>
-    	<groupId>javax.servlet</groupId>
-    	<artifactId>javax.servlet-api</artifactId>
-    	<version>3.0.1</version>
-	</dependency>
+		<!--javax.servlet-api -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+		</dependency>
 
-	<!-- jstl/jstl -->
-	<dependency>
-    	<groupId>jstl</groupId>
-    	<artifactId>jstl</artifactId>
-    	<version>1.2</version>
-	</dependency>
-	
-	<!-- jstl-api -->
-<dependency>
-    <groupId>javax.servlet.jsp.jstl</groupId>
-    <artifactId>jstl-api</artifactId>
-    <version>1.2</version>
-</dependency>
-	
+		<!-- jstl/jstl -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
 
-	<!--javax.servlet.jsp-api -->
-	<dependency>
-    	<groupId>javax.servlet.jsp</groupId>
-    	<artifactId>javax.servlet.jsp-api</artifactId>
-    	<version>2.3.1</version>
-	</dependency>
-	
-	<!-- Dependances Hibernate -->
-	
+		<!-- jstl-api -->
+		<dependency>
+			<groupId>javax.servlet.jsp.jstl</groupId>
+			<artifactId>jstl-api</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+
+		<!--javax.servlet.jsp-api -->
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+
+		<!-- Dependances Hibernate -->
+
 		<!-- mysql-connector-java -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -155,13 +156,13 @@
 		</dependency>
 
 		<!-- hibernate-c3p0 -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.hibernate</groupId> -->
-<!-- 			<artifactId>hibernate-c3p0</artifactId> -->
-<!-- 			<version>${hibernate.version}</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.hibernate</groupId> -->
+		<!-- <artifactId>hibernate-c3p0</artifactId> -->
+		<!-- <version>${hibernate.version}</version> -->
+		<!-- </dependency> -->
 
-	<!-- Librairies requises par hibernate -->
+		<!-- Librairies requises par hibernate -->
 
 		<!-- commons-dbcp -->
 		<dependency>
@@ -176,70 +177,75 @@
 			<artifactId>javassist</artifactId>
 			<version>3.12.1.GA</version>
 		</dependency>
-	
-	<!-- LES LIBRAIRIES POUR LA VALIDATION -->
-	
-	<!--hibernate-validator -->
-<dependency>
-    <groupId>org.hibernate</groupId>
-    <artifactId>hibernate-validator</artifactId>
-    <version>5.0.1.Final</version>
-</dependency>
 
-<!-- validation-api -->
-<dependency>
-    <groupId>javax.validation</groupId>
-    <artifactId>validation-api</artifactId>
-    <version>1.1.0.Final</version>
-</dependency>
-	
-<!--  //////////////////////nouvelles annotations /////////////////////////// -->
+		<!-- LES LIBRAIRIES POUR LA VALIDATION -->
 
-<!-- hibernate-commons-annotations -->
-<dependency>
-    <groupId>org.hibernate</groupId>
-    <artifactId>hibernate-commons-annotations</artifactId>
-    <version>3.2.0.Final</version>
-</dependency>
+		<!--hibernate-validator -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.0.1.Final</version>
+		</dependency>
 
-<!-- hibernate-jpa-2.0-api -->
-<dependency>
-    <groupId>org.hibernate.javax.persistence</groupId>
-    <artifactId>hibernate-jpa-2.0-api</artifactId>
-    <version>1.0.1.Final</version>
-</dependency>
+		<!-- validation-api -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.1.0.Final</version>
+		</dependency>
 
-<!-- hibernate-entitymanager -->
-<dependency>
-    <groupId>org.hibernate</groupId>
-    <artifactId>hibernate-entitymanager</artifactId>
-    <version>4.2.21.Final</version>
-</dependency>
+		<!-- //////////////////////nouvelles annotations /////////////////////////// -->
 
-<!-- slf4j-api -->
-<dependency>
-    <groupId>org.slf4j</groupId>
-    <artifactId>slf4j-api</artifactId>
-    <version>1.6.4</version>
-</dependency>
+		<!-- hibernate-commons-annotations -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-commons-annotations</artifactId>
+			<version>3.2.0.Final</version>
+		</dependency>
 
-<!-- slf4j-log4j12 -->
-<dependency>
-    <groupId>org.slf4j</groupId>
-    <artifactId>slf4j-log4j12</artifactId>
-    <version>1.6.4</version>
-</dependency>
+		<!-- hibernate-jpa-2.0-api -->
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>1.0.1.Final</version>
+		</dependency>
+
+		<!-- hibernate-entitymanager -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.2.21.Final</version>
+		</dependency>
+
+		<!-- slf4j-api -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.4</version>
+		</dependency>
+
+		<!-- slf4j-log4j12 -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.6.4</version>
+		</dependency>
+
+		<!-- Créer un pdf -->
+		<!-- https://mvnrepository.com/artifact/com.lowagie/itext -->
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itextpdf</artifactId>
+			<version>5.3.2</version>
+		</dependency>
 
 
-	
-	
-	
-	
-	
-		
-</dependencies>	
-		
-			<!-- ajouter le plugin maven pour la compilation avec java 8 -->
+
+
+
+	</dependencies>
+
+	<!-- ajouter le plugin maven pour la compilation avec java 8 -->
 	<build>
 		<plugins>
 			<plugin>
