@@ -301,7 +301,12 @@ public class ClientController {
 
 	@RequestMapping(value = "/soumettreFormSimulation", method = RequestMethod.POST)
 	public String simulation(ModelMap model, @ModelAttribute("simulationForm") Pret pret) {
+		Client client = clientService.getByReference(pret.getpClient().getReference_client());
 		List<Compte> listCompte = pret.getpClient().getPlListeCompte();
+		if (listCompte.size()==0) {
+			return "accesRefusePage";
+		}
+		
 		// Récupération des attributs du pret
 		double solde = 0;
 		for (Compte compte : listCompte) {
