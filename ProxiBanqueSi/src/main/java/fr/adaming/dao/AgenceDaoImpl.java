@@ -94,13 +94,13 @@ List<Client> listeClient = new ArrayList<>();
 List<Compte> listeCompte = new ArrayList<>();
 
 for(Conseiller c : listeCon){
-	c.getpListeClient();
 	
-	for(Client client : listeClient){
-		client.getPlListeCompte();
+	for(Client client : c.getpListeClient()){
 		
 		for(Compte compte : client.getPlListeCompte()){
+			
 			listeCompte.add(compte);
+			
 		}
 	}
 }
