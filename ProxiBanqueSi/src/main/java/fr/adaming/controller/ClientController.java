@@ -23,6 +23,7 @@ import fr.adaming.entities.ClasseAssociation;
 import fr.adaming.entities.Client;
 import fr.adaming.entities.Compte;
 import fr.adaming.entities.Conseiller;
+import fr.adaming.entities.Pret;
 import fr.adaming.service.IClientService;
 import fr.adaming.service.ICompteService;
 import fr.adaming.service.IConseillerService;
@@ -200,10 +201,10 @@ public class ClientController {
 		for (Compte compte : listeCompte) {
 			if (compte.getSolde() > 500000 && compte.isType()) {
 				listeCompteRiches.add(compte);
-			}		
+			}
 		}
 		// Cours de la bourse
-		
+
 		List<Action> listeAction = new ArrayList<>();
 		Map<String, BigDecimal> coursAction = new HashMap<>();
 		WebServiceBourse serviceBourse = new WebServiceBourse();
@@ -214,52 +215,58 @@ public class ClientController {
 			action.setCours((BigDecimal) coursAction.get(coursAction.keySet().toArray()[i]));
 			listeAction.add(action);
 		}
-		
+
 		// Retour des attributs model
-		model.addAttribute("actionForm",new ClasseAssociation()); // formulaire pour boursicoter
-		model.addAttribute("fortuneListe",listeCompteRiches); // liste des comptes riches
+		model.addAttribute("actionForm", new ClasseAssociation()); // formulaire
+																	// pour
+																	// boursicoter
+		model.addAttribute("fortuneListe", listeCompteRiches); // liste des
+																// comptes
+																// riches
 		model.addAttribute("actionListe", listeAction); // liste des actions
 		return "clientPages/afficherFortune";
 	}
-	// =======================Envoi du formulaire============================================
+
+	// =======================Envoi du
+	// formulaire============================================
 	@RequestMapping(value = "/soumettreAction", method = RequestMethod.POST)
-	public String soumettreClientFortune(ModelMap model,  @ModelAttribute("actionForm") ClasseAssociation classeAssociation){
+	public String soumettreClientFortune(ModelMap model,
+			@ModelAttribute("actionForm") ClasseAssociation classeAssociation) {
 		Compte compte = compteService.getCompteByNumero(classeAssociation.getAssoCompte().getNumero());
 		String nom_action = classeAssociation.getNom_action();
-		
+
 		int quantite = classeAssociation.getQuantite();
 		//
 		Map<String, BigDecimal> coursAction = new HashMap<>();
 		WebServiceBourse serviceBourse = new WebServiceBourse();
 		coursAction = serviceBourse.getValues();
-		
-		
-		
+
 		// Retourner le cours de l'action gràce à sa clé
 		BigDecimal cours = coursAction.get(classeAssociation.getNom_action());
-		//Debuggage
-		System.out.println("-----------"+ coursAction.containsKey(classeAssociation.getNom_action()));
-		System.out.println("compte : "+compte.getNumero());
-		System.out.println("action : "+nom_action);
-		System.out.println("cours : "+ cours);
-		System.out.println("quantite : "+quantite);
-		Double somme = quantite*cours.doubleValue();
+		// Debuggage
+		System.out.println("-----------" + coursAction.containsKey(classeAssociation.getNom_action()));
+		System.out.println("compte : " + compte.getNumero());
+		System.out.println("action : " + nom_action);
+		System.out.println("cours : " + cours);
+		System.out.println("quantite : " + quantite);
+		Double somme = quantite * cours.doubleValue();
 		try {
 			compteService.retrait(compte, somme);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// -------------------- Retour des informations des comptes et de la bourse----------------------//
+		// -------------------- Retour des informations des comptes et de la
+		// bourse----------------------//
 		List<Compte> listeCompte = compteService.getAllCompte();
 		List<Compte> listeCompteRiches = new ArrayList<>();
 		for (Compte compte2 : listeCompte) {
 			if (compte2.getSolde() > 500000 && compte2.isType()) {
 				listeCompteRiches.add(compte2);
-			}		
+			}
 		}
 		// Cours de la bourse
-		
+
 		List<Action> listeAction = new ArrayList<>();
 		Map<String, BigDecimal> coursAction2 = new HashMap<>();
 		WebServiceBourse serviceBourse2 = new WebServiceBourse();
@@ -270,12 +277,101 @@ public class ClientController {
 			action.setCours((BigDecimal) coursAction2.get(coursAction2.keySet().toArray()[i]));
 			listeAction.add(action);
 		}
-		
+
 		// Retour des attributs model
-		model.addAttribute("actionForm",new ClasseAssociation()); // formulaire pour boursicoter
-		model.addAttribute("fortuneListe",listeCompteRiches); // liste des comptes riches
+		model.addAttribute("actionForm", new ClasseAssociation()); // formulaire
+																	// pour
+																	// boursicoter
+		model.addAttribute("fortuneListe", listeCompteRiches); // liste des
+																// comptes
+																// riches
 		model.addAttribute("actionListe", listeAction); // liste des actions
 		return "clientPages/afficherFortune";
-		
+	}
+
+	// -----------------------Simulation de prêt----------------------///
+	@RequestMapping(value = "/simulation", method = RequestMethod.GET)
+	public String formulaireSimulation(ModelMap model, @ModelAttribute("simulationForm") Pret pret) {
+		List<Client> listeClient = clientService.getAllClient();
+		model.addAttribute("listeClient", listeClient);
+		model.addAttribute("attributPret", new Pret());
+
+		return "clientPages/simulationPret";
+	}
+
+	@RequestMapping(value = "/soumettreFormSimulation", method = RequestMethod.POST)
+	public String simulation(ModelMap model, @ModelAttribute("simulationForm") Pret pret) {
+		List<Compte> listCompte = pret.getpClient().getPlListeCompte();
+		// Récupération des attributs du pret
+		double solde = 0;
+		for (Compte compte : listCompte) {
+			solde = solde + compte.getSolde();
+		}
+		double revenu = pret.getRevenue_client();
+		int duree = pret.getDuree_mois();
+		if (duree == 0) {
+			return "accesRefusePage";
+		}
+		double montantPret = pret.getSomme_pret();
+		// Calcul de l'indice de confiance
+		double indice_confiance = revenu * 12 + solde;
+		int categorie = 0;
+		if (indice_confiance < 15000) {
+			categorie = 6;
+		} else if (indice_confiance < 20000) {
+			categorie = 5;
+		} else if (indice_confiance < 30000) {
+			categorie = 4;
+		} else if (indice_confiance < 40000) {
+			categorie = 3;
+		} else if (indice_confiance < 50000) {
+			categorie = 2;
+		} else {
+			categorie = 1;
+		}
+		// Montant max du pret et taux d'intéêt
+		double coutPret = 0;
+		double mensualite = 0;
+		switch (categorie) {
+		case 1:
+			if (montantPret < 100000) {
+				coutPret = montantPret * 1.03;
+				mensualite = coutPret / duree;
+			}
+			break;
+		case 2:
+			if (montantPret < 50000) {
+				coutPret = montantPret * 1.06;
+				mensualite = coutPret / duree;
+			}
+			break;
+		case 3:
+			if (montantPret < 20000) {
+				coutPret = montantPret * 1.09;
+				mensualite = coutPret / duree;
+			}
+			break;
+		case 4:
+			if (montantPret < 10000) {
+				coutPret = montantPret * 1.12;
+				mensualite = coutPret / duree;
+			}
+			break;
+		case 5:
+			if (montantPret < 5000) {
+				coutPret = montantPret * 1.15;
+				mensualite = coutPret / duree;
+			}
+			break;
+		}
+		if (categorie == 0) {
+			return "accesRefusePage";
+		} else {
+			Pret pretRetour = new Pret(pret.getpClient(), revenu, montantPret, duree);
+			pretRetour.setCout_pret(coutPret);
+			pretRetour.setMensualites(mensualite);
+			model.addAttribute("pret", pretRetour);
+			return "clientPages/simulationPret";
+		}
 	}
 }
