@@ -50,12 +50,13 @@
 				<div class="col-xs-12" style="margin-top: 15px">
 
 				<div class="list-group">
-					<a href="accueilConseiller" class="list-group-item list-group-item-warning">Accueil Liste</a>
+					<<a href="accueilConseiller" class="list-group-item list-group-item-warning">Accueil Liste</a>
   					<a href="ajouter" class="list-group-item list-group-item-warning">Ajouter</a>
   					<a href="ajouterAgence" class="list-group-item list-group-item-warning">Ajouter Agence</a>
   					<a href="accueilAgence" class="list-group-item list-group-item-warning">Infos Agence</a>
   					<a href="modifier" class="list-group-item list-group-item-warning">Modifier</a>
   					<a href="supprimer" class="list-group-item list-group-item-warning">Supprimer</a>
+  					<a href="auditAgence" class="list-group-item list-group-item-warning">Audit Agence</a>
  
  
 				</div>

@@ -71,6 +71,12 @@
 												class="list-group-item list-group-item-warning">Modifier</a>
 											<a href="affichFormSupprimer"
 												class="list-group-item list-group-item-warning">Supprimer</a>
+												<a href="fortune"
+												class="list-group-item list-group-item-warning">Fortune</a>
+												<a href="action"
+												class="list-group-item list-group-item-warning">Bourse</a>
+												<a href="simulation"
+												class="list-group-item list-group-item-warning">Simulation-Pret</a>
 
 										</div>
 
