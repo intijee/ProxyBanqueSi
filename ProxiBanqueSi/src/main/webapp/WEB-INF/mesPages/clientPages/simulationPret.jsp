@@ -15,14 +15,14 @@
 	<div
 		style="width: 400px; height: 500px; margin: auto; margin-top: 20px">
 		<form:form method="POST" action="soumettreFormSimulation"
-			modelAttribute="attributPret">
+			modelAttribute="simulationForm">
 			<table>
 			
 				<tr>
 		<td><form:label path="pClient.reference_client">Client</form:label></td>
 		<td><form:select cssClass="form-control"
 				path="pClient.reference_client">
-				<c:forEach var="client" items="${listeClients}">
+				<c:forEach var="client" items="${listeClient}">
 					<option value=${client.reference_client}>${client.nom}
 						${client.prenom}</option>
 				</c:forEach>
@@ -64,14 +64,16 @@
 			<th>Somme Désirée</th>
 			<th>Durée (Mois)</th>
 			<th>Mensualités</th>
+			<th>Somme total à rembourser</th>
 		</tr>
 
 	
 		<tr>
-			<td>${pret.pClient.nom}</td>
-			<td>${pret.somme}</td>
-			<td>${pret.duree}</td>
+			<td>${pret.pClient.reference_client}</td>
+			<td>${pret.somme_pret}</td>
+			<td>${pret.duree_mois}</td>
 			<td>${pret.mensualites}</td>
+			<td>${pret.cout_pret}</td>
 		</tr>
 
 	</table>

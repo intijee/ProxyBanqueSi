@@ -291,10 +291,10 @@ public class ClientController {
 
 	// -----------------------Simulation de prêt----------------------///
 	@RequestMapping(value = "/simulation", method = RequestMethod.GET)
-	public String formulaireSimulation(ModelMap model, @ModelAttribute("simulationForm") Pret pret) {
+	public String formulaireSimulation(ModelMap model) {
 		List<Client> listeClient = clientService.getAllClient();
 		model.addAttribute("listeClient", listeClient);
-		model.addAttribute("attributPret", new Pret());
+		model.addAttribute("simulationForm", new Pret());
 
 		return "clientPages/simulationPret";
 	}
@@ -302,8 +302,8 @@ public class ClientController {
 	@RequestMapping(value = "/soumettreFormSimulation", method = RequestMethod.POST)
 	public String simulation(ModelMap model, @ModelAttribute("simulationForm") Pret pret) {
 		Client client = clientService.getByReference(pret.getpClient().getReference_client());
-		List<Compte> listCompte = pret.getpClient().getPlListeCompte();
-		if (listCompte.size()==0) {
+		List<Compte> listCompte = client.getPlListeCompte();
+		if (listCompte == null) {
 			return "accesRefusePage";
 		}
 		
@@ -375,7 +375,11 @@ public class ClientController {
 			Pret pretRetour = new Pret(pret.getpClient(), revenu, montantPret, duree);
 			pretRetour.setCout_pret(coutPret);
 			pretRetour.setMensualites(mensualite);
+			pretRetour.setpClient(client);
 			model.addAttribute("pret", pretRetour);
+			// Liste des clients à retourner
+			List<Client> listeClient = clientService.getAllClient();
+			model.addAttribute("listeClient", listeClient);
 			return "clientPages/simulationPret";
 		}
 	}
