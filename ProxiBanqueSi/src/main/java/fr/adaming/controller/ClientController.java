@@ -231,7 +231,9 @@ public class ClientController {
 		//
 		Map<String, BigDecimal> coursAction = new HashMap<>();
 		WebServiceBourse serviceBourse = new WebServiceBourse();
-		coursAction = serviceBourse.getStocks();
+		coursAction = serviceBourse.getValues();
+		
+		
 		
 		// Retourner le cours de l'action gràce à sa clé
 		BigDecimal cours = coursAction.get(classeAssociation.getNom_action());
