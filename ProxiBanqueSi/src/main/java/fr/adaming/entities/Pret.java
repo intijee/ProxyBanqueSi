@@ -18,6 +18,8 @@ public class Pret {
 	private double somme_pret;
 	
 	private int duree_mois;
+	
+	private double mensualites;
 
 	
 	
@@ -126,6 +128,20 @@ public class Pret {
 	 */
 	public void setDuree_mois(int duree_mois) {
 		this.duree_mois = duree_mois;
+	}
+
+	/**
+	 * @return the mensualites
+	 */
+	public double getMensualites() {
+		return mensualites;
+	}
+
+	/**
+	 * @param mensualites the mensualites to set
+	 */
+	public void setMensualites(double mensualites) {
+		this.mensualites = mensualites;
 	}
 
 

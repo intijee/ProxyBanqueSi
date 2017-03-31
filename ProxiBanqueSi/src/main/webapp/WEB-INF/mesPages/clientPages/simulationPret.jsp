@@ -55,5 +55,28 @@
 </form:form>
 </div>
 
+<h1>Resultats de la simulation</h1>
+<br/>
+	<table class="table table-hover">
+	
+		<tr>
+			<th>Client</th>
+			<th>Somme Désirée</th>
+			<th>Durée (Mois)</th>
+			<th>Mensualités</th>
+		</tr>
+
+	
+		<tr>
+			<td>${pret.pClient.nom}</td>
+			<td>${pret.somme}</td>
+			<td>${pret.duree}</td>
+			<td>${pret.mensualites}</td>
+		</tr>
+
+	</table>
+
+
+
 </body>
 </html>
